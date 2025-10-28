@@ -48,7 +48,8 @@ a{color:var(--green);text-decoration:none}
 /* HERO: dark image with white type */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.60),rgba(0,0,0,.35))}
+/* darker overlay for contrast */
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.50))}
 .hero-inner{position:relative;z-index:1;padding:96px 20px 32px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
 .hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:#fafafa}
 .hero h2{margin:10px 0 6px;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fafafa}
@@ -111,7 +112,7 @@ body::after{content:""; display:block; height:100px;}
   <h2>Free coordination for cesspool to septic conversions on Hawaiʻi Island.</h2>
   <p>We connect you with local licensed engineers and installers.</p>
 
-  <!-- mini form posts to Google Form then forwards to full form -->
+  <!-- mini form posts to your existing short-form endpoint, then forwards to long form -->
   <form id="miniLead" class="lead-form" aria-label="Lead form">
     <input type="text" id="miniName" name="name" placeholder="Your name" aria-label="Your name" required>
     <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
@@ -191,24 +192,34 @@ body::after{content:""; display:block; height:100px;}
 </footer>
 
 <script>
-// Google Form IDs from your prefilled link
+// === Lead capture endpoints ===
+// Your old short-form Apps Script endpoint (captures to your Sheet)
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzCq-yn-rmkd2x-kZeS0kClFUsPwh82CzuIOc7QXdcmqiXIkgz-UnMsI1RZ6fZ4B80s7g/exec';
+
+// Long Google Form (prefill redirect after capture)
 const FORM_ID     = '1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA';
 const ENTRY_NAME  = 'entry.243505109';
 const ENTRY_EMAIL = 'entry.540617702';
 
 document.getElementById('y').textContent=new Date().getFullYear();
 
-// Submit mini form: store to Google Forms, then forward user to the long form with prefill
+// Submit mini form: 1) POST to your short-form endpoint to capture, 2) redirect to long form with prefill
 document.getElementById('miniLead').addEventListener('submit',async function(e){
   e.preventDefault();
   const name  = document.getElementById('miniName').value.trim();
   const email = document.getElementById('miniEmail').value.trim();
+
   if(window.gtag){ gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'}); }
-  const formAction = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
-  const payload = new URLSearchParams();
-  payload.set(ENTRY_NAME,  name);
-  payload.set(ENTRY_EMAIL, email);
-  try { await fetch(formAction, { method:'POST', mode:'no-cors', body:payload }); } catch(_) {}
+
+  // 1) Capture to your existing Apps Script (uses common 'name' and 'email' keys)
+  try {
+    const payload = new URLSearchParams();
+    payload.set('name',  name);
+    payload.set('email', email);
+    await fetch(LEAD_ENDPOINT, { method:'POST', mode:'no-cors', body:payload });
+  } catch(_) { /* ignore network errors */ }
+
+  // 2) Redirect to long Google Form with prefilled values
   const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
   viewUrl.searchParams.set('usp','pp_url');
   viewUrl.searchParams.set(ENTRY_NAME,  name);
