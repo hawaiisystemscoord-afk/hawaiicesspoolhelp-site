@@ -4,61 +4,75 @@
 <meta charset="utf-8">
 <title>Hawaii Cesspool Help | Free Coordination for Cesspool Conversions on Hawaiʻi Island</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free coordination for cesspool to septic conversions on Hawaiʻi Island. We match you with licensed engineers and manage permit paperwork.">
+<meta name="description" content="Free coordination for cesspool to septic conversions on Hawaiʻi Island. We connect you with local licensed engineers and installers.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://www.hawaiicesspoolhelp.com/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
-<!-- Favicons hosted in your asset repo -->
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
 
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp">
-<meta property="og:title" content="Hawaii Cesspool Help">
-<meta property="og:description" content="Free coordination for cesspool to septic conversions on Hawaiʻi Island.">
-<meta property="og:url" content="https://www.hawaiicesspoolhelp.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Hawaii Cesspool Help">
+<meta property="og:title" content="Hawaii Cesspool Help">
+<meta property="og:description" content="Free coordination for cesspool to septic conversions on Hawaiʻi Island. We connect you with local licensed engineers and installers.">
+<meta property="og:url" content="https://www.hawaiicesspoolhelp.com/">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp">
 <meta name="twitter:card" content="summary_large_image">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KX4BDJ7PYC"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-KX4BDJ7PYC');
+gtag('js',new Date());
+gtag('config','G-KX4BDJ7PYC');
 </script>
 
 <style>
 :root{
  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
- --green:#0A7A58;--deep:#0F2D25;--coral:#D8563F;
- --ink:#111;--muted:#4b5a56;--bg:#f7f7f7;--card:#fff;
- --radius:14px;--shadow:0 10px 26px rgba(0,0,0,.07);
+ --green:#0A7A58; --deep:#0F2D25; --coral:#D8563F;
+ --ink:#111; --muted:#dae8e3; --bg:#f7f7f7; --card:#fff;
+ --radius:14px; --shadow:0 10px 26px rgba(0,0,0,.07);
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
 img{max-width:100%;height:auto;display:block;object-fit:cover}
 a{color:var(--green);text-decoration:none}
-.btn{display:inline-block;background:var(--coral);color:#fff;padding:14px 24px;border-radius:var(--radius);font-weight:800;transition:.15s}
+.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem}
 .btn:hover{transform:translateY(-1px)}
-header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:var(--green)}
+
+/* HERO */
+header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.4))}
-.hero-inner{position:relative;z-index:1;padding:96px 20px 84px;max-width:860px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.25)}
+/* dark overlay for readability */
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.90),rgba(0,0,0,.70))}
+.hero-inner{position:relative;z-index:1;padding:96px 20px 32px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
 .hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:#fafafa}
 .hero h2{margin:10px 0 6px;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fafafa}
-.hero p{margin:8px auto 22px;max-width:760px;color:#eaf6f1;font-size:1.1rem}
+.hero p{margin:8px auto 18px;max-width:760px;color:#eaf6f1;font-size:1.05rem}
+
+/* mini lead form */
+.lead-form{max-width:900px;margin:12px auto 10px;display:grid;gap:8px;align-items:center}
+@media(min-width:760px){.lead-form{grid-template-columns:1fr 1fr auto}}
+.lead-form input{
+  padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.35);
+  background:rgba(0,0,0,.18); color:#fff; outline:none; backdrop-filter:blur(6px);
+}
+.lead-form input::placeholder{color:rgba(255,255,255,.9)}
+.small-note{color:#eaf6f1;font-size:.95rem;margin-top:6px}
+
 .trust{background:var(--deep);color:#d6efe6;text-align:center;padding:12px 16px;font-size:.98rem}
 section{padding:56px 0}
-h2{text-align:center;font-size:1.9rem;color:var(--green);margin:0 0 10px;font-weight:800}
-.lead{max-width:760px;margin:0 auto 6px;text-align:center;color:var(--muted)}
+h2{text-align:center;font-size:1.9rem;color:#0A7A58;margin:0 0 10px;font-weight:800}
+.lead{max-width:760px;margin:0 auto 6px;text-align:center;color:#4b5a56}
 .grid{display:grid;gap:18px}
 @media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--card);border:1px solid #e8eeeb;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-.card h3{margin:.2rem 0 .35rem;font-size:1.1rem;color:var(--green)}
+.card h3{margin:.2rem 0 .35rem;font-size:1.1rem;color:#0A7A58}
 .split{display:grid;gap:26px;align-items:center}
 @media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
 .frame{border-radius:16px;border:1px solid #e8eeeb;overflow:hidden;box-shadow:var(--shadow)}
@@ -70,34 +84,54 @@ h2{text-align:center;font-size:1.9rem;color:var(--green);margin:0 0 10px;font-we
 details{background:#fff;border:1px solid #e8eeeb;border-radius:12px;overflow:hidden}
 summary{padding:16px 48px 16px 16px;cursor:pointer;position:relative;font-weight:700}
 summary::marker{content:""}
-summary::after{content:"▸";position:absolute;right:14px;top:50%;transform:translateY(-50%);transition:.2s;color:var(--coral)}
+summary::after{content:"▸";position:absolute;right:14px;top:50%;transform:translateY(-50%);transition:.2s;color:#D8563F}
 details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 .answer{padding:0 16px 16px}
-footer{background:var(--deep);color:#d9eee7;padding:34px 0;text-align:center}
+footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center}
 footer a{color:#a1f0d3}
+
+/* sticky CTA */
+.sticky-cta{
+ position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
+ z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,.18);
+ transition:opacity .2s, transform .2s;
+}
+.sticky-cta.hidden{opacity:0; pointer-events:none; transform:translate(-50%,20px);}
+@supports(padding: env(safe-area-inset-bottom)){
+ .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
+}
+/* spacing so content never hides behind sticky */
+body::after{content:""; display:block; height:100px;}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" id="lead">
  <div class="hero-inner">
   <h1>Hawaiʻi Cesspool Help</h1>
   <h2>Free coordination for cesspool to septic conversions on Hawaiʻi Island.</h2>
-  <p>We match you with a licensed engineer and manage permit paperwork.</p>
-  <a class="btn" href="#start" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
-  <div style="color:#eaf6f1;margin-top:6px">Takes about 2 minutes.</div>
+  <p>We connect you with local licensed engineers and installers.</p>
+
+  <form id="miniLead" class="lead-form" aria-label="Lead form">
+    <input type="text" id="miniName" name="name" placeholder="Your name" aria-label="Your name" required>
+    <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
+    <button class="btn" type="submit">Start my cesspool conversion</button>
+  </form>
+  <div class="small-note">Shared only with one licensed engineer or installer. Never sold.</div>
  </div>
 </header>
+
+<a class="btn sticky-cta hidden" href="#lead" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
 
 <div class="trust">Local coordination across Hawaiʻi Island in Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū.</div>
 
 <section>
  <h2>Why Homeowners Choose Hawaii Cesspool Help</h2>
- <p class="lead">No chasing engineers. No permit confusion. We coordinate the pieces so you can move forward, add value, and protect your investment and the environment.</p>
+ <p class="lead">No chasing contacts. No confusion. We coordinate the pieces so you can move forward and protect your investment and the environment.</p>
  <div class="grid grid-3" style="margin-top:18px">
-  <article class="card"><h3>Engineer Coordination</h3><p>We gather site details and connect you with a licensed engineer for a compliant design.</p></article>
-  <article class="card"><h3>Clear, Fast Submittals</h3><p>We organize the paperwork for timely approval.</p></article>
-  <article class="card"><h3>Smart Money Move</h3><p>Improve property value and meet the 2050 mandate while protecting island water.</p></article>
+  <article class="card"><h3>Engineer coordination</h3><p>We gather project details and connect you with a local licensed civil engineer for a compliant design.</p></article>
+  <article class="card"><h3>Installer connection</h3><p>We introduce trusted local installers who work your district and site type.</p></article>
+  <article class="card"><h3>Simple hand off</h3><p>You choose how to proceed. We keep communication clear and timelines moving.</p></article>
  </div>
 </section>
 
@@ -105,33 +139,33 @@ footer a{color:#a1f0d3}
  <div class="split" style="max-width:1100px;margin:auto;padding:0 24px;">
   <div>
    <h2>How We Help</h2>
-   <p>We are your single point of coordination, linking forms, communication, and documentation into one clear process.</p>
-   <p>We care about clean water and simple, fast conversions for every district on the island.</p>
+   <p>We act as your single point of coordination, linking the right licensed engineer and the right installer for your site.</p>
+   <p>Our focus is clean water and fast, simple conversions across every district on the island.</p>
   </div>
   <div class="frame">
-   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/discuss%20plans.webp" width="1200" height="800" alt="Engineer discussing septic system plans" loading="lazy" decoding="async">
+   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/discuss%20plans.webp" width="1200" height="800" alt="Homeowner meeting with a local engineer reviewing septic plans at a table" loading="lazy" decoding="async">
   </div>
  </div>
 </section>
 
 <section id="path">
- <h2>Your Conversion Path</h2>
+ <h2>Your Coordination Path</h2>
  <div class="steps" style="margin-top:18px;max-width:1100px;margin:auto">
-  <div class="step"><div class="num">1</div><div><h3>Start your project</h3><p>Share your address. We will confirm your current system and start your file.</p></div></div>
-  <div class="step"><div class="num">2</div><div><h3>Engineer Match</h3><p>We coordinate with licensed engineers who specialize in your area and site type.</p></div></div>
-  <div class="step"><div class="num">3</div><div><h3>Permit Coordination</h3><p>We keep the paperwork in order so the process moves on time.</p></div></div>
+  <div class="step"><div class="num">1</div><div><h3>Tell us who you are</h3><p>Share your name and email to open your file.</p></div></div>
+  <div class="step"><div class="num">2</div><div><h3>Engineer match</h3><p>We connect you with a licensed civil engineer who works your district and site type.</p></div></div>
+  <div class="step"><div class="num">3</div><div><h3>Installer options</h3><p>We introduce trusted local installers so you can choose how to proceed.</p></div></div>
  </div>
 </section>
 
 <section id="about">
  <div class="split" style="max-width:1100px;margin:auto;padding:0 24px;">
   <div class="frame">
-   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Staff%20Photo.webp" width="1200" height="800" alt="Hawaii Cesspool Help coordination team" loading="lazy" decoding="async">
+   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Staff%20Photo.webp" width="1200" height="800" alt="Hawaii Cesspool Help coordination team portrait" loading="lazy" decoding="async">
   </div>
   <div>
    <h2>About Us</h2>
-   <p>Hawaii Cesspool Help is a local coordination service for homeowners. Our team has over 40 years of combined experience in construction, drafting, and engineering in Hawaiʻi. We understand the building process and know how to work with local professionals. We started this service to make it easier for homeowners to protect our island's water and meet the 2050 state mandate.</p>
-   <p style="margin-top:12px;font-style:italic;color:var(--muted)">Each project protects our island’s water, one conversion at a time.</p>
+   <p>Hawaii Cesspool Help is a local coordination service for homeowners on Hawaiʻi Island. Our team has more than 40 years of combined experience in construction, drafting, and engineering. We live on island and work directly with local licensed engineers and trusted installers to move projects forward.</p>
+   <p style="margin-top:12px;font-style:italic;color:#4b5a56">Each project protects our island’s water, one conversion at a time.</p>
   </div>
  </div>
 </section>
@@ -140,101 +174,71 @@ footer a{color:#a1f0d3}
  <div style="max-width:900px;margin:auto;padding:0 24px;">
   <h2>Frequently Asked Questions</h2>
   <div style="display:grid;gap:12px;margin-top:24px">
-   <details><summary><strong>How is this service free for homeowners?</strong></summary><div class="answer"><p>Our service is 100% free to you. We are paid a small coordination fee by our engineering partners for managing the project intake and paperwork. The cost for your septic design is the same as if you went to them directly.</p></div></details>
-   <details><summary><strong>Are you an engineer or a contractor?</strong></summary><div class="answer"><p>No. We are a professional coordination service. We partner with licensed civil engineers who will stamp your plans and can refer you to qualified contractors for the installation.</p></div></details>
-   <details><summary><strong>What do you do with my information?</strong></summary><div class="answer"><p>We only share your project details with the single licensed engineer who is matched to your project. We will never sell your information.</p></div></details>
-   <details><summary><strong>Which engineer will I be working with?</strong></summary><div class="answer"><p>We partner with several licensed civil engineers on Hawaiʻi Island. We match you with an engineer based on your specific location and project requirements.</p></div></details>
+   <details><summary><strong>How is this free for homeowners?</strong></summary><div class="answer"><p>Engineers fund a small coordination fee. Your engineering price is the same as going direct.</p></div></details>
+   <details><summary><strong>Are you an engineer or a contractor?</strong></summary><div class="answer"><p>No. We are a coordination service. Licensed civil engineers provide designs, and installation is performed by independent local contractors.</p></div></details>
+   <details><summary><strong>What do you do with my information?</strong></summary><div class="answer"><p>We share your file only with the single licensed engineer and any installer you choose to contact. We never sell data.</p></div></details>
+   <details><summary><strong>Which areas do you cover?</strong></summary><div class="answer"><p>Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū on Hawaiʻi Island.</p></div></details>
   </div>
- </div>
-</section>
-
-<section id="start" style="background:linear-gradient(0deg,#fff,#f5f9f7)">
- <h2>Start Your Conversion</h2>
- <p style="text-align:center;max-width:780px;margin:4px auto 18px">We do not sell your information. We share it only with the licensed engineer who works on your project.</p>
- <div style="max-width:1100px;margin:auto;border:1px solid #e8eeeb;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#fff">
-  <iframe title="Quick Start Form" style="width:100%;height:540px;border:0;display:block"
-   src="https://script.google.com/macros/s/AKfycbzCq-yn-rmkd2x-kZeS0kClFUsPwh82CzuIOc7QXdcmqiXIkgz-UnMsI1RZ6fZ4B80s7g/exec" allowfullscreen></iframe>
- </div>
- <div style="max-width:900px;margin:14px auto 0;text-align:center">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA/viewform?usp=pp_url" target="_blank" rel="noopener">Open the full form in a new tab</a>
  </div>
 </section>
 
 <footer>
  <div>Hawaii Cesspool Help • Hawaiʻi Island Cesspool Conversion Coordination</div>
  <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
- <div style="margin-top:6px">Free coordination for homeowners. Supported by local professionals. Every conversion helps protect Hawaiʻi’s water.</div>
+ <div style="margin-top:6px">Free coordination for homeowners. Supported by local professionals.</div>
  <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
 </footer>
 
 <script>
+// Lead capture endpoint (GET) — updated to your working exec URL
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyiTYAVs8bGGOGSJM6fShJzrRtzAdpe2QmeWySfL58R_n7Pdwpri1PfY_WltuVhGnrYgw/exec';
+
+// Long Google Form (prefill redirect)
+const FORM_ID     = '1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA';
+const ENTRY_NAME  = 'entry.243505109';
+const ENTRY_EMAIL = 'entry.540617702';
+
 document.getElementById('y').textContent=new Date().getFullYear();
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
- a.addEventListener('click',e=>{
-  const t=document.querySelector(a.getAttribute('href'));
-  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
-  gtag('event','cta_jump',{event_category:'lead'});
- });
+
+document.getElementById('miniLead').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const name  = document.getElementById('miniName').value.trim();
+  const email = document.getElementById('miniEmail').value.trim();
+
+  if(window.gtag){ gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'}); }
+
+  // Build GET capture URL including legacy blanks for compatibility
+  const captureUrl = `${LEAD_ENDPOINT}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&address=&tmk=&message=`;
+
+  // Fire GET capture and give it a short moment
+  try{
+    await new Promise(resolve=>{
+      const img=new Image();
+      img.onload=img.onerror=resolve;
+      img.src=captureUrl;
+      setTimeout(resolve,350);
+    });
+  }catch(_){}
+
+  // Redirect to long Google Form with prefilled values
+  const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
+  viewUrl.searchParams.set('usp','pp_url');
+  viewUrl.searchParams.set(ENTRY_NAME,  name);
+  viewUrl.searchParams.set(ENTRY_EMAIL, email);
+  window.location.href = viewUrl.toString();
 });
+
+// Hide sticky CTA while hero is visible
+const sticky = document.querySelector('.sticky-cta');
+const hero = document.getElementById('lead');
+new IntersectionObserver(es=>es.forEach(e=>{
+  sticky.classList.toggle('hidden', e.isIntersecting);
+}),{threshold:.05}).observe(hero);
+
+// Single-open FAQ
 document.querySelectorAll('#faq details').forEach(d=>{
- d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('#faq details').forEach(o=>{if(o!==d)o.removeAttribute('open');});});
+  d.addEventListener('toggle',()=>{ if(d.open) document.querySelectorAll('#faq details').forEach(o=>{ if(o!==d) o.removeAttribute('open'); }); });
 });
-</script>
-
-<!-- Structured data -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":["LocalBusiness","Service"],
-  "name":"Hawaii Cesspool Help",
-  "url":"https://www.hawaiicesspoolhelp.com/",
-  "image":"https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp",
-  "description":"Free coordination for cesspool to septic conversions on Hawaiʻi Island.",
-  "areaServed":{"@type":"Place","name":"Hawaiʻi Island"},
-  "address":{"@type":"PostalAddress","addressRegion":"HI","addressCountry":"US"},
-  "email":"info@hawaiicesspoolhelp.com",
-  "serviceType":"Cesspool to septic coordination",
-  "provider":{"@type":"Organization","name":"Hawaii Cesspool Help"}
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"How is this service free for homeowners?","acceptedAnswer":{"@type":"Answer","text":"Licensed engineers pay a small coordination fee. Design cost to the homeowner is the same as going direct."}},
-    {"@type":"Question","name":"What is the process?","acceptedAnswer":{"@type":"Answer","text":"We collect site facts, match you to a licensed engineer, and coordinate forms for Hawaiʻi Department of Health approval."}},
-    {"@type":"Question","name":"Which areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū on Hawaiʻi Island."}}
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Article",
-  "headline":"Hawaii Cesspool Help | Free Coordination for Cesspool Conversions on Hawaiʻi Island",
-  "description":"Free coordination for cesspool to septic conversions on Hawaiʻi Island. We match you with licensed engineers and manage permit paperwork.",
-  "author":"Editorial Team",
-  "datePublished":"2025-10-27",
-  "dateModified":"2025-10-27",
-  "publisher":{"@type":"Organization","name":"Hawaii Cesspool Help","url":"https://www.hawaiicesspoolhelp.com"},
-  "mainEntityOfPage":"https://www.hawaiicesspoolhelp.com/"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "aiSummary":{
-    "bullets":[
-      "We collect site data then match you with a licensed civil engineer for design and permit coordination on Hawaiʻi Island.",
-      "Homeowners pay the same engineering fee as going direct because engineers fund coordination.",
-      "The workflow reduces review friction with the Hawaiʻi Department of Health and keeps timelines clear."
-    ],
-    "intent":"This page was written to guide homeowners through Hawaiʻi cesspool conversions."
-  }
-}
 </script>
 
 </body>
