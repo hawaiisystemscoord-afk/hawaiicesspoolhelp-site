@@ -84,10 +84,10 @@ h2{text-align:center;font-size:1.9rem;color:#0A7A58;margin:0 0 10px;font-weight:
 details{background:#fff;border:1px solid #e8eeeb;border-radius:12px;overflow:hidden}
 summary{padding:16px 48px 16px 16px;cursor:pointer;position:relative;font-weight:700}
 summary::marker{content:""}
-summary::after{content:"▸";position:absolute;right:14px;top:50%;transform:translateY(-50%);transition:.2s;color:var(--coral)}
+summary::after{content:"▸";position:absolute;right:14px;top:50%;transform:translateY(-50%);transition:.2s;color:#D8563F}
 details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 .answer{padding:0 16px 16px}
-footer{background:var(--deep);color:#d9eee7;padding:34px 0;text-align:center}
+footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center}
 footer a{color:#a1f0d3}
 
 /* sticky CTA */
@@ -190,8 +190,8 @@ body::after{content:""; display:block; height:100px;}
 </footer>
 
 <script>
-// Lead capture endpoint (GET)
-const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzDTISdA82bYKssNesHfivaMbjcn3qOqLeMa45xhj33xZVlvCFBDajPz8LoPd95eNvZbw/exec';
+// Lead capture endpoint (GET) — updated to your working exec URL
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyiTYAVs8bGGOGSJM6fShJzrRtzAdpe2QmeWySfL58R_n7Pdwpri1PfY_WltuVhGnrYgw/exec';
 
 // Long Google Form (prefill redirect)
 const FORM_ID     = '1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA';
