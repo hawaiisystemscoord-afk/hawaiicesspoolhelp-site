@@ -48,8 +48,8 @@ a{color:var(--green);text-decoration:none}
 /* HERO */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-/* dark overlay for readability */
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.90),rgba(0,0,0,.70))}
+/* lighter overlay for readability (brightened) */
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,.55))}
 .hero-inner{position:relative;z-index:1;padding:96px 20px 32px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
 .hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:#fafafa}
 .hero h2{margin:10px 0 6px;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fafafa}
@@ -90,13 +90,14 @@ details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center}
 footer a{color:#a1f0d3}
 
-/* sticky CTA */
+/* sticky CTA — identical look to .btn */
 .sticky-cta{
  position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
- z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,.18);
- transition:opacity .2s, transform .2s;
+ z-index:9999; transition:opacity .2s, transform .2s;
+ padding:10px 20px; border-radius:var(--radius); background:var(--coral); color:#fff; font-weight:800; font-size:1rem; text-decoration:none;
 }
 .sticky-cta.hidden{opacity:0; pointer-events:none; transform:translate(-50%,20px);}
+.sticky-cta:hover{transform:translateX(-50%) translateY(-1px);}
 @supports(padding: env(safe-area-inset-bottom)){
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
@@ -121,7 +122,7 @@ body::after{content:""; display:block; height:100px;}
  </div>
 </header>
 
-<a class="btn sticky-cta hidden" href="#lead" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
+<a class="sticky-cta hidden" href="#lead" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
 
 <div class="trust">Local coordination across Hawaiʻi Island in Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū.</div>
 
@@ -174,8 +175,8 @@ body::after{content:""; display:block; height:100px;}
  <div style="max-width:900px;margin:auto;padding:0 24px;">
   <h2>Frequently Asked Questions</h2>
   <div style="display:grid;gap:12px;margin-top:24px">
-   <details><summary><strong>How is this free for homeowners?</strong></summary><div class="answer"><p>Engineers fund a small coordination fee. Your engineering price is the same as going direct.</p></div></details>
-   <details><summary><strong>Are you an engineer or a contractor?</strong></summary><div class="answer"><p>No. We are a coordination service. Licensed civil engineers provide designs, and installation is performed by independent local contractors.</p></div></details>
+   <details><summary><strong>How is this free for homeowners?</strong></summary><div class="answer"><p>Licensed engineers or installers cover a small coordination fee. Your total project cost is the same as working with them directly.</p></div></details>
+   <details><summary><strong>Are you an engineer or a contractor?</strong></summary><div class="answer"><p>No. We’re a coordination service. Licensed civil engineers design your system and independent local contractors perform the installation. The steps can be confusing, so we organize communication and keep the project moving smoothly.</p></div></details>
    <details><summary><strong>What do you do with my information?</strong></summary><div class="answer"><p>We share your file only with the single licensed engineer and any installer you choose to contact. We never sell data.</p></div></details>
    <details><summary><strong>Which areas do you cover?</strong></summary><div class="answer"><p>Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū on Hawaiʻi Island.</p></div></details>
   </div>
@@ -190,7 +191,7 @@ body::after{content:""; display:block; height:100px;}
 </footer>
 
 <script>
-// Lead capture endpoint (GET) — updated to your working exec URL
+// Lead capture endpoint (GET)
 const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyiTYAVs8bGGOGSJM6fShJzrRtzAdpe2QmeWySfL58R_n7Pdwpri1PfY_WltuVhGnrYgw/exec';
 
 // Long Google Form (prefill redirect)
@@ -207,10 +208,8 @@ document.getElementById('miniLead').addEventListener('submit',async function(e){
 
   if(window.gtag){ gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'}); }
 
-  // Build GET capture URL including legacy blanks for compatibility
   const captureUrl = `${LEAD_ENDPOINT}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&address=&tmk=&message=`;
 
-  // Fire GET capture and give it a short moment
   try{
     await new Promise(resolve=>{
       const img=new Image();
@@ -220,7 +219,6 @@ document.getElementById('miniLead').addEventListener('submit',async function(e){
     });
   }catch(_){}
 
-  // Redirect to long Google Form with prefilled values
   const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
   viewUrl.searchParams.set('usp','pp_url');
   viewUrl.searchParams.set(ENTRY_NAME,  name);
