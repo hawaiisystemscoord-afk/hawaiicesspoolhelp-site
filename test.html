@@ -35,7 +35,7 @@ gtag('config','G-KX4BDJ7PYC');
 :root{
  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
  --green:#0A7A58; --deep:#0F2D25; --coral:#D8563F;
- --ink:#111; --muted:#4b5a56; --bg:#f7f7f7; --card:#fff;
+ --ink:#111; --muted:#dae8e3; --bg:#f7f7f7; --card:#fff;
  --radius:14px; --shadow:0 10px 26px rgba(0,0,0,.07);
 }
 *{box-sizing:border-box}
@@ -45,26 +45,29 @@ a{color:var(--green);text-decoration:none}
 .btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem}
 .btn:hover{transform:translateY(-1px)}
 
-/* HERO */
-header.hero{position:relative;color:var(--deep);text-align:center;overflow:hidden;background:var(--green)}
+/* HERO: dark image with white type */
+header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-/* lighten overlay to support dark text */
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.55))}
-.hero-inner{position:relative;z-index:1;padding:84px 20px 24px;max-width:920px;margin:auto;text-shadow:none}
-.hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:var(--deep)}
-.hero h2{margin:10px 0 6px;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--deep)}
-.hero p{margin:8px auto 18px;max-width:760px;color:var(--muted);font-size:1.05rem}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.60),rgba(0,0,0,.35))}
+.hero-inner{position:relative;z-index:1;padding:96px 20px 32px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+.hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:#fafafa}
+.hero h2{margin:10px 0 6px;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fafafa}
+.hero p{margin:8px auto 18px;max-width:760px;color:#eaf6f1;font-size:1.05rem}
 
-/* mini lead form */
-.lead-form{max-width:900px;margin:10px auto 12px;display:grid;gap:8px;align-items:center}
+/* mini lead form: glass style */
+.lead-form{max-width:900px;margin:12px auto 10px;display:grid;gap:8px;align-items:center}
 @media(min-width:760px){.lead-form{grid-template-columns:1fr 1fr auto}}
-.lead-form input{padding:12px 14px;border-radius:12px;border:1px solid #e2e8e5;background:#fff}
-.small-note{color:var(--muted);font-size:.95rem;margin-top:6px}
+.lead-form input{
+  padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.35);
+  background:rgba(0,0,0,.18); color:#fff; outline:none; backdrop-filter:blur(6px);
+}
+.lead-form input::placeholder{color:rgba(255,255,255,.9)}
+.small-note{color:#eaf6f1;font-size:.95rem;margin-top:6px}
 
 .trust{background:var(--deep);color:#d6efe6;text-align:center;padding:12px 16px;font-size:.98rem}
 section{padding:56px 0}
 h2{text-align:center;font-size:1.9rem;color:var(--green);margin:0 0 10px;font-weight:800}
-.lead{max-width:760px;margin:0 auto 6px;text-align:center;color:var(--muted)}
+.lead{max-width:760px;margin:0 auto 6px;text-align:center;color:#4b5a56}
 .grid{display:grid;gap:18px}
 @media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--card);border:1px solid #e8eeeb;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
@@ -86,16 +89,17 @@ details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 footer{background:var(--deep);color:#d9eee7;padding:34px 0;text-align:center}
 footer a{color:#a1f0d3}
 
-/* sticky CTA centered, auto-hide over hero */
+/* sticky CTA centered, auto hide over hero */
 .sticky-cta{
  position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
- z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,.18); transition:opacity .2s, transform .2s;
+ z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,.18);
+ transition:opacity .2s, transform .2s;
 }
 .sticky-cta.hidden{opacity:0; pointer-events:none; transform:translate(-50%,20px);}
 @supports(padding: env(safe-area-inset-bottom)){
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
-/* extra space so text never hides behind button */
+/* bottom spacing so content never hides behind sticky */
 body::after{content:""; display:block; height:100px;}
 </style>
 </head>
@@ -105,19 +109,19 @@ body::after{content:""; display:block; height:100px;}
  <div class="hero-inner">
   <h1>Hawaiʻi Cesspool Help</h1>
   <h2>Free coordination for cesspool to septic conversions on Hawaiʻi Island.</h2>
-  <p>We coordinate with local licensed engineers and installers.</p>
+  <p>We connect you with local licensed engineers and installers.</p>
 
-  <!-- mini form posts to Google Form then forwards to the full form -->
+  <!-- mini form posts to Google Form then forwards to full form -->
   <form id="miniLead" class="lead-form" aria-label="Lead form">
     <input type="text" id="miniName" name="name" placeholder="Your name" aria-label="Your name" required>
     <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
     <button class="btn" type="submit">Start my cesspool conversion</button>
   </form>
-  <div class="small-note">Shared only with one licensed engineer. Never sold.</div>
+  <div class="small-note">Shared only with one licensed engineer or installer. Never sold.</div>
  </div>
 </header>
 
-<!-- Single sticky button; hidden while hero is on screen -->
+<!-- Single sticky CTA. Hidden while hero is visible -->
 <a class="btn sticky-cta hidden" href="#lead" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
 
 <div class="trust">Local coordination across Hawaiʻi Island in Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū.</div>
@@ -126,9 +130,9 @@ body::after{content:""; display:block; height:100px;}
  <h2>Why Homeowners Choose Hawaii Cesspool Help</h2>
  <p class="lead">No chasing contacts. No confusion. We coordinate the pieces so you can move forward and protect your investment and the environment.</p>
  <div class="grid grid-3" style="margin-top:18px">
-  <article class="card"><h3>Engineer Coordination</h3><p>We gather project details and connect you with a local licensed civil engineer for a compliant design.</p></article>
-  <article class="card"><h3>Installer Connection</h3><p>We introduce trusted local installers who work your district and site type.</p></article>
-  <article class="card"><h3>Simple Hand-off</h3><p>You choose how to proceed. We keep communication clear and timelines moving.</p></article>
+  <article class="card"><h3>Engineer coordination</h3><p>We gather project details and connect you with a local licensed civil engineer for a compliant design.</p></article>
+  <article class="card"><h3>Installer connection</h3><p>We introduce trusted local installers who work your district and site type.</p></article>
+  <article class="card"><h3>Simple hand off</h3><p>You choose how to proceed. We keep communication clear and timelines moving.</p></article>
  </div>
 </section>
 
@@ -162,7 +166,7 @@ body::after{content:""; display:block; height:100px;}
   <div>
    <h2>About Us</h2>
    <p>Hawaii Cesspool Help is a local coordination service for homeowners on Hawaiʻi Island. Our team has more than 40 years of combined experience in construction, drafting, and engineering. We live on island and work directly with local licensed engineers and trusted installers to move projects forward.</p>
-   <p style="margin-top:12px;font-style:italic;color:var(--muted)">Each project protects our island’s water, one conversion at a time.</p>
+   <p style="margin-top:12px;font-style:italic;color:#4b5a56">Each project protects our island’s water, one conversion at a time.</p>
   </div>
  </div>
 </section>
@@ -212,18 +216,14 @@ document.getElementById('miniLead').addEventListener('submit',async function(e){
   window.location.href = viewUrl.toString();
 });
 
-// Hide sticky CTA while hero is on screen
+// Sticky CTA hides while hero is visible
 const sticky = document.querySelector('.sticky-cta');
 const hero = document.getElementById('lead');
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){ sticky.classList.add('hidden'); }
-    else{ sticky.classList.remove('hidden'); }
-  });
-},{threshold:0.05});
-io.observe(hero);
+new IntersectionObserver(es=>es.forEach(e=>{
+  sticky.classList.toggle('hidden', e.isIntersecting);
+}),{threshold:.05}).observe(hero);
 
-// Single-open FAQ behavior
+// Single-open FAQ
 document.querySelectorAll('#faq details').forEach(d=>{
   d.addEventListener('toggle',()=>{ if(d.open) document.querySelectorAll('#faq details').forEach(o=>{ if(o!==d) o.removeAttribute('open'); }); });
 });
