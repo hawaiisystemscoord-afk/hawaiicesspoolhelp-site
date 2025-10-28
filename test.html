@@ -42,7 +42,7 @@ gtag('config','G-KX4BDJ7PYC');
 body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
 img{max-width:100%;height:auto;display:block;object-fit:cover}
 a{color:var(--green);text-decoration:none}
-.btn{display:inline-block;background:var(--coral);color:#fff;padding:14px 24px;border-radius:var(--radius);font-weight:800;transition:.15s}
+.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem}
 .btn:hover{transform:translateY(-1px)}
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:var(--green)}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
@@ -91,7 +91,6 @@ footer a{color:#a1f0d3}
  transform:translateX(-50%);
  z-index:9999;
  box-shadow:0 6px 20px rgba(0,0,0,.18);
- padding:16px 28px;
 }
 @supports(padding: env(safe-area-inset-bottom)){
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
@@ -100,20 +99,20 @@ footer a{color:#a1f0d3}
 body::after{
  content:"";
  display:block;
- height:120px;
+ height:100px;
 }
 </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" id="lead">
  <div class="hero-inner">
   <h1>Hawaiʻi Cesspool Help</h1>
   <h2>Free coordination for cesspool to septic conversions on Hawaiʻi Island.</h2>
   <p>We match you with a licensed engineer and manage permit paperwork.</p>
 
-  <!-- mini form -->
-  <form id="miniLead" class="lead-form">
+  <!-- mini form that stores to Google Form then forwards to long form -->
+  <form id="miniLead" class="lead-form" aria-label="Lead form">
     <input type="text" id="miniName" name="name" placeholder="Your name" aria-label="Your name" required>
     <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
     <button class="btn" type="submit">Start my cesspool conversion</button>
@@ -123,8 +122,8 @@ body::after{
  </div>
 </header>
 
-<!-- Single sticky button -->
-<a class="btn sticky-cta" href="#start" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
+<!-- Single sticky button takes user to the mini form -->
+<a class="btn sticky-cta" href="#lead" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
 
 <div class="trust">Local coordination across Hawaiʻi Island in Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū.</div>
 
@@ -146,7 +145,7 @@ body::after{
    <p>We care about clean water and simple, fast conversions for every district on the island.</p>
   </div>
   <div class="frame">
-   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/discuss%20plans.webp" width="1200" height="800" alt="Engineer discussing septic system plans" loading="lazy" decoding="async">
+   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/discuss%20plans.webp" width="1200" height="800" alt="Engineer discussing septic system plans at a table" loading="lazy" decoding="async">
   </div>
  </div>
 </section>
@@ -163,7 +162,7 @@ body::after{
 <section id="about">
  <div class="split" style="max-width:1100px;margin:auto;padding:0 24px;">
   <div class="frame">
-   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Staff%20Photo.webp" width="1200" height="800" alt="Hawaii Cesspool Help coordination team" loading="lazy" decoding="async">
+   <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Staff%20Photo.webp" width="1200" height="800" alt="Hawaii Cesspool Help coordination team portrait" loading="lazy" decoding="async">
   </div>
   <div>
    <h2>About Us</h2>
@@ -185,18 +184,6 @@ body::after{
  </div>
 </section>
 
-<section id="start" style="background:linear-gradient(0deg,#fff,#f5f9f7)">
- <h2>Start Your Conversion</h2>
- <p style="text-align:center;max-width:780px;margin:4px auto 18px">We do not sell information. We share it only with the licensed engineer who works on your project.</p>
- <div style="max-width:1100px;margin:auto;border:1px solid #e8eeeb;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:#fff">
-  <iframe title="Quick Start Form" style="width:100%;height:540px;border:0;display:block"
-   src="https://script.google.com/macros/s/AKfycbzCq-yn-rmkd2x-kZeS0kClFUsPwh82CzuIOc7QXdcmqiXIkgz-UnMsI1RZ6fZ4B80s7g/exec" allowfullscreen></iframe>
- </div>
- <div style="max-width:900px;margin:14px auto 0;text-align:center">
-  <a id="fullFormLink" href="https://docs.google.com/forms/d/e/1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA/viewform?usp=pp_url" target="_blank" rel="noopener">Open the full form in a new tab</a>
- </div>
-</section>
-
 <footer>
  <div>Hawaii Cesspool Help • Hawaiʻi Island Cesspool Conversion Coordination</div>
  <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
@@ -205,14 +192,38 @@ body::after{
 </footer>
 
 <script>
+// Google Form IDs from your prefilled link
+const FORM_ID     = '1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA';
+const ENTRY_NAME  = 'entry.243505109';
+const ENTRY_EMAIL = 'entry.540617702';
+
 document.getElementById('y').textContent=new Date().getFullYear();
-document.getElementById('miniLead').addEventListener('submit',function(e){
- e.preventDefault();
- if(window.gtag){gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'});}
- document.getElementById('start').scrollIntoView({behavior:'smooth'});
+
+document.getElementById('miniLead').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const name  = document.getElementById('miniName').value.trim();
+  const email = document.getElementById('miniEmail').value.trim();
+
+  if(window.gtag){ gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'}); }
+
+  // Store to Google Forms quietly
+  const formAction = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
+  const payload = new URLSearchParams();
+  payload.set(ENTRY_NAME,  name);
+  payload.set(ENTRY_EMAIL, email);
+  try { await fetch(formAction, { method:'POST', mode:'no-cors', body:payload }); } catch(_) {}
+
+  // Send to long form with prefilled values
+  const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
+  viewUrl.searchParams.set('usp','pp_url');
+  viewUrl.searchParams.set(ENTRY_NAME,  name);
+  viewUrl.searchParams.set(ENTRY_EMAIL, email);
+  window.location.href = viewUrl.toString();
 });
+
+// single-open FAQ
 document.querySelectorAll('#faq details').forEach(d=>{
- d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('#faq details').forEach(o=>{if(o!==d)o.removeAttribute('open');});});
+  d.addEventListener('toggle',()=>{ if(d.open) document.querySelectorAll('#faq details').forEach(o=>{ if(o!==d) o.removeAttribute('open'); }); });
 });
 </script>
 
