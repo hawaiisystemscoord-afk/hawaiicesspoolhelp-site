@@ -45,17 +45,17 @@ a{color:var(--green);text-decoration:none}
 .btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem}
 .btn:hover{transform:translateY(-1px)}
 
-/* HERO: dark image with white type */
+/* HERO */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-/* darker overlay for contrast */
+/* dark overlay for readability */
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.90),rgba(0,0,0,.70))}
 .hero-inner{position:relative;z-index:1;padding:96px 20px 32px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
 .hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:#fafafa}
 .hero h2{margin:10px 0 6px;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fafafa}
 .hero p{margin:8px auto 18px;max-width:760px;color:#eaf6f1;font-size:1.05rem}
 
-/* mini lead form: glass style */
+/* mini lead form */
 .lead-form{max-width:900px;margin:12px auto 10px;display:grid;gap:8px;align-items:center}
 @media(min-width:760px){.lead-form{grid-template-columns:1fr 1fr auto}}
 .lead-form input{
@@ -67,12 +67,12 @@ header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;backg
 
 .trust{background:var(--deep);color:#d6efe6;text-align:center;padding:12px 16px;font-size:.98rem}
 section{padding:56px 0}
-h2{text-align:center;font-size:1.9rem;color:var(--green);margin:0 0 10px;font-weight:800}
+h2{text-align:center;font-size:1.9rem;color:#0A7A58;margin:0 0 10px;font-weight:800}
 .lead{max-width:760px;margin:0 auto 6px;text-align:center;color:#4b5a56}
 .grid{display:grid;gap:18px}
 @media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr)}}
 .card{background:var(--card);border:1px solid #e8eeeb;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-.card h3{margin:.2rem 0 .35rem;font-size:1.1rem;color:var(--green)}
+.card h3{margin:.2rem 0 .35rem;font-size:1.1rem;color:#0A7A58}
 .split{display:grid;gap:26px;align-items:center}
 @media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
 .frame{border-radius:16px;border:1px solid #e8eeeb;overflow:hidden;box-shadow:var(--shadow)}
@@ -90,7 +90,7 @@ details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 footer{background:var(--deep);color:#d9eee7;padding:34px 0;text-align:center}
 footer a{color:#a1f0d3}
 
-/* sticky CTA centered, auto hide over hero */
+/* sticky CTA */
 .sticky-cta{
  position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
  z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,.18);
@@ -100,7 +100,7 @@ footer a{color:#a1f0d3}
 @supports(padding: env(safe-area-inset-bottom)){
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
-/* bottom spacing so content never hides behind sticky */
+/* spacing so content never hides behind sticky */
 body::after{content:""; display:block; height:100px;}
 </style>
 </head>
@@ -112,7 +112,6 @@ body::after{content:""; display:block; height:100px;}
   <h2>Free coordination for cesspool to septic conversions on Hawaiʻi Island.</h2>
   <p>We connect you with local licensed engineers and installers.</p>
 
-  <!-- mini form posts to your existing short-form endpoint, then forwards to long form -->
   <form id="miniLead" class="lead-form" aria-label="Lead form">
     <input type="text" id="miniName" name="name" placeholder="Your name" aria-label="Your name" required>
     <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
@@ -122,7 +121,6 @@ body::after{content:""; display:block; height:100px;}
  </div>
 </header>
 
-<!-- Single sticky CTA. Hidden while hero is visible -->
 <a class="btn sticky-cta hidden" href="#lead" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
 
 <div class="trust">Local coordination across Hawaiʻi Island in Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū.</div>
@@ -192,18 +190,16 @@ body::after{content:""; display:block; height:100px;}
 </footer>
 
 <script>
-// === Lead capture endpoints ===
-// Your old short-form Apps Script endpoint (captures to your Sheet)
-const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzCq-yn-rmkd2x-kZeS0kClFUsPwh82CzuIOc7QXdcmqiXIkgz-UnMsI1RZ6fZ4B80s7g/exec';
+// Lead capture endpoint (GET)
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzDTISdA82bYKssNesHfivaMbjcn3qOqLeMa45xhj33xZVlvCFBDajPz8LoPd95eNvZbw/exec';
 
-// Long Google Form (prefill redirect after capture)
+// Long Google Form (prefill redirect)
 const FORM_ID     = '1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA';
 const ENTRY_NAME  = 'entry.243505109';
 const ENTRY_EMAIL = 'entry.540617702';
 
 document.getElementById('y').textContent=new Date().getFullYear();
 
-// Submit mini form: 1) POST to your short-form endpoint to capture, 2) redirect to long form with prefill
 document.getElementById('miniLead').addEventListener('submit',async function(e){
   e.preventDefault();
   const name  = document.getElementById('miniName').value.trim();
@@ -211,15 +207,20 @@ document.getElementById('miniLead').addEventListener('submit',async function(e){
 
   if(window.gtag){ gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'}); }
 
-  // 1) Capture to your existing Apps Script (uses common 'name' and 'email' keys)
-  try {
-    const payload = new URLSearchParams();
-    payload.set('name',  name);
-    payload.set('email', email);
-    await fetch(LEAD_ENDPOINT, { method:'POST', mode:'no-cors', body:payload });
-  } catch(_) { /* ignore network errors */ }
+  // Build GET capture URL including legacy blanks for compatibility
+  const captureUrl = `${LEAD_ENDPOINT}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&address=&tmk=&message=`;
 
-  // 2) Redirect to long Google Form with prefilled values
+  // Fire GET capture and give it a short moment
+  try{
+    await new Promise(resolve=>{
+      const img=new Image();
+      img.onload=img.onerror=resolve;
+      img.src=captureUrl;
+      setTimeout(resolve,350);
+    });
+  }catch(_){}
+
+  // Redirect to long Google Form with prefilled values
   const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
   viewUrl.searchParams.set('usp','pp_url');
   viewUrl.searchParams.set(ENTRY_NAME,  name);
@@ -227,7 +228,7 @@ document.getElementById('miniLead').addEventListener('submit',async function(e){
   window.location.href = viewUrl.toString();
 });
 
-// Sticky CTA hides while hero is visible
+// Hide sticky CTA while hero is visible
 const sticky = document.querySelector('.sticky-cta');
 const hero = document.getElementById('lead');
 new IntersectionObserver(es=>es.forEach(e=>{
