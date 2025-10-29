@@ -1,4 +1,3 @@
-<!-- start.html -->
 <!doctype html>
 <html lang="en-HI">
 <head>
@@ -157,15 +156,15 @@ footer a{color:#a1f0d3}
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
 
-// Prefill from query
+// prefill from query
 (function(){
   const p=new URLSearchParams(location.search);
   const set=(id,key)=>{const v=p.get(key); if(v) document.getElementById(id).value=v;}
   set('name','name'); set('email','email');
 })();
 
-// Replace with your Apps Script /exec URL
-const ENDPOINT = 'YOUR_APPS_SCRIPT_EXEC_URL';
+// update endpoint
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec';
 
 const f = document.getElementById('longForm');
 const ok = document.getElementById('ok');
