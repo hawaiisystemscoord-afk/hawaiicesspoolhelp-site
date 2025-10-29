@@ -23,14 +23,6 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp">
 <meta name="twitter:card" content="summary_large_image">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX4BDJ7PYC"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','G-KX4BDJ7PYC');
-</script>
-
 <style>
 :root{
  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
@@ -42,20 +34,12 @@ gtag('config','G-KX4BDJ7PYC');
 body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
 img{max-width:100%;height:auto;display:block;object-fit:cover}
 a{color:var(--green);text-decoration:none}
-
-/* unified button style */
-.btn{
- display:inline-block; background:var(--coral); color:#fff;
- padding:10px 20px; border-radius:var(--radius);
- font-weight:800; font-size:1rem; line-height:1.2;
- transition:.15s; white-space:nowrap;
-}
+.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem;line-height:1.2;white-space:nowrap}
 .btn:hover{transform:translateY(-1px)}
 
 /* HERO */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-/* .85 / .65 overlay per your spec */
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
 .hero-inner{position:relative;z-index:1;padding:96px 20px 32px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
 .hero h1{margin:0;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:#fafafa}
@@ -97,7 +81,7 @@ details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center}
 footer a{color:#a1f0d3}
 
-/* sticky CTA uses same .btn rules; positioned fixed; one-line */
+/* sticky CTA */
 .sticky-cta{
  position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
  z-index:9999; box-shadow:0 6px 20px rgba(0,0,0,.18);
@@ -109,7 +93,6 @@ footer a{color:#a1f0d3}
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
 @media(max-width:360px){ .sticky-cta{font-size:.95rem;padding:10px 18px} }
-/* spacing so content never hides behind sticky */
 body::after{content:""; display:block; height:100px;}
 </style>
 </head>
@@ -130,7 +113,7 @@ body::after{content:""; display:block; height:100px;}
  </div>
 </header>
 
-<a class="btn sticky-cta hidden" id="stickyBtn" href="#" aria-label="Start my cesspool conversion">Start my cesspool conversion</a>
+<a class="btn sticky-cta hidden" id="stickyBtn" href="#">Start my cesspool conversion</a>
 
 <div class="trust">Local coordination across Hawaiʻi Island in Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū.</div>
 
@@ -199,68 +182,49 @@ body::after{content:""; display:block; height:100px;}
 </footer>
 
 <script>
-// Lead capture endpoint (GET) for the top mini form
-const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzDTISdA82bYKssNesHfivaMbjcn3qOqLeMa45xhj33xZVlvCFBDajPz8LoPd95eNvZbw/exec';
-
-// Long Google Form (prefill redirect)
-const FORM_ID     = '1FAIpQLSfK678Ov1Bd1RH-7wvyf2U1AvQOLrb3hEU1nuS4rtTB9LrOFA';
-const ENTRY_NAME  = 'entry.243505109';
-const ENTRY_EMAIL = 'entry.540617702';
-
 document.getElementById('y').textContent=new Date().getFullYear();
 
-// Mini form submit: capture then redirect with prefill
+// one endpoint only
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec';
+
+// mini form: send short lead, then go to start.html with prefill
 document.getElementById('miniLead').addEventListener('submit',async function(e){
   e.preventDefault();
   const name  = document.getElementById('miniName').value.trim();
   const email = document.getElementById('miniEmail').value.trim();
 
-  if(window.gtag){ gtag('event','lead_submit',{event_category:'lead',lead_type:'mini'}); }
-
-  const captureUrl = `${LEAD_ENDPOINT}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&address=&tmk=&message=`;
   try{
     await new Promise(resolve=>{
       const img=new Image();
       img.onload=img.onerror=resolve;
-      img.src=captureUrl;
+      img.src=`${LEAD_ENDPOINT}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
       setTimeout(resolve,350);
     });
   }catch(_){}
 
-  const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
-  viewUrl.searchParams.set('usp','pp_url');
-  viewUrl.searchParams.set(ENTRY_NAME,  name);
-  viewUrl.searchParams.set(ENTRY_EMAIL, email);
-  window.location.href = viewUrl.toString();
+  const url=new URL('/start.html', window.location.origin);
+  url.searchParams.set('name', name);
+  url.searchParams.set('email', email);
+  window.location.href = url.toString();
 });
 
-// Sticky CTA behavior: redirect straight to long form in same tab.
-// If name/email are filled, include them as prefill; otherwise open base form.
+// sticky button: same prefill flow
 document.getElementById('stickyBtn').addEventListener('click', function(e){
   e.preventDefault();
   const name  = (document.getElementById('miniName')?.value || '').trim();
   const email = (document.getElementById('miniEmail')?.value || '').trim();
-
-  if(window.gtag){ gtag('event','lead_click',{event_category:'lead',lead_type:'sticky'}); }
-
-  const viewUrl = new URL(`https://docs.google.com/forms/d/e/${FORM_ID}/viewform`);
-  viewUrl.searchParams.set('usp','pp_url');
-  if(name)  viewUrl.searchParams.set(ENTRY_NAME,  name);
-  if(email) viewUrl.searchParams.set(ENTRY_EMAIL, email);
-  window.location.href = viewUrl.toString();
+  const url=new URL('/start.html', window.location.origin);
+  if(name)  url.searchParams.set('name', name);
+  if(email) url.searchParams.set('email', email);
+  window.location.href = url.toString();
 });
 
-// Hide sticky CTA while hero is visible
+// sticky visibility toggle
 const sticky = document.querySelector('.sticky-cta');
 const hero = document.getElementById('lead');
 new IntersectionObserver(es=>es.forEach(e=>{
   sticky.classList.toggle('hidden', e.isIntersecting);
 }),{threshold:.05}).observe(hero);
-
-// Single-open FAQ
-document.querySelectorAll('#faq details').forEach(d=>{
-  d.addEventListener('toggle',()=>{ if(d.open) document.querySelectorAll('#faq details').forEach(o=>{ if(o!==d) o.removeAttribute('open'); }); });
-});
 </script>
 
 </body>
