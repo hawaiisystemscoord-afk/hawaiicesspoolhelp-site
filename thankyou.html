@@ -1,1 +1,42 @@
-
+<!-- thankyou.html -->
+<!doctype html>
+<html lang="en-HI">
+<head>
+<meta charset="utf-8">
+<title>Mahalo | Hawaii Cesspool Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
+<style>
+:root{
+ --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+ --green:#0A7A58; --deep:#0F2D25;
+}
+body{margin:0;font-family:var(--font);background:#f7f7f7;color:#111;line-height:1.55}
+header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
+.hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
+.hero-inner{position:relative;z-index:1;padding:120px 20px 80px;max-width:900px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+.hero h1{margin:0;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;color:#fafafa}
+.hero p{margin:14px auto 0;max-width:700px;color:#eaf6f1;font-size:1.1rem}
+footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:80px}
+footer a{color:#a1f0d3}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="hero-inner">
+  <h1>Mahalo</h1>
+  <p>Your details have been received. Our coordination team will contact you soon to connect you with the right licensed engineer or installer.</p>
+ </div>
+</header>
+<footer>
+ <div>Hawaii Cesspool Help • Hawaiʻi Island Cesspool Conversion Coordination</div>
+ <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+ <div style="margin-top:6px">Free coordination for homeowners. Supported by local professionals.</div>
+ <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
