@@ -29,8 +29,8 @@
 body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
 a{color:var(--green);text-decoration:none}
 img{max-width:100%;display:block}
-.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;font-size:1rem;line-height:1.2;white-space:nowrap;transition:.15s}
-.btn:hover{transform:translateY(-1px)}
+.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;font-size:1rem;line-height:1.2;white-space:nowrap;transition:.15s;border:0;cursor:pointer}
+.btn[disabled]{opacity:.7;cursor:not-allowed;transform:none}
 
 /* hero */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
@@ -87,7 +87,8 @@ footer a{color:#a1f0d3}
     <h2>Tell us about your project</h2>
     <p class="lead">Takes about 2 minutes.</p>
 
-    <form id="longForm" class="grid grid-2" novalidate>
+    <!-- Fallback action ensures submission works even if JS is blocked -->
+    <form id="longForm" class="grid grid-2" action="https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec" method="post" novalidate>
       <div>
         <label for="name">Full name</label>
         <input id="name" name="name" type="text" autocomplete="name" required>
@@ -98,7 +99,7 @@ footer a{color:#a1f0d3}
       </div>
       <div>
         <label for="phone">Contact number</label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel">
+        <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
         <div class="helper">Mobile is best for quick follow ups.</div>
       </div>
       <div>
@@ -107,7 +108,7 @@ footer a{color:#a1f0d3}
       </div>
       <div>
         <label for="tmk">TMK</label>
-        <input id="tmk" name="tmk" type="text" placeholder="3-1-2-345-001">
+        <input id="tmk" name="tmk" type="text" placeholder="3-1-2-345-001" inputmode="numeric">
       </div>
       <div>
         <label for="ptype">Property type</label>
@@ -136,14 +137,19 @@ footer a{color:#a1f0d3}
         </label>
       </div>
       <div class="actions" style="grid-column:1/-1">
-        <button class="btn" type="submit">Submit</button>
+        <button id="submitBtn" class="btn" type="submit">Submit</button>
         <a class="btn" href="/">Back to home</a>
       </div>
       <small class="privacy" style="grid-column:1/-1">Shared only with one licensed engineer and any installer you choose. Never sold.</small>
 
+      <div id="status" role="status" aria-live="polite" class="success" style="grid-column:1/-1; display:none;"></div>
       <div id="ok" class="success" style="grid-column:1/-1">Thanks. Your details were sent.</div>
       <div id="err" class="error" style="grid-column:1/-1">There was a problem. Please try again.</div>
     </form>
+
+    <noscript>
+      <p style="margin-top:10px;color:#53635e">Note: JavaScript is disabled. After submitting, you may briefly see a Google page. Your details will still be received.</p>
+    </noscript>
   </article>
 </main>
 
@@ -196,19 +202,34 @@ const ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf
 const f = document.getElementById('longForm');
 const ok = document.getElementById('ok');
 const err = document.getElementById('err');
+const statusLine = document.getElementById('status');
+const btn = document.getElementById('submitBtn');
 
 f.addEventListener('submit', async (e)=>{
+  // JS-enhanced path; fallback is the native form action if JS is blocked
   e.preventDefault();
-  ok.style.display='none'; err.style.display='none';
+  ok.style.display='none'; err.style.display='none'; statusLine.style.display='none';
+
   if(!f.name.value.trim() || !f.email.value.trim() || !f.consent.checked){
     err.textContent='Please enter name, email, and consent.';
     err.style.display='block'; return;
   }
+
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+  statusLine.textContent = 'Submitting…';
+  statusLine.style.display = 'block';
+
   const fd = new FormData(f);
   try{
     await fetch(ENDPOINT, { method:'POST', body:fd });
+    statusLine.textContent = 'Received. Redirecting…';
     location.href = '/thankyou.html';
   }catch(_){
+    btn.disabled = false;
+    btn.textContent = original;
+    statusLine.style.display='none';
     err.style.display='block';
   }
 });
