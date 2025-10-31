@@ -23,6 +23,15 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX4BDJ7PYC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KX4BDJ7PYC');
+</script>
+
 <style>
 :root{
  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
@@ -166,7 +175,6 @@ body::after{content:""; display:block; height:100px;}
  </div>
 </section>
 
-<!-- About Us restored and placed here (after vetting, before FAQ) -->
 <section id="about">
  <div class="split" style="max-width:1100px;margin:auto;padding:0 24px;">
   <div class="frame">
@@ -211,16 +219,14 @@ async function sendShortLead(name, email){
   const params = new URLSearchParams();
   if (name)  params.set('name', name);
   if (email) params.set('email', email);
-  params.set('next',''); // JS path does not use server redirect
+  params.set('next','');
 
-  // 1) Try sendBeacon (best for page unload)
   try{
     const blob = new Blob([params.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
     const ok = navigator.sendBeacon(LEAD_ENDPOINT, blob);
     if (ok) return true;
   }catch(_){}
 
-  // 2) Fallback to fetch keepalive (no-cors so it won't block)
   try{
     await fetch(LEAD_ENDPOINT, {
       method: 'POST',
@@ -240,8 +246,17 @@ document.getElementById('miniLead').addEventListener('submit', async function(e)
   const name  = document.getElementById('miniName').value.trim();
   const email = document.getElementById('miniEmail').value.trim();
 
-  // fire-and-forget; do not stall navigation on mobile
   sendShortLead(name, email);
+
+  try{
+    if (window.gtag) {
+      gtag('event','lead_submit',{
+        form: 'short',
+        method: 'index_mini',
+        page_location: location.href
+      });
+    }
+  }catch(_){}
 
   const url=new URL('/start.html', window.location.origin);
   url.searchParams.set('name', name);
@@ -271,15 +286,20 @@ new IntersectionObserver(es=>es.forEach(e=>{
 <!-- Structured data -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"Hawaiʻi Cesspool Help",
-  "url":"https://www.hawaiicesspoolhelp.com/",
-  "email":"info@hawaiicesspoolhelp.com",
-  "image":"https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp",
-  "areaServed":[ "Kona","Hilo","Waimea","Kohala","Puna","Kaʻū" ],
-  "description":"Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
-  "sameAs":[]
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hawaiʻi Cesspool Help",
+  "url": "https://www.hawaiicesspoolhelp.com/",
+  "email": "info@hawaiicesspoolhelp.com",
+  "image": "https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp",
+  "areaServed": [ "Kona", "Hilo", "Waimea", "Kohala", "Puna", "Kaʻū" ],
+  "serviceArea": {
+    "@type": "Place",
+    "name": "Hawaiʻi Island (Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū)"
+  },
+  "telephone": "+1-808-XXX-XXXX",
+  "description": "Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
+  "sameAs": []
 }
 </script>
 <script type="application/ld+json">
