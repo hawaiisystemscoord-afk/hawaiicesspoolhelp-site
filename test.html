@@ -203,6 +203,7 @@ body::after{content:""; display:block; height:100px;}
 <footer>
  <div>Hawaii Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
  <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+ <div>Hours: Mon to Fri 8 a.m. to 6 p.m. HST, Sat 9 to 1, Sun closed</div>
  <div style="margin-top:6px">Free coordination for homeowners. Supported by local professionals.</div>
  <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
 </footer>
@@ -297,6 +298,11 @@ new IntersectionObserver(es=>es.forEach(e=>{
     "@type": "Place",
     "name": "Hawaiʻi Island (Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū)"
   },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "00:00", "closes": "00:00" }
+  ],
   "telephone": "+1-808-XXX-XXXX",
   "description": "Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
   "sameAs": []
