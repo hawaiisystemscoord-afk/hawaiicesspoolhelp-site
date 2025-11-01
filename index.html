@@ -35,7 +35,7 @@ gtag('config', 'G-KX4BDJ7PYC');
 <style>
 :root{
  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
- --green:#0A7A58; --deep:#0F2D25; --coral:#D8563F;
+ --green:#0A7A58; --deep:#0F2D25; --coral:#D24128;
  --ink:#111; --bg:#f7f7f7; --card:#fff;
  --radius:14px; --shadow:0 10px 26px rgba(0,0,0,.07);
 }
@@ -44,7 +44,8 @@ body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line
 img{max-width:100%;height:auto;display:block;object-fit:cover}
 a{color:var(--green);text-decoration:none}
 .btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem;line-height:1.2;white-space:nowrap;border:0}
-.btn:hover{transform:translateY(-1px)}
+/* keep existing lift on normal buttons, but NOT on sticky */
+.btn:not(.sticky-cta):hover{transform:translateY(-1px)}
 
 /* HERO */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
@@ -82,12 +83,12 @@ h2{text-align:center;font-size:1.9rem;color:#0A7A58;margin:0 0 10px;font-weight:
 .steps{display:grid;gap:18px}
 @media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
 .step{background:#fff;border:1px solid #e8eeeb;border-radius:16px;padding:22px;display:flex;align-items:center;gap:14px}
-.num{min-width:40px;min-height:40px;border-radius:50%;background:#D8563F;color:#fff;display:grid;place-items:center;font-weight:900;font-size:1.1rem}
+.num{min-width:40px;min-height:40px;border-radius:50%;background:#D24128;color:#fff;display:grid;place-items:center;font-weight:900;font-size:1.1rem}
 @media(max-width:760px){#path .step p{font-size:.9rem}.num{min-width:32px;min-height:32px;font-size:.9rem}}
 details{background:#fff;border:1px solid #e8eeeb;border-radius:12px;overflow:hidden}
 summary{padding:16px 48px 16px 16px;cursor:pointer;position:relative;font-weight:700}
 summary::marker{content:""}
-summary::after{content:"▸";position:absolute;right:14px;top:50%;transform:translateY(-50%);transition:.2s;color:#D8563F}
+summary::after{content:"▸";position:absolute;right:14px;top:50%;transform:translateY(-50%);transition:.2s;color:#D24128}
 details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 .answer{padding:0 16px 16px}
 footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center}
@@ -100,11 +101,13 @@ footer a{color:#a1f0d3}
  transition:opacity .2s, transform .2s;
  width:auto; max-width:calc(100vw - 32px);
 }
-.sticky-cta.hidden{opacity:0; pointer-events:none; transform:translate(-50%,20px);}
+.sticky-cta.hidden{opacity:0; pointer-events:none; transform:translateX(-50%) translateY(20px);}
 @supports(padding: env(safe-area-inset-bottom)){
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
 @media(max-width:360px){ .sticky-cta{font-size:.95rem;padding:10px 18px} }
+/* grow slightly on hover without breaking centering */
+.sticky-cta:hover{transform:translateX(-50%) scale(1.04);}
 body::after{content:""; display:block; height:100px;}
 </style>
 </head>
@@ -203,6 +206,7 @@ body::after{content:""; display:block; height:100px;}
 <footer>
  <div>Hawaii Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
  <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+ <div>Hours: Mon to Fri 8 a.m. to 6 p.m. HST, Sat 9 to 1, Sun closed</div>
  <div style="margin-top:6px">Free coordination for homeowners. Supported by local professionals.</div>
  <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
 </footer>
@@ -297,6 +301,11 @@ new IntersectionObserver(es=>es.forEach(e=>{
     "@type": "Place",
     "name": "Hawaiʻi Island (Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū)"
   },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "00:00", "closes": "00:00" }
+  ],
   "telephone": "+1-808-XXX-XXXX",
   "description": "Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
   "sameAs": []
