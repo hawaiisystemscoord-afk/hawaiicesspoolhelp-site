@@ -26,7 +26,9 @@
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6}
-a{color:var(--green);text-decoration:none}
+a{color:var(--green);text-decoration:none;outline:none;transition:box-shadow .2s, outline .2s}
+a:focus{outline:2px solid #0A7A58;outline-offset:3px;box-shadow:0 0 0 3px rgba(10,122,88,.4)}
+a:hover{color:#0c9c6c}
 h1,h2,h3{color:var(--green);font-weight:800}
 p{margin-bottom:1rem}
 main{max-width:920px;margin:auto;padding:20px}
@@ -35,9 +37,11 @@ header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;backg
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
 .hero-inner{position:relative;z-index:1;padding:96px 20px 36px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
 .hero h1{margin:0;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;color:#fafafa}
-footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:40px}
-footer a{color:#a1f0d3}
 .card{background:#fff;padding:28px;border-radius:var(--radius);box-shadow:var(--shadow);margin-top:32px}
+footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:40px}
+footer a{color:#a1f0d3;outline:none;transition:box-shadow .2s, outline .2s}
+footer a:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
+footer a:hover{color:#c2fff0}
 </style>
 </head>
 <body>
@@ -95,7 +99,7 @@ footer a{color:#a1f0d3}
 </main>
 
 <footer>
-  <div>Hawaii Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Hawaii Cesspool Help • Hawaiʻi Island Cesspool Conversion Coordination</div>
   <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
   <div>Hours: Mon to Fri 8 a.m. to 6 p.m. HST, Sat 9 to 1, Sun closed</div>
   <div style="margin-top:6px">Free coordination for homeowners. Supported by local professionals.</div>
