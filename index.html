@@ -43,8 +43,14 @@ gtag('config', 'G-KX4BDJ7PYC');
 body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
 img{max-width:100%;height:auto;display:block;object-fit:cover}
 a{color:var(--green);text-decoration:none}
-.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;transition:.15s;font-size:1rem;line-height:1.2;white-space:nowrap;border:0}
-/* keep existing lift on normal buttons, but NOT on sticky */
+.btn{
+  display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);
+  font-weight:800;transition:.15s;font-size:1rem;line-height:1.2;white-space:nowrap;border:0;
+  -webkit-text-stroke:0.3px rgba(0,0,0,.35);
+  text-shadow:0 0 1px rgba(0,0,0,.35), 0 1px 1px rgba(0,0,0,.25);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  backface-visibility:hidden; will-change:transform;
+}
 .btn:not(.sticky-cta):hover{transform:translateY(-1px)}
 
 /* HERO */
@@ -106,8 +112,8 @@ footer a{color:#a1f0d3}
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
 @media(max-width:360px){ .sticky-cta{font-size:.95rem;padding:10px 18px} }
-/* grow slightly on hover without breaking centering */
-.sticky-cta:hover{transform:translateX(-50%) scale(1.04);}
+/* remove scale on hover to prevent text resampling blur */
+.sticky-cta:hover{transform:translateX(-50%);}
 body::after{content:""; display:block; height:100px;}
 </style>
 </head>
@@ -205,6 +211,7 @@ body::after{content:""; display:block; height:100px;}
 
 <footer>
  <div>Hawaii Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+ <div>Phone: <a href="tel:8086576953">808.657.6953</a></div>
  <div>Contact: <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
  <div>Hours: Mon to Fri 8 a.m. to 6 p.m. HST, Sat 9 to 1, Sun closed</div>
  <div><a href="/privacy.html">Privacy Policy</a></div>
@@ -307,7 +314,7 @@ new IntersectionObserver(es=>es.forEach(e=>{
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "00:00", "closes": "00:00" }
   ],
-  "telephone": "+1-808-XXX-XXXX",
+  "telephone": "+1-808-657-6953",
   "description": "Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
   "sameAs": []
 }
