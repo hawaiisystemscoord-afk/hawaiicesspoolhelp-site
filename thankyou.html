@@ -18,7 +18,9 @@ header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;backg
 .hero h1{margin:0;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;color:#fafafa}
 .hero p{margin:14px auto 0;max-width:700px;color:#eaf6f1;font-size:1.1rem}
 footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:80px}
-footer a{color:#a1f0d3}
+footer a{color:#a1f0d3;outline:none;transition:box-shadow .2s, outline .2s}
+footer a:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
+footer a:hover{color:#c2fff0}
 </style>
 </head>
 <body>
