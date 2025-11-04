@@ -25,14 +25,19 @@ a{color:var(--green);text-decoration:none}
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
-.hero-inner{position:relative;z-index:1;padding:120px 20px 86px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
-.hero h1{margin:0;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;color:#fafafa}
-.hero p{margin:14px auto 0;max-width:760px;color:#eaf6f1;font-size:1.1rem}
+.hero-inner{position:relative;z-index:1;padding:112px 20px 64px;max-width:920px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+.hero h1{margin:0;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:900;color:#fafafa}
+.hero p{margin:12px auto 0;max-width:760px;color:#eaf6f1;font-size:1.05rem}
 
-/* actions */
-.actions{max-width:900px;margin:-36px auto 0;padding:0 20px;display:grid;gap:14px}
-@media(min-width:700px){.actions{grid-template-columns:1fr 1fr}}
+/* layout */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section{padding:32px 0 16px}
+
+/* cards */
+.actions{display:grid;gap:24px}
+@media(min-width:900px){.actions{grid-template-columns:1fr 1fr}}
 .card{background:var(--card);border:1px solid #e8eeeb;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);text-align:center}
+.card h2{margin:0 0 6px;font-size:1.25rem;color:#0A7A58}
 .btn{
   display:inline-block;background:var(--coral);color:#fff;padding:12px 22px;border-radius:var(--radius);
   font-weight:800;transition:.15s;font-size:1rem;line-height:1.2;border:0;
@@ -41,10 +46,10 @@ header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;backg
 .btn:hover{transform:translateY(-1px)}
 .alt{background:var(--green)}
 
-.hint{max-width:900px;margin:18px auto 0;padding:0 20px;text-align:center;color:#4b5a56}
+.hint{margin:14px 0 0;text-align:center;color:#4b5a56}
 
 /* footer */
-footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:56px}
+footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:48px}
 footer a{color:#a1f0d3}
 </style>
 </head>
@@ -57,21 +62,22 @@ footer a{color:#a1f0d3}
   </div>
 </header>
 
-<main>
-  <div class="actions">
-    <div class="card">
-      <h2 style="margin-top:0;color:#0A7A58;font-size:1.3rem">Back to home</h2>
-      <p>Go to the homepage for coordination details and the short form.</p>
-      <p><a class="btn alt" href="/">Go to homepage</a></p>
+<main class="section">
+  <div class="container">
+    <div class="actions">
+      <div class="card">
+        <h2>Back to home</h2>
+        <p>Go to the homepage for coordination details and the short form.</p>
+        <p><a class="btn alt" href="/">Go to homepage</a></p>
+      </div>
+      <div class="card">
+        <h2>Start coordination</h2>
+        <p>Open the short form and begin your file now.</p>
+        <p><a class="btn" href="/start.html">Check my property eligibility</a></p>
+      </div>
     </div>
-    <div class="card">
-      <h2 style="margin-top:0;color:#0A7A58;font-size:1.3rem">Start coordination</h2>
-      <p>Open the short form and begin your file now.</p>
-      <p><a class="btn" href="/start.html">Check my property eligibility</a></p>
-    </div>
+    <p class="hint">If you reached this from a link, email <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a> for help.</p>
   </div>
-
-  <p class="hint">If you reached this from a link, you can also email <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a> for help.</p>
 </main>
 
 <footer>
