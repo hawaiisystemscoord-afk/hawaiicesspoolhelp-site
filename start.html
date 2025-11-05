@@ -40,7 +40,7 @@ gtag('config', 'G-KX4BDJ7PYC');
 </script>
 
 <!-- reCAPTCHA v3 -->
-<script src="https://www.google.com/recaptcha/api.js?render=YOUR_V3_SITE_KEY" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW" async defer></script>
 
 <style>
 :root{
@@ -241,7 +241,7 @@ f.addEventListener('submit', async (e)=>{
   try{
     let token = '';
     if(window.grecaptcha){
-      token = await grecaptcha.execute('YOUR_V3_SITE_KEY', {action:'long_form'});
+      token = await grecaptcha.execute('6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW', {action:'long_form'});
     }
     const fd = new FormData();
     // Required fields for server
