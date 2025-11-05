@@ -148,7 +148,7 @@ body::after{content:""; display:block; height:100px;}
     <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
     <!-- Honeypot -->
     <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <button class="btn" type="submit">Check My Property Eligibility</button>
+    <button class="btn" id="miniSubmit" type="submit">Check My Property Eligibility</button>
   </form>
   <div class="small-note">Takes two minutes. No obligation.</div>
  </div>
@@ -268,46 +268,70 @@ function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
 // Safe trim
 function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').trim();}
 
-// Submit mini form with reCAPTCHA v3, FormData, and sessionStorage.
-// No PII in URLs.
-document.getElementById('miniLead').addEventListener('submit', async function(ev){
+// reCAPTCHA with timeout
+function getRecaptchaToken(action){
+  const MAX = 1200;
+  return new Promise((resolve)=>{
+    let done=false;
+    const timer=setTimeout(()=>{ if(!done){ done=true; resolve(''); } }, MAX);
+    try{
+      if(window.grecaptcha && grecaptcha.execute){
+        grecaptcha.execute('6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW', {action}).then(t=>{
+          if(!done){ done=true; clearTimeout(timer); resolve(t||''); }
+        }).catch(()=>{ if(!done){ done=true; clearTimeout(timer); resolve(''); } });
+      }else{
+        if(!done){ done=true; clearTimeout(timer); resolve(''); }
+      }
+    }catch(_){
+      if(!done){ done=true; clearTimeout(timer); resolve(''); }
+    }
+  });
+}
+
+// Submit mini form non-blocking
+document.getElementById('miniLead').addEventListener('submit', function(ev){
   ev.preventDefault();
+
+  const btn = document.getElementById('miniSubmit');
   const name  = s(document.getElementById('miniName').value);
   const email = s(document.getElementById('miniEmail').value);
   const company = s(document.getElementById('miniCompany').value); // honeypot
 
-  if(!name || !email || !validEmail(email)){
-    // Fail quietly but still continue to next page as a graceful fallback
-  }
+  // UX signal only
+  try{
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+  }catch(_){}
 
   // Persist for next page prefill without query strings
   try{
-    sessionStorage.setItem('lead_name', name);
-    sessionStorage.setItem('lead_email', email);
+    sessionStorage.setItem('lead_name', name||'');
+    sessionStorage.setItem('lead_email', email||'');
   }catch(_){}
 
+  // Fire analytics without blocking
   try{
-    // reCAPTCHA v3 token then POST
-    if(window.grecaptcha){
-      const token = await grecaptcha.execute('6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW', {action:'lead'});
+    if (window.gtag) gtag('event','lead_submit_attempt',{form:'short',method:'index_mini',page_location:location.href});
+  }catch(_){}
+
+  // Build and send in background without waiting
+  getRecaptchaToken('lead').then((token)=>{
+    try{
       const fd = new FormData();
       fd.set('name', name);
       fd.set('email', email);
-      fd.set('company', company);          // honeypot
-      fd.set('v','v');                     // version flag
-      fd.set('recaptcha_v3', token);       // v3 token
-      await fetch(LEAD_ENDPOINT, {method:'POST', body:fd, credentials:'omit', keepalive:true});
-    }
-  }catch(_){}
+      fd.set('company', company);
+      fd.set('v','v');
+      fd.set('recaptcha_v3', token);
+      fetch(LEAD_ENDPOINT, {method:'POST', body:fd, credentials:'omit', keepalive:true});
+    }catch(_){}
+  });
 
-  try{
-    if (window.gtag) {
-      gtag('event','lead_submit',{form:'short',method:'index_mini',page_location:location.href});
-    }
-  }catch(_){}
-
-  // Navigate without PII in URL
-  window.location.href = new URL('/start.html', window.location.origin).toString();
+  // Quick visual bump then go
+  setTimeout(()=>{
+    try{ btn.textContent = 'Submitted'; }catch(_){}
+    window.location.href = new URL('/start.html', window.location.origin).toString();
+  }, 400);
 });
 
 // Sticky uses same navigation without query strings
