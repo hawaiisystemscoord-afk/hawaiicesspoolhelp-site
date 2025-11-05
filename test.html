@@ -46,7 +46,7 @@ gtag('config', 'G-KX4BDJ7PYC');
 </script>
 
 <!-- reCAPTCHA v3 -->
-<script src="https://www.google.com/recaptcha/api.js?render=YOUR_V3_SITE_KEY" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW" async defer></script>
 
 <style>
 :root{
@@ -287,7 +287,7 @@ document.getElementById('miniLead').addEventListener('submit', async function(ev
   try{
     // reCAPTCHA v3 token then POST
     if(window.grecaptcha){
-      const token = await grecaptcha.execute('YOUR_V3_SITE_KEY', {action:'lead'});
+      const token = await grecaptcha.execute('6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW', {action:'lead'});
       const fd = new FormData();
       fd.set('name', name);
       fd.set('email', email);
