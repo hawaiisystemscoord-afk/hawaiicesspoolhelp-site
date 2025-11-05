@@ -10,6 +10,19 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
 
+<!-- Security meta -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  img-src 'self' https://cdn.jsdelivr.net data:;
+  style-src 'self' 'unsafe-inline';
+  script-src 'self' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
+  connect-src 'self' https://script.google.com https://www.google-analytics.com https://www.googletagmanager.com;
+  frame-ancestors 'none';
+  base-uri 'self'
+">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hawaii Cesspool Help">
 <meta property="og:title" content="Start Your Conversion | Hawaii Cesspool Help">
@@ -25,6 +38,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-KX4BDJ7PYC');
 </script>
+
+<!-- reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=YOUR_V3_SITE_KEY" async defer></script>
 
 <style>
 :root{
@@ -101,7 +117,8 @@ footer a:hover{color:#c2fff0}
     <h2>Tell us about your project</h2>
     <p class="lead">Takes about 2 minutes.</p>
 
-    <form id="longForm" class="grid grid-2" action="https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec" method="post" novalidate>
+    <!-- JS handles submission; no PII in URL -->
+    <form id="longForm" class="grid grid-2" action="#" method="post" novalidate>
       <div>
         <label for="name">Full name</label>
         <input id="name" name="name" type="text" autocomplete="name" required>
@@ -149,6 +166,10 @@ footer a:hover{color:#c2fff0}
           <span>I agree to be contacted by a licensed engineer or installer to discuss my project and receive a quote.</span>
         </label>
       </div>
+
+      <!-- Honeypot -->
+      <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
+
       <div class="actions" style="grid-column:1/-1">
         <button id="submitBtn" class="btn" type="submit">Submit</button>
         <a class="btn" href="/">Back to home</a>
@@ -172,15 +193,25 @@ footer a:hover{color:#c2fff0}
 </footer>
 
 <script>
+// Year
 document.getElementById('y').textContent=new Date().getFullYear();
 
-(function(){
-  const p=new URLSearchParams(location.search);
-  const set=(id,key)=>{const v=p.get(key); if(v) document.getElementById(id).value=v;}
-  set('name','name'); set('email','email');
-})();
-
+// Endpoint
 const ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec';
+
+// Basic client validators
+function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
+function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').trim();}
+
+// Prefill from sessionStorage instead of query strings
+(function(){
+  try{
+    const n = sessionStorage.getItem('lead_name') || '';
+    const m = sessionStorage.getItem('lead_email') || '';
+    if(n) document.getElementById('name').value = n;
+    if(m) document.getElementById('email').value = m;
+  }catch(_){}
+})();
 
 const f = document.getElementById('longForm');
 const ok = document.getElementById('ok');
@@ -192,8 +223,12 @@ f.addEventListener('submit', async (e)=>{
   e.preventDefault();
   ok.style.display='none'; err.style.display='none'; statusLine.style.display='none';
 
-  if(!f.name.value.trim() || !f.email.value.trim() || !f.consent.checked){
-    err.textContent='Please enter name, email, and consent.';
+  const name  = s(document.getElementById('name').value);
+  const email = s(document.getElementById('email').value);
+  const consent = document.getElementById('consent').checked;
+
+  if(!name || !email || !validEmail(email) || !consent){
+    err.textContent='Please enter name, valid email, and consent.';
     err.style.display='block'; return;
   }
 
@@ -203,9 +238,34 @@ f.addEventListener('submit', async (e)=>{
   statusLine.textContent = 'Submitting…';
   statusLine.style.display = 'block';
 
-  const fd = new FormData(f);
   try{
-    await fetch(ENDPOINT, { method:'POST', body:fd });
+    let token = '';
+    if(window.grecaptcha){
+      token = await grecaptcha.execute('YOUR_V3_SITE_KEY', {action:'long_form'});
+    }
+    const fd = new FormData();
+    // Required fields for server
+    fd.set('name', name);
+    fd.set('email', email);
+    fd.set('company', s(document.getElementById('miniCompany').value)); // honeypot
+    fd.set('v','v');
+    fd.set('recaptcha_v3', token);
+
+    // Optional extras (server may ignore)
+    const fields = ['phone','address','tmk','property','message','referral','consent'];
+    for(const k of fields){
+      const el = document.getElementById(k==='property'?'ptype':k==='message'?'notes':k);
+      if(el){
+        if(k==='consent'){ fd.set('consent', document.getElementById('consent').checked ? 'yes' : 'no'); }
+        else fd.set(k, s(el.value));
+      }
+    }
+
+    await fetch(ENDPOINT, { method:'POST', body:fd, credentials:'omit', keepalive:true });
+
+    try{
+      if (window.gtag) gtag('event','lead_submit',{form:'long',method:'start_long',page_location:location.href});
+    }catch(_){}
     statusLine.textContent = 'Received. Redirecting…';
     location.href = '/thankyou.html';
   }catch(_){
@@ -213,8 +273,12 @@ f.addEventListener('submit', async (e)=>{
     btn.textContent = original;
     statusLine.style.display='none';
     err.style.display='block';
+    // Graceful failure: still navigate
+    location.href = '/thankyou.html';
   }
 });
+
+/* v2 fallback could be added here later if needed. */
 </script>
 
 <script type="application/ld+json">
