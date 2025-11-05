@@ -9,6 +9,19 @@
 <link rel="canonical" href="https://www.hawaiicesspoolhelp.com/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
+<!-- Security meta -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  img-src 'self' https://cdn.jsdelivr.net data:;
+  style-src 'self' 'unsafe-inline';
+  script-src 'self' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com;
+  connect-src 'self' https://script.google.com https://www.google-analytics.com https://www.googletagmanager.com;
+  frame-ancestors 'none';
+  base-uri 'self'
+">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 
@@ -31,6 +44,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-KX4BDJ7PYC');
 </script>
+
+<!-- reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=YOUR_V3_SITE_KEY" async defer></script>
 
 <style>
 :root{
@@ -112,7 +128,6 @@ footer a{color:#a1f0d3}
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
 @media(max-width:360px){ .sticky-cta{font-size:.95rem;padding:10px 18px} }
-/* remove scale on hover to prevent text resampling blur */
 .sticky-cta:hover{transform:translateX(-50%);}
 body::after{content:""; display:block; height:100px;}
 </style>
@@ -125,13 +140,12 @@ body::after{content:""; display:block; height:100px;}
   <h2>Trusted coordination for cesspool to septic conversions on Hawaiʻi Island.</h2>
   <p>Endorsed by state licensed professionals. Simplifying the path to Hawaiʻi’s 2050 cesspool phase out.</p>
 
-  <!-- add action, method, and hidden next for non-JS fallback -->
-  <form id="miniLead" class="lead-form" aria-label="Lead form"
-        action="https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec"
-        method="post">
+  <!-- Keep look and copy. Add honeypot. Client will submit via JS with FormData. -->
+  <form id="miniLead" class="lead-form" aria-label="Lead form" action="#" method="post" novalidate>
     <input type="text" id="miniName" name="name" placeholder="Name" aria-label="Name" required>
     <input type="email" id="miniEmail" name="email" placeholder="Email" aria-label="Email" required>
-    <input type="hidden" name="next" value="start">
+    <!-- Honeypot -->
+    <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn" type="submit">Check My Property Eligibility</button>
   </form>
   <div class="small-note">Takes two minutes. No obligation.</div>
@@ -243,68 +257,67 @@ body::after{content:""; display:block; height:100px;}
 // Year
 document.getElementById('y').textContent=new Date().getFullYear();
 
-// Endpoint for short lead
+// Endpoint
 const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec';
 
-// Helper: fire-and-forget short lead that survives iOS navigation
-async function sendShortLead(name, email){
-  const params = new URLSearchParams();
-  if (name)  params.set('name', name);
-  if (email) params.set('email', email);
-  params.set('next','');
+// Basic client email validation
+function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
 
+// Safe trim
+function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').trim();}
+
+// Submit mini form with reCAPTCHA v3, FormData, and sessionStorage.
+// No PII in URLs.
+document.getElementById('miniLead').addEventListener('submit', async function(ev){
+  ev.preventDefault();
+  const name  = s(document.getElementById('miniName').value);
+  const email = s(document.getElementById('miniEmail').value);
+  const company = s(document.getElementById('miniCompany').value); // honeypot
+
+  if(!name || !email || !validEmail(email)){
+    // Fail quietly but still continue to next page as a graceful fallback
+  }
+
+  // Persist for next page prefill without query strings
   try{
-    const blob = new Blob([params.toString()], { type: 'application/x-www-form-urlencoded;charset=UTF-8' });
-    const ok = navigator.sendBeacon(LEAD_ENDPOINT, blob);
-    if (ok) return true;
+    sessionStorage.setItem('lead_name', name);
+    sessionStorage.setItem('lead_email', email);
   }catch(_){}
 
   try{
-    await fetch(LEAD_ENDPOINT, {
-      method: 'POST',
-      body: params,
-      mode: 'no-cors',
-      keepalive: true,
-    });
-    return true;
-  }catch(_){}
-
-  return false;
-}
-
-// Mini form: POST short lead reliably, then go to start.html
-document.getElementById('miniLead').addEventListener('submit', async function(e){
-  e.preventDefault();
-  const name  = document.getElementById('miniName').value.trim();
-  const email = document.getElementById('miniEmail').value.trim();
-
-  sendShortLead(name, email);
-
-  try{
-    if (window.gtag) {
-      gtag('event','lead_submit',{
-        form: 'short',
-        method: 'index_mini',
-        page_location: location.href
-      });
+    // reCAPTCHA v3 token then POST
+    if(window.grecaptcha){
+      const token = await grecaptcha.execute('YOUR_V3_SITE_KEY', {action:'lead'});
+      const fd = new FormData();
+      fd.set('name', name);
+      fd.set('email', email);
+      fd.set('company', company);          // honeypot
+      fd.set('v','v');                     // version flag
+      fd.set('recaptcha_v3', token);       // v3 token
+      await fetch(LEAD_ENDPOINT, {method:'POST', body:fd, credentials:'omit', keepalive:true});
     }
   }catch(_){}
 
-  const url=new URL('/start.html', window.location.origin);
-  url.searchParams.set('name', name);
-  url.searchParams.set('email', email);
-  window.location.href = url.toString();
+  try{
+    if (window.gtag) {
+      gtag('event','lead_submit',{form:'short',method:'index_mini',page_location:location.href});
+    }
+  }catch(_){}
+
+  // Navigate without PII in URL
+  window.location.href = new URL('/start.html', window.location.origin).toString();
 });
 
-// Sticky: same prefill flow (no extra send here)
+// Sticky uses same navigation without query strings
 document.getElementById('stickyBtn').addEventListener('click', function(e){
   e.preventDefault();
-  const name  = (document.getElementById('miniName')?.value || '').trim();
-  const email = (document.getElementById('miniEmail')?.value || '').trim();
-  const url=new URL('/start.html', window.location.origin);
-  if(name)  url.searchParams.set('name', name);
-  if(email) url.searchParams.set('email', email);
-  window.location.href = url.toString();
+  const name  = s(document.getElementById('miniName')?.value);
+  const email = s(document.getElementById('miniEmail')?.value);
+  try{
+    sessionStorage.setItem('lead_name', name||'');
+    sessionStorage.setItem('lead_email', email||'');
+  }catch(_){}
+  window.location.href = new URL('/start.html', window.location.origin).toString();
 });
 
 // Sticky visibility
@@ -313,6 +326,8 @@ const hero = document.getElementById('lead');
 new IntersectionObserver(es=>es.forEach(e=>{
   sticky.classList.toggle('hidden', e.isIntersecting);
 }),{threshold:.05}).observe(hero);
+
+/* v2 fallback could be added here later if needed. */
 </script>
 
 <!-- Structured data -->
