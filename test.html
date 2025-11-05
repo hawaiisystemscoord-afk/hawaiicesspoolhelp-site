@@ -128,7 +128,9 @@ footer a{color:#a1f0d3}
  .sticky-cta{bottom:calc(env(safe-area-inset-bottom) + 20px);}
 }
 @media(max-width:360px){ .sticky-cta{font-size:.95rem;padding:10px 18px} }
-.sticky-cta:hover{transform:translateX(-50%);}
+.sticky-cta{transition:transform .15s,opacity .2s}
+.sticky-cta:hover{transform:translateX(-50%) scale(1.03)}
+.sticky-cta:hover{transform:translateX(-50%) translateY(-1px) scale(1.03)}
 body::after{content:""; display:block; height:100px;}
 </style>
 </head>
