@@ -275,6 +275,7 @@ f.addEventListener('submit', (e)=>{
   // Fire-and-forget submission
   getRecaptchaToken('long_form').then((token)=>{
     try{
+      const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer to discuss my project and receive a quote.';
       const fd = new FormData();
       fd.set('name', name);
       fd.set('email', email);
@@ -294,7 +295,7 @@ f.addEventListener('submit', (e)=>{
         const el = document.getElementById(id);
         if(el) fd.set(k, s(el.value));
       }
-      fd.set('consent', consent ? 'yes' : 'no');
+      fd.set('consent', consent ? CONSENT_LABEL : '');
 
       fetch(ENDPOINT, { method:'POST', body:fd, credentials:'omit', keepalive:true });
       try{ if(window.gtag) gtag('event','lead_submit',{form:'long',method:'start_long',page_location:location.href}); }catch(_){}
