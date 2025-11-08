@@ -275,7 +275,7 @@ f.addEventListener('submit', (e)=>{
   // Fire-and-forget submission
   getRecaptchaToken('long_form').then((token)=>{
     try{
-      const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer to discuss my project and receive a quote.';
+      const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.';
       const fd = new FormData();
       fd.set('name', name);
       fd.set('email', email);
