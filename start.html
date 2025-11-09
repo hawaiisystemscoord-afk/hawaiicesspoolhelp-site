@@ -250,67 +250,66 @@ const err = document.getElementById('err');
 const statusLine = document.getElementById('status');
 const btn = document.getElementById('submitBtn');
 
+<script>
+const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.'
+
 f.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  ok.style.display='none';
-  err.style.display='none';
-  statusLine.style.display='none';
+  e.preventDefault()
+  ok.style.display='none'
+  err.style.display='none'
+  statusLine.style.display='none'
 
-  const name  = s(document.getElementById('name').value);
-  const email = s(document.getElementById('email').value);
-  const consent = document.getElementById('consent').checked;
+  const name  = s(document.getElementById('name').value)
+  const email = s(document.getElementById('email').value)
+  const phone = s(document.getElementById('phone').value)
+  const address = s(document.getElementById('address').value)
+  const tmk   = s(document.getElementById('tmk').value)
+  const ptype = s(document.getElementById('ptype').value)
+  const notes = s(document.getElementById('notes').value)
+  const source = s(document.getElementById('source').value)
+  const consentChecked = document.getElementById('consent').checked
+  const company = s(document.getElementById('miniCompany').value)
 
-  if(!name || !email || !validEmail(email) || !consent){
-    err.textContent = 'Please enter name, valid email, and consent.';
-    err.style.display = 'block';
-    const firstInvalid = !name ? 'name' : !validEmail(email) ? 'email' : 'consent';
-    document.getElementById(firstInvalid).focus();
-    return;
+  if(!name || !email || !validEmail(email) || !consentChecked){
+    err.textContent = 'Please enter name, valid email, and consent.'
+    err.style.display = 'block'
+    return
   }
 
-  btn.disabled = true;
-  btn.textContent = 'Submitting…';
-  statusLine.textContent = 'Submitting…';
-  statusLine.style.display = 'block';
+  const original = btn.textContent
+  btn.disabled = true
+  btn.textContent = 'Submitting…'
+  statusLine.textContent = 'Submitting…'
+  statusLine.style.display = 'block'
 
   getRecaptchaToken('long_form').then((token)=>{
-    try{
-      const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.';
-      const fd = new FormData();
-      fd.set('name', name);
-      fd.set('email', email);
-      fd.set('company', s(document.getElementById('miniCompany').value)); // honeypot
-      fd.set('v','v');
-      fd.set('recaptcha_v3', token);
+    const fd = new FormData()
+    fd.set('name', name)
+    fd.set('email', email)
+    fd.set('phone', phone)
+    fd.set('address', address)
+    fd.set('tmk', tmk)
+    fd.set('property', ptype)
+    fd.set('message', notes)
+    fd.set('referral', source)
+    fd.set('consent', consentChecked ? CONSENT_LABEL : '')
+    fd.set('company', company)              // honeypot
+    fd.set('recaptcha_v3', token)
 
-      const map = [
-        ['phone','phone'],
-        ['address','address'],
-        ['tmk','tmk'],
-        ['property','ptype'],
-        ['message','notes'],
-        ['referral','source']
-      ];
-      for(const [k,id] of map){
-        const el = document.getElementById(id);
-        if(el) fd.set(k, s(el.value));
-      }
-      fd.set('consent', consent ? CONSENT_LABEL : '');
-
-      fetch(ENDPOINT, { method:'POST', body:fd, credentials:'omit', keepalive:true })
-        .catch(()=>{});
-      try{ if(window.gtag) gtag('event','lead_submit',{form:'long',method:'start_long',page_location:location.href}); }catch(_){}
-    }catch(_){}
-  });
+    fetch(ENDPOINT, { method:'POST', body:fd, credentials:'omit', keepalive:true })
+      .then(()=>{})
+      .catch(()=>{})
+  })
 
   setTimeout(()=>{
-    try{ btn.textContent='Submitted'; }catch(_){}
-    statusLine.textContent='Received. Redirecting…';
-    window.location.href = '/thankyou.html';
-  }, 500);
-});
+    try{ btn.textContent='Submitted' }catch(_){}
+    statusLine.textContent='Received. Redirecting…'
+    window.location.href = '/thankyou.html'
+  }, 500)
+})
 </script>
 
+  
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
