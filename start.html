@@ -279,6 +279,7 @@ f.addEventListener('submit', async (e)=>{
   fd.set('referral', source);
   fd.set('consent', consentChecked ? CONSENT_LABEL : '');
   fd.set('company', company);           // honeypot
+  fd.set('_long', '1')                    // <— force long form
   fd.set('recaptcha_v3', token);
 
   try{
