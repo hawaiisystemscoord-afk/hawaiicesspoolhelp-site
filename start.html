@@ -30,25 +30,21 @@
 <meta property="og:url" content="https://www.hawaiicesspoolhelp.com/start.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp">
 
+<!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KX4BDJ7PYC"></script>
 <script>
-window.dataLayer = window.dataLayer || []
-function gtag(){ dataLayer.push(arguments) }
-gtag('js', new Date())
-gtag('config', 'G-KX4BDJ7PYC')
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KX4BDJ7PYC');
 </script>
 
+<!-- reCAPTCHA v3 -->
 <script src="https://www.google.com/recaptcha/api.js?render=6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW" async defer></script>
 
 <style>
-:root{
- --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
- --green:#0A7A58; --deep:#0F2D25; --coral:#A32A19;
- --ink:#111; --bg:#f7f7f7; --card:#fff;
- --radius:14px; --shadow:0 10px 26px rgba(0,0,0,.07);
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
+:root{--font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--green:#0A7A58;--deep:#0F2D25;--coral:#A32A19;--ink:#111;--bg:#f7f7f7;--card:#fff;--radius:14px;--shadow:0 10px 26px rgba(0,0,0,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
 a{color:var(--green);text-decoration:none;outline:none;transition:box-shadow .2s, outline .2s}
 a:focus{outline:2px solid #0A7A58;outline-offset:3px;box-shadow:0 0 0 3px rgba(10,122,88,.4)}
 a:hover{color:#0c9c6c}
@@ -84,7 +80,6 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
 footer a{color:#a1f0d3;outline:none;transition:box-shadow .2s, outline .2s}
 footer a:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
 footer a:hover{color:#c2fff0}
-.grecaptcha-badge{visibility:hidden!important}
 </style>
 </head>
 <body>
@@ -103,30 +98,14 @@ footer a:hover{color:#c2fff0}
     <h2>Tell us about your project</h2>
     <p class="lead">Takes about 2 minutes.</p>
 
+    <!-- JS handles submission; no PII in URL -->
     <form id="longForm" class="grid grid-2" action="javascript:void(0)" method="post" novalidate>
-      <div>
-        <label for="name">Full name</label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-      </div>
-      <div>
-        <label for="phone">Contact number</label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-        <div class="helper">Mobile is best for quick follow ups.</div>
-      </div>
-      <div>
-        <label for="address">Site address</label>
-        <input id="address" name="address" type="text" autocomplete="address-line1">
-      </div>
-      <div>
-        <label for="tmk">TMK</label>
-        <input id="tmk" name="tmk" type="text" placeholder="3-1-2-345-001" inputmode="numeric">
-      </div>
-      <div>
-        <label for="ptype">Property type</label>
+      <div><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="phone">Contact number</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"><div class="helper">Mobile is best for quick follow ups.</div></div>
+      <div><label for="address">Site address</label><input id="address" name="address" type="text" autocomplete="address-line1"></div>
+      <div><label for="tmk">TMK</label><input id="tmk" name="tmk" type="text" placeholder="3-1-2-345-001" inputmode="numeric"></div>
+      <div><label for="ptype">Property type</label>
         <select id="ptype" name="property">
           <option value="" selected>Select one</option>
           <option>Single-family Home</option>
@@ -141,10 +120,7 @@ footer a:hover{color:#c2fff0}
         <label for="notes">Message or notes</label>
         <textarea id="notes" name="message" placeholder="Optional details about your site, timing, or goals."></textarea>
       </div>
-      <div>
-        <label for="source">How did you hear about us</label>
-        <input id="source" name="referral" type="text" placeholder="Friend, contractor, web search, flyer, etc.">
-      </div>
+      <div><label for="source">How did you hear about us</label><input id="source" name="referral" type="text" placeholder="Friend, contractor, web search, flyer, etc."></div>
       <div class="grid" style="grid-column:1/-1">
         <label class="consent">
           <input id="consent" name="consent" type="checkbox" value="I agree to be contacted by a licensed engineer or installer to discuss my project." required>
@@ -152,6 +128,7 @@ footer a:hover{color:#c2fff0}
         </label>
       </div>
 
+      <!-- Honeypot -->
       <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="actions" style="grid-column:1/-1">
@@ -181,109 +158,120 @@ footer a:hover{color:#c2fff0}
     <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
     apply.
   </div>
+  <style>.grecaptcha-badge{visibility:hidden!important}</style>
 </footer>
 
 <script>
 // year
-document.getElementById('y').textContent = new Date().getFullYear()
+document.getElementById('y').textContent = new Date().getFullYear();
 
 // endpoint
-const ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMIk-9VbpveG45R2Jf5HOUVTvSr6LIbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec'
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMIk-9VbpveG45R2Jf5HOUVTvSr6LIbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec';
 
-// validators
-function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) }
-function s(x){ return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').trim() }
+function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+function s(x){ return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').trim(); }
 
 // prefill
-;(function(){
-  try{
-    const n = sessionStorage.getItem('lead_name') || ''
-    const m = sessionStorage.getItem('lead_email') || ''
-    if(n) document.getElementById('name').value = n
-    if(m) document.getElementById('email').value = m
-  }catch(_){}
-})()
+try{
+  const n = sessionStorage.getItem('lead_name') || '';
+  const m = sessionStorage.getItem('lead_email') || '';
+  if(n) document.getElementById('name').value = n;
+  if(m) document.getElementById('email').value = m;
+}catch(_){}
 
-// recaptcha helper
+// reCAPTCHA helper
 function getRecaptchaToken(action){
-  const MAX = 1200
+  const MAX = 1200;
   return new Promise((resolve)=>{
-    let done=false
-    const t=setTimeout(()=>{ if(!done){ done=true; resolve('') } }, MAX)
+    let done=false;
+    const t=setTimeout(()=>{ if(!done){ done=true; resolve(''); } }, MAX);
     try{
       if(window.grecaptcha && grecaptcha.execute){
-        grecaptcha.execute('6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW', {action})
-          .then(tok=>{ if(!done){ done=true; clearTimeout(t); resolve(tok||'') } })
-          .catch(()=>{ if(!done){ done=true; clearTimeout(t); resolve('') } })
+        grecaptcha.execute('6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW', {action}).then(tok=>{
+          if(!done){ done=true; clearTimeout(t); resolve(tok||''); }
+        }).catch(()=>{ if(!done){ done=true; clearTimeout(t); resolve(''); } });
       }else{
-        if(!done){ done=true; clearTimeout(t); resolve('') }
+        if(!done){ done=true; clearTimeout(t); resolve(''); }
       }
     }catch(_){
-      if(!done){ done=true; clearTimeout(t); resolve('') }
+      if(!done){ done=true; clearTimeout(t); resolve(''); }
     }
-  })
+  });
 }
 
-const f = document.getElementById('longForm')
-const ok = document.getElementById('ok')
-const err = document.getElementById('err')
-const statusLine = document.getElementById('status')
-const btn = document.getElementById('submitBtn')
-const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.'
+const f = document.getElementById('longForm');
+const ok = document.getElementById('ok');
+const err = document.getElementById('err');
+const statusLine = document.getElementById('status');
+const btn = document.getElementById('submitBtn');
 
-f.addEventListener('submit', (e)=>{
-  e.preventDefault()
-  ok.style.display='none'
-  err.style.display='none'
-  statusLine.style.display='none'
+const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.';
 
-  const name  = s(document.getElementById('name').value)
-  const email = s(document.getElementById('email').value)
-  const phone = s(document.getElementById('phone').value)
-  const address = s(document.getElementById('address').value)
-  const tmk   = s(document.getElementById('tmk').value)
-  const ptype = s(document.getElementById('ptype').value)
-  const notes = s(document.getElementById('notes').value)
-  const source = s(document.getElementById('source').value)
-  const consentChecked = document.getElementById('consent').checked
-  const company = s(document.getElementById('miniCompany').value)
+f.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  ok.style.display='none'; err.style.display='none'; statusLine.style.display='none';
+
+  const name  = s(document.getElementById('name').value);
+  const email = s(document.getElementById('email').value);
+  const phone = s(document.getElementById('phone').value);
+  const address = s(document.getElementById('address').value);
+  const tmk   = s(document.getElementById('tmk').value);
+  const ptype = s(document.getElementById('ptype').value);
+  const notes = s(document.getElementById('notes').value);
+  const source = s(document.getElementById('source').value);
+  const consentChecked = document.getElementById('consent').checked;
+  const company = s(document.getElementById('miniCompany').value);
 
   if(!name || !email || !validEmail(email) || !consentChecked){
-    err.textContent = 'Please enter name, valid email, and consent.'
-    err.style.display = 'block'
-    return
+    err.textContent = 'Please enter name, valid email, and consent.';
+    err.style.display = 'block';
+    return;
+  }
+  if(company){ // bot
+    window.location.href='/thankyou.html';
+    return;
   }
 
-  const original = btn.textContent
-  btn.disabled = true
-  btn.textContent = 'Submitting…'
-  statusLine.textContent = 'Submitting…'
-  statusLine.style.display = 'block'
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+  statusLine.textContent = 'Submitting…';
+  statusLine.style.display = 'block';
 
-  getRecaptchaToken('long_form').then((token)=>{
-    const fd = new FormData()
-    fd.set('name', name)
-    fd.set('email', email)
-    fd.set('phone', phone)
-    fd.set('address', address)
-    fd.set('tmk', tmk)
-    fd.set('property', ptype)
-    fd.set('message', notes)
-    fd.set('referral', source)
-    fd.set('consent', consentChecked ? CONSENT_LABEL : '')
-    fd.set('company', company)
-    fd.set('recaptcha_v3', token)
+  const token = await getRecaptchaToken('long_form');
 
-    fetch(ENDPOINT, { method:'POST', body:fd, credentials:'omit', keepalive:true })
-      .catch(()=>{})
-  })
+  // send as application/x-www-form-urlencoded (Apps Script reads this reliably)
+  const params = new URLSearchParams({
+    name, email, phone, address, tmk,
+    property: ptype,
+    message: notes,
+    referral: source,
+    consent: consentChecked ? CONSENT_LABEL : '',
+    recaptcha_v3: token
+  });
 
-  setTimeout(()=>{
-    try{ btn.textContent='Submitted' }catch(_){}
-    statusLine.textContent='Received. Redirecting…'
-    window.location.href = '/thankyou.html'
-  }, 500)
-})
+  try{
+    const res = await fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body: params.toString(),
+      credentials: 'omit'
+    });
+    if(res.ok){
+      statusLine.textContent='Received. Redirecting…';
+      ok.style.display='block';
+      setTimeout(()=>{ window.location.href='/thankyou.html'; }, 350);
+    }else{
+      err.textContent='Server error. Please try again.';
+      err.style.display='block';
+      btn.disabled=false; btn.textContent=original; statusLine.style.display='none';
+    }
+  }catch(_){
+    err.textContent='Network error. Please try again.';
+    err.style.display='block';
+    btn.disabled=false; btn.textContent=original; statusLine.style.display='none';
+  }
+});
 </script>
 
 <script type="application/ld+json">
@@ -295,14 +283,14 @@ f.addEventListener('submit', (e)=>{
   "email": "info@hawaiicesspoolhelp.com",
   "image": "https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp",
   "areaServed": ["Kona","Hilo","Waimea","Kohala","Puna","Kaʻū"],
-  "serviceArea": { "@type": "Place", "name": "Hawaiʻi Island (Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū)" },
+  "serviceArea": {"@type":"Place","name":"Hawaiʻi Island (Kona, Hilo, Waimea, Kohala, Puna, and Kaʻū)"},
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"13:00"}
   ],
-  "telephone": "+1-808-657-6953",
-  "description": "Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
-  "sameAs": []
+  "telephone":"+1-808-657-6953",
+  "description":"Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
+  "sameAs":[]
 }
 </script>
 </body>
