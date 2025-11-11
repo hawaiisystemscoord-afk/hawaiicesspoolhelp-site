@@ -90,10 +90,10 @@ textarea{resize:vertical;min-height:100px}
 .consent{display:flex;align-items:flex-start;gap:10px}
 .consent input{width:auto;margin-top:3px}
 
-/* original .actions kept intact for theme consistency */
+/* original .actions kept intact */
 .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
 
-/* step-aware action rows that still look like your theme */
+/* step-aware action rows */
 .actions-ctl{display:grid;gap:10px;margin-top:8px}
 @media(min-width:640px){
   .actions-ctl{grid-template-columns:1fr 1fr 1fr;align-items:center}
@@ -101,11 +101,13 @@ textarea{resize:vertical;min-height:100px}
   .actions-ctl .center{justify-self:center}
   .actions-ctl .right{justify-self:end}
 }
+/* Mobile: stack and order = primary(top) -> home -> back */
 @media(max-width:639px){
-  .actions-ctl{grid-template-columns:1fr}
-  .actions-ctl .primary{grid-row:1}
-  .actions-ctl .row2{display:flex;gap:10px;justify-content:space-between}
-  .actions-ctl .row2 .btn{flex:1}
+  .actions-ctl{display:flex;flex-direction:column}
+  .actions-ctl .btn{width:100%}
+  .actions-ctl .primary{order:1}
+  .actions-ctl .home{order:2}
+  .actions-ctl .back{order:3}
 }
 
 small.privacy{display:block;text-align:center;color:#53635e;margin-top:8px}
@@ -135,8 +137,12 @@ footer a:hover{color:#c2fff0}
 }
 .progress-wrap{position:relative}
 .progress-fill{height:44px;background:#A32A19;width:33.3333%;transition:width .25s}
-.progress-text{position:absolute;inset:0;display:grid;place-items:center;
-  font-weight:900;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.25)}
+/* Updated: make text readable on both the light track and coral fill */
+.progress-text{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-weight:900;color:#0F2D25;
+  text-shadow:0 1px 1px rgba(255,255,255,.45), 0 -1px 1px rgba(255,255,255,.2)
+}
 @supports(padding: env(safe-area-inset-bottom)){
   .progress-sticky{bottom:calc(env(safe-area-inset-bottom) + 16px)}
 }
@@ -161,7 +167,6 @@ body::after{content:"";display:block;height:100px}
     <p class="lead">Takes about 2 minutes.</p>
 
     <!-- JS handles submission; no PII in URL -->
-    <!-- Restructured into three client side steps; ids and names unchanged -->
     <form id="longForm" class="grid" action="#" method="post" novalidate>
 
       <!-- Step 1: Full name, Email, Contact number -->
@@ -184,12 +189,11 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Actions Step 1: Home center, Next right -->
+        <!-- Actions Step 1: Home middle, Next right on desktop; Next top then Home on mobile -->
         <div class="actions-ctl" aria-label="Step 1 actions">
           <div class="left" aria-hidden="true"></div>
-          <a class="btn center" id="home1" href="/">Home</a>
-          <button class="btn right" type="button" id="next1">Next</button>
-          <div class="row2" aria-hidden="true" style="display:none"></div>
+          <a class="btn center home" id="home1" href="/">Home</a>
+          <button class="btn right primary" type="button" id="next1">Next</button>
         </div>
       </div>
 
@@ -218,12 +222,11 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Actions Step 2: Back left, Home center, Next right -->
+        <!-- Actions Step 2: Back left, Home center, Next right; mobile = Next, Home, Back -->
         <div class="actions-ctl" aria-label="Step 2 actions">
-          <button class="btn left" type="button" id="back2">Back</button>
-          <a class="btn center" id="home2" href="/">Home</a>
-          <button class="btn right" type="button" id="next2">Next</button>
-          <div class="row2" aria-hidden="true" style="display:none"></div>
+          <button class="btn left back" type="button" id="back2">Back</button>
+          <a class="btn center home" id="home2" href="/">Home</a>
+          <button class="btn right primary" type="button" id="next2">Next</button>
         </div>
       </div>
 
@@ -247,27 +250,25 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Honeypot (unchanged) -->
+        <!-- Honeypot -->
         <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-        <!-- Actions Step 3: Back left, Home center, Submit right -->
+        <!-- Actions Step 3: Back left, Home center, Submit right; mobile = Submit, Home, Back -->
         <div class="actions-ctl" aria-label="Step 3 actions">
-          <button class="btn left" type="button" id="back3">Back</button>
-          <a class="btn center" id="home3" href="/">Home</a>
-          <button id="submitBtn" class="btn right" type="submit" disabled>Submit</button>
-          <div class="row2" aria-hidden="true" style="display:none"></div>
+          <button class="btn left back" type="button" id="back3">Back</button>
+          <a class="btn center home" id="home3" href="/">Home</a>
+          <button id="submitBtn" class="btn right primary" type="submit" disabled>Submit</button>
         </div>
 
         <small class="privacy" style="grid-column:1/-1">Shared only with one licensed engineer and any installer you choose. Never sold.</small>
       </div>
 
-      <!-- Status boxes kept at end so JS continues to find them -->
+      <!-- Status boxes -->
       <div id="status" role="status" aria-live="polite" class="success" style="display:none;"></div>
       <div id="ok" class="success" style="display:none;">Thanks. Your details were sent.</div>
       <div id="err" class="error" style="display:none;">There was a problem. Please try again.</div>
     </form>
 
-    <!-- aria-live for step announcements -->
     <div id="stepLive" aria-live="polite" style="position:absolute;left:-9999px;height:1px;width:1px;overflow:hidden">Step 1 of 3</div>
   </article>
 </main>
@@ -342,7 +343,7 @@ function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').tri
   });
 })();
 
-// reCAPTCHA with short timeout so UI never stalls (unchanged)
+// reCAPTCHA with short timeout so UI never stalls
 function getRecaptchaToken(action){
   const MAX = 1200;
   return new Promise((resolve)=>{
@@ -478,12 +479,11 @@ function hasAnyInput(){
   });
 });
 
-// Submit handler (kept as original flow with status text)
+// Submit handler (unchanged behavior)
 f.addEventListener('submit', (e)=>{
   e.preventDefault();
   ok.style.display='none'; err.style.display='none'; statusLine.style.display='none';
 
-  // Require consent
   const consent = document.getElementById('consent').checked;
   if(!consent){
     markInvalid(document.getElementById('consent'),'hint-consent',true);
@@ -493,7 +493,6 @@ f.addEventListener('submit', (e)=>{
     return;
   }
 
-  // Guard in case of jump
   const name  = s(document.getElementById('name').value);
   const email = s(document.getElementById('email').value);
   if(!name || !email || !validEmail(email)){
@@ -511,7 +510,6 @@ f.addEventListener('submit', (e)=>{
   // Fire-and-forget submission
   getRecaptchaToken('long_form').then((token)=>{
     try{
-      // Keep EXACT backend label for Google Form mapping
       const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.';
       const fd = new FormData();
       fd.set('name', name);
