@@ -56,7 +56,11 @@ a{color:var(--green);text-decoration:none;outline:none;transition:box-shadow .2s
 a:focus{outline:2px solid #0A7A58;outline-offset:3px;box-shadow:0 0 0 3px rgba(10,122,88,.4)}
 a:hover{color:#0c9c6c}
 img{max-width:100%;display:block}
-.btn{display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);font-weight:800;font-size:1rem;line-height:1.2;white-space:nowrap;transition:.15s;border:0;cursor:pointer}
+.btn{
+  display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);
+  font-weight:800;font-size:1rem;line-height:1.2;white-space:nowrap;transition:.15s;border:0;cursor:pointer;
+  text-align:center; /* ensure centered label */
+}
 .btn[disabled]{opacity:.7;cursor:not-allowed;transform:none}
 .btn:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
 .btn:hover{transform:translateY(-1px)}
@@ -104,7 +108,7 @@ textarea{resize:vertical;min-height:100px}
 /* Mobile: stack and order = primary(top) -> home -> back, centered */
 @media(max-width:639px){
   .actions-ctl{display:flex;flex-direction:column;align-items:center}
-  .actions-ctl .btn{width:90%;margin:0 auto}
+  .actions-ctl .btn{width:90%;margin:0 auto;display:flex;justify-content:center;align-items:center} /* hard center */
   .actions-ctl .primary{order:1}
   .actions-ctl .home{order:2}
   .actions-ctl .back{order:3}
@@ -137,14 +141,13 @@ footer a:hover{color:#c2fff0}
 }
 .progress-wrap{position:relative}
 .progress-fill{height:44px;background:#A32A19;width:33.3333%;transition:width .25s}
-/* Bigger, higher-contrast outline for readability on both track and fill */
+/* Revert to the softer outline/glow from earlier */
 .progress-text{
   position:absolute;inset:0;display:grid;place-items:center;
   font-weight:900;color:#0F2D25;
-  -webkit-text-stroke:0.75px rgba(255,255,255,.9);
+  -webkit-text-stroke:0.5px rgba(255,255,255,.8);
   text-shadow:
-    0 0 4px rgba(255,255,255,.85),
-    0 0 8px rgba(255,255,255,.6),
+    0 1px 1px rgba(255,255,255,.65),
     0 1px 2px rgba(0,0,0,.18);
 }
 @supports(padding: env(safe-area-inset-bottom)){
