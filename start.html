@@ -101,10 +101,10 @@ textarea{resize:vertical;min-height:100px}
   .actions-ctl .center{justify-self:center}
   .actions-ctl .right{justify-self:end}
 }
-/* Mobile: stack and order = primary(top) -> home -> back */
+/* Mobile: stack and order = primary(top) -> home -> back, centered */
 @media(max-width:639px){
-  .actions-ctl{display:flex;flex-direction:column}
-  .actions-ctl .btn{width:100%}
+  .actions-ctl{display:flex;flex-direction:column;align-items:center}
+  .actions-ctl .btn{width:90%;margin:0 auto}
   .actions-ctl .primary{order:1}
   .actions-ctl .home{order:2}
   .actions-ctl .back{order:3}
@@ -137,11 +137,15 @@ footer a:hover{color:#c2fff0}
 }
 .progress-wrap{position:relative}
 .progress-fill{height:44px;background:#A32A19;width:33.3333%;transition:width .25s}
-/* Updated: make text readable on both the light track and coral fill */
+/* Bigger, higher-contrast outline for readability on both track and fill */
 .progress-text{
   position:absolute;inset:0;display:grid;place-items:center;
   font-weight:900;color:#0F2D25;
-  text-shadow:0 1px 1px rgba(255,255,255,.45), 0 -1px 1px rgba(255,255,255,.2)
+  -webkit-text-stroke:0.75px rgba(255,255,255,.9);
+  text-shadow:
+    0 0 4px rgba(255,255,255,.85),
+    0 0 8px rgba(255,255,255,.6),
+    0 1px 2px rgba(0,0,0,.18);
 }
 @supports(padding: env(safe-area-inset-bottom)){
   .progress-sticky{bottom:calc(env(safe-area-inset-bottom) + 16px)}
@@ -189,7 +193,7 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Actions Step 1: Home middle, Next right on desktop; Next top then Home on mobile -->
+        <!-- Actions Step 1 -->
         <div class="actions-ctl" aria-label="Step 1 actions">
           <div class="left" aria-hidden="true"></div>
           <a class="btn center home" id="home1" href="/">Home</a>
@@ -222,7 +226,7 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Actions Step 2: Back left, Home center, Next right; mobile = Next, Home, Back -->
+        <!-- Actions Step 2 -->
         <div class="actions-ctl" aria-label="Step 2 actions">
           <button class="btn left back" type="button" id="back2">Back</button>
           <a class="btn center home" id="home2" href="/">Home</a>
@@ -253,7 +257,7 @@ body::after{content:"";display:block;height:100px}
         <!-- Honeypot -->
         <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-        <!-- Actions Step 3: Back left, Home center, Submit right; mobile = Submit, Home, Back -->
+        <!-- Actions Step 3 -->
         <div class="actions-ctl" aria-label="Step 3 actions">
           <button class="btn left back" type="button" id="back3">Back</button>
           <a class="btn center home" id="home3" href="/">Home</a>
