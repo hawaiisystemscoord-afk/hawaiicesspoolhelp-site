@@ -59,7 +59,7 @@ img{max-width:100%;display:block}
 .btn{
   display:inline-block;background:var(--coral);color:#fff;padding:10px 20px;border-radius:var(--radius);
   font-weight:800;font-size:1rem;line-height:1.2;white-space:nowrap;transition:.15s;border:0;cursor:pointer;
-  text-align:center; /* ensure centered label */
+  text-align:center;
 }
 .btn[disabled]{opacity:.7;cursor:not-allowed;transform:none}
 .btn:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
@@ -108,7 +108,7 @@ textarea{resize:vertical;min-height:100px}
 /* Mobile: stack and order = primary(top) -> home -> back, centered */
 @media(max-width:639px){
   .actions-ctl{display:flex;flex-direction:column;align-items:center}
-  .actions-ctl .btn{width:90%;margin:0 auto;display:flex;justify-content:center;align-items:center} /* hard center */
+  .actions-ctl .btn{width:90%;margin:0 auto;display:flex;justify-content:center;align-items:center}
   .actions-ctl .primary{order:1}
   .actions-ctl .home{order:2}
   .actions-ctl .back{order:3}
@@ -141,14 +141,10 @@ footer a:hover{color:#c2fff0}
 }
 .progress-wrap{position:relative}
 .progress-fill{height:44px;background:#A32A19;width:33.3333%;transition:width .25s}
-/* Revert to the softer outline/glow from earlier */
+/* No glow, plain theme color text */
 .progress-text{
   position:absolute;inset:0;display:grid;place-items:center;
-  font-weight:900;color:#0F2D25;
-  -webkit-text-stroke:0.5px rgba(255,255,255,.8);
-  text-shadow:
-    0 1px 1px rgba(255,255,255,.65),
-    0 1px 2px rgba(0,0,0,.18);
+  font-weight:900;color:var(--deep);
 }
 @supports(padding: env(safe-area-inset-bottom)){
   .progress-sticky{bottom:calc(env(safe-area-inset-bottom) + 16px)}
@@ -176,7 +172,7 @@ body::after{content:"";display:block;height:100px}
     <!-- JS handles submission; no PII in URL -->
     <form id="longForm" class="grid" action="#" method="post" novalidate>
 
-      <!-- Step 1: Full name, Email, Contact number -->
+      <!-- Step 1: Full name, Email, Contact number, Consent -->
       <div class="step active" id="step1" data-step="1" aria-labelledby="step1label">
         <div class="grid grid-2">
           <div>
@@ -194,13 +190,21 @@ body::after{content:"";display:block;height:100px}
             <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
             <div class="helper">Mobile is best for quick follow ups.</div>
           </div>
+
+          <div class="grid" style="grid-column:1/-1">
+            <label class="consent">
+              <input id="consent" name="consent" type="checkbox" value="I agree to be contacted" required>
+              <span>I agree to be contacted by a licensed engineer, installer, or Hawaii Cesspool Help about my project by text, phone call, or email.</span>
+            </label>
+            <div class="field-hint" id="hint-consent">Please agree to be contacted.</div>
+          </div>
         </div>
 
         <!-- Actions Step 1 -->
         <div class="actions-ctl" aria-label="Step 1 actions">
           <div class="left" aria-hidden="true"></div>
           <a class="btn center home" id="home1" href="/">Home</a>
-          <button class="btn right primary" type="button" id="next1">Next</button>
+          <button class="btn right primary" type="button" id="next1" disabled>Next</button>
         </div>
       </div>
 
@@ -237,7 +241,7 @@ body::after{content:"";display:block;height:100px}
         </div>
       </div>
 
-      <!-- Step 3: Message or notes, How did you hear, Consent checkbox -->
+      <!-- Step 3: Message or notes, How did you hear -->
       <div class="step" id="step3" data-step="3" aria-labelledby="step3label">
         <div class="grid grid-2">
           <div class="grid" style="grid-column:1/-1">
@@ -247,13 +251,6 @@ body::after{content:"";display:block;height:100px}
           <div>
             <label for="source">How did you hear about us</label>
             <input id="source" name="referral" type="text" placeholder="Friend, contractor, web search, flyer, etc.">
-          </div>
-          <div class="grid" style="grid-column:1/-1">
-            <label class="consent">
-              <input id="consent" name="consent" type="checkbox" value="I agree to be contacted" required>
-              <span>I agree to be contacted by a licensed engineer, installer, or Hawaii Cesspool Help about my project by text, phone call, or email.</span>
-            </label>
-            <div class="field-hint" id="hint-consent">Please agree to be contacted.</div>
           </div>
         </div>
 
@@ -344,7 +341,8 @@ function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').tri
         sessionStorage.setItem('sf_'+id, el.type==='checkbox' ? (el.checked?'1':'0') : el.value);
         if(id==='name') sessionStorage.setItem('lead_name', el.value||'');
         if(id==='email') sessionStorage.setItem('lead_email', el.value||'');
-        if(id==='consent') toggleSubmit();
+        if(id==='consent'){ toggleSubmit(); toggleNext1(); }
+        if(id==='name' || id==='email') toggleNext1();
       });
     }catch(_){}
   });
@@ -414,16 +412,22 @@ function markInvalid(el, hintId, on){
 function validateStep1(){
   const name = s(document.getElementById('name').value);
   const email = s(document.getElementById('email').value);
+  const consent = document.getElementById('consent').checked;
   let bad = false;
   if(!name){ bad=true; markInvalid(document.getElementById('name'),'hint-name',true); }
   else markInvalid(document.getElementById('name'),'hint-name',false);
   if(!email || !validEmail(email)){ bad=true; markInvalid(document.getElementById('email'),'hint-email',true); }
   else markInvalid(document.getElementById('email'),'hint-email',false);
+  if(!consent){ bad=true; markInvalid(document.getElementById('consent'),'hint-consent',true); }
+  else markInvalid(document.getElementById('consent'),'hint-consent',false);
+
   if(bad){
-    err.textContent='Please enter name and a valid email.';
+    err.textContent='Please enter name, a valid email, and agree to be contacted.';
     err.style.display='block';
     statusLine.style.display='none';
-    ( !name ? document.getElementById('name') : document.getElementById('email') ).focus();
+    if(!name) document.getElementById('name').focus();
+    else if(!validEmail(email)) document.getElementById('email').focus();
+    else document.getElementById('consent').focus();
     return false;
   }
   err.style.display='none';
@@ -433,7 +437,14 @@ function validateStep1(){
 function toggleSubmit(){
   const consent = document.getElementById('consent').checked;
   if(btn) btn.disabled = !consent;
-  markInvalid(document.getElementById('consent'),'hint-consent', !consent && current===2);
+  if(current===2) markInvalid(document.getElementById('consent'),'hint-consent', !consent);
+}
+function toggleNext1(){
+  const name = s(document.getElementById('name').value);
+  const email = s(document.getElementById('email').value);
+  const consent = document.getElementById('consent').checked;
+  const next1 = document.getElementById('next1');
+  if(next1) next1.disabled = !(name && validEmail(email) && consent);
 }
 
 // Short lead once on Step 1 → Next
@@ -486,7 +497,7 @@ function hasAnyInput(){
   });
 });
 
-// Submit handler (unchanged behavior)
+// Submit handler
 f.addEventListener('submit', (e)=>{
   e.preventDefault();
   ok.style.display='none'; err.style.display='none'; statusLine.style.display='none';
@@ -552,9 +563,10 @@ f.addEventListener('submit', (e)=>{
   }, 500);
 });
 
-// Initial progress and submit state
+// Initial progress and button states
 setProgress(0);
 toggleSubmit();
+toggleNext1();
 </script>
 
 <script type="application/ld+json">
