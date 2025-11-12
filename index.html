@@ -21,6 +21,10 @@
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 
@@ -64,7 +68,18 @@ a{color:var(--green);text-decoration:none}
   backface-visibility:hidden; will-change:transform;
 }
 .btn:hover{transform:translateY(-1px)}
+/* Footer social icon styles */
+.footer-social a {
+  text-decoration: none;
+  color: #ffffff;             /* white icon on dark footer */
+  font-size: 30px;
+  margin: 0 6px;
+  transition: color 0.3s ease;
+}
 
+.footer-social a:hover {
+  color: #E56A54;             /* coral hover accent */
+}
 /* HERO */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
@@ -245,6 +260,13 @@ body::after { content:""; display:block; height:100px }
   <div><a href="/privacy.html">Privacy Policy</a></div>
   <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
   <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
+  <div class="footer-social" style="text-align:center; margin-top:10px;">
+  <a href="https://www.facebook.com/hawaiicesspoolhelp"
+     target="_blank"
+     rel="noopener noreferrer">
+    <i class="fab fa-facebook-square"></i>
+  </a>
+  </div>
   <div style="font-size:13px;color:#555;margin-top:6px">
     This site is protected by Google reCAPTCHA and the
     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
