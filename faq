@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mahalo | Hawaii Cesspool Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/thankyou.html">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+ <style>
+:root{--font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--green:#0A7A58;--deep:#0F2D25}
+body{margin:0;font-family:var(--font);background:#f7f7f7;color:#111;line-height:1.55}
+header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
+.hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
+.hero-inner{position:relative;z-index:1;padding:120px 20px 80px;max-width:900px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+.hero h1{margin:0;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;color:#fafafa}
+.hero p{margin:14px auto 0;max-width:700px;color:#eaf6f1;font-size:1.1rem}
+footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:80px}
+footer a{color:#a1f0d3;outline:none;transition:box-shadow .2s, outline .2s}
+footer a:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
+footer a:hover{color:#c2fff0}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="hero-inner">
+  <h1>FAQ</h1>
+  <p>Under Construction</p>
+ </div>
+</header>
+<footer>
+  <div>Hawaii Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
+  <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun closed</div>
+  <div><a href="/privacy.html">Privacy Policy</a></div>
+  <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
+  <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
+   <!-- Facebook -->
+  <div class="footer-social" style="text-align:center; margin-top:10px;">
+  <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+     target="_blank" rel="noopener noreferrer"
+     style="display:inline-block; width:36px; height:36px;">
+    <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+         style="fill:#ffffff; transition:fill .2s;">
+      <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+    </svg>
+  </a>
+ <!-- Instagram -->
+  <a href="https://www.instagram.com/hawaiicesspoolhelp"
+   target="_blank" rel="noopener noreferrer"
+   style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+  <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+       viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+    <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+  </svg>
+</a>
+
+
+     </div>
+
+ 
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
