@@ -12,7 +12,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-:root{--font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--green:#0A7A58;--deep:#0F2D25}
+:root{
+  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --green:#0A7A58;
+  --deep:#0F2D25;
+}
+
+/* base */
 body{
   margin:0;
   padding-top:70px;
@@ -60,9 +66,12 @@ footer a:hover{color:#c2fff0}
   width:auto;
   border-radius:6px;
 }
+
+/* desktop only center CTA container, hidden on mobile */
 .navbar-cta{
   display:none;
 }
+
 .nav-toggle{
   background:none;
   border:0;
@@ -71,19 +80,19 @@ footer a:hover{color:#c2fff0}
   cursor:pointer;
 }
 
+/* menu base: mobile first, hidden until burger tapped */
 .nav-menu{
-  position:fixed;
+  position:absolute;
   top:70px;
-  right:0;
   left:0;
-  background:rgba(15,45,37,0.9);
+  right:0;
+  background:rgba(15,45,37,0.95);
   backdrop-filter:blur(8px);
-  transform:translateY(-100%);
-  transition:transform .2s;
+  display:none;
   z-index:9999;
 }
 .nav-menu.open{
-  transform:translateY(0);
+  display:block;
 }
 .nav-menu ul{
   list-style:none;
@@ -105,18 +114,21 @@ footer a:hover{color:#c2fff0}
   background:rgba(255,255,255,.06);
 }
 
-/* Desktop */
+/* Desktop layout */
 @media (min-width:780px){
   .nav-toggle{
     display:none;
   }
+
   .navbar{
     height:70px;
     padding:0 32px;
   }
+
   .navbar-brand{
     flex:0 0 auto;
   }
+
   .navbar-cta{
     flex:1;
     display:flex;
@@ -133,9 +145,10 @@ footer a:hover{color:#c2fff0}
   .navbar-cta a:hover{
     background:#8b2214;
   }
+
   .nav-menu{
     position:static;
-    transform:none;
+    display:block;
     background:transparent;
     backdrop-filter:none;
     flex:0 0 auto;
@@ -152,7 +165,7 @@ footer a:hover{color:#c2fff0}
     padding:0;
   }
 
-  /* HIDE sticky CTA on desktop */
+  /* hide sticky CTA on desktop */
   .sticky-cta{
     display:none !important;
   }
@@ -176,7 +189,11 @@ footer a:hover{color:#c2fff0}
   }
 }
 
-body::after{content:"";display:block;height:100px}
+body::after{
+  content:"";
+  display:block;
+  height:100px;
+}
 
 .btn{
   display:inline-block;
@@ -202,7 +219,7 @@ body::after{content:"";display:block;height:100px}
     <a href="/start.html">Get Help Now</a>
   </div>
 
-  <button class="nav-toggle" onclick="toggleNavMenu()">☰</button>
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
 
   <div class="nav-menu" id="nav-menu">
     <ul>
@@ -222,7 +239,7 @@ body::after{content:"";display:block;height:100px}
  </div>
 </header>
 
-<!-- MOBILE CTA ONLY -->
+<!-- mobile only CTA -->
 <div class="sticky-cta">
   <a href="/start.html" class="btn">Get Help Now</a>
 </div>
@@ -231,7 +248,7 @@ body::after{content:"";display:block;height:100px}
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
   <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
   <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
-  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun closed</div>
+  <div>Hours : Mon Fri 8am 6pm, Sat 9am 1pm, Sun closed</div>
   <div><a href="/privacy.html">Privacy Policy</a></div>
   <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
   <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
@@ -254,7 +271,10 @@ body::after{content:"";display:block;height:100px}
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
 function toggleNavMenu(){
-  document.getElementById('nav-menu').classList.toggle('open');
+  var menu = document.getElementById('nav-menu');
+  if(menu){
+    menu.classList.toggle('open');
+  }
 }
 </script>
 
