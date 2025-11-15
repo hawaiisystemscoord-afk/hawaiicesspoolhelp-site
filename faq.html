@@ -67,7 +67,7 @@ footer a:hover{color:#c2fff0}
   border-radius:6px;
 }
 
-/* desktop only center CTA container, hidden on mobile */
+/* hidden on mobile, used on desktop */
 .navbar-cta{
   display:none;
 }
@@ -130,9 +130,13 @@ footer a:hover{color:#c2fff0}
   }
 
   .navbar-cta{
-    flex:1;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
     display:flex;
+    align-items:center;
     justify-content:center;
+    z-index:10001;
   }
   .navbar-cta a{
     padding:8px 18px;
