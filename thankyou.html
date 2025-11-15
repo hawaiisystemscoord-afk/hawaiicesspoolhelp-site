@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Mahalo | Hawaii Cesspool Help</title>
+<title>Mahalo | Hawaiʻi Cesspool Help</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://www.hawaiicesspoolhelp.com/thankyou.html">
@@ -11,9 +11,22 @@
 <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
- <style>
-:root{--font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--green:#0A7A58;--deep:#0F2D25}
-body{margin:0;font-family:var(--font);background:#f7f7f7;color:#111;line-height:1.55}
+<style>
+:root{
+  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --green:#0A7A58;
+  --deep:#0F2D25;
+}
+
+/* base */
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:var(--font);
+  background:#f7f7f7;
+  color:#111;
+  line-height:1.55;
+}
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
@@ -24,48 +37,256 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
 footer a{color:#a1f0d3;outline:none;transition:box-shadow .2s, outline .2s}
 footer a:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
 footer a:hover{color:#c2fff0}
+
+/* sticky top navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#0F2D25;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10000;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f5fff9;
+  font-weight:800;
+  font-size:1rem;
+  text-decoration:none;
+}
+.navbar-brand img{
+  height:30px;
+  width:auto;
+  border-radius:6px;
+}
+
+/* hidden on mobile, used on desktop */
+.navbar-cta{
+  display:none;
+}
+
+.nav-toggle{
+  background:none;
+  border:0;
+  color:#f5fff9;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* menu base: mobile first */
+.nav-menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(15,45,37,0.95);
+  backdrop-filter:blur(8px);
+  display:none;
+  z-index:9999;
+}
+.nav-menu.open{
+  display:block;
+}
+.nav-menu ul{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+.nav-menu li{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.nav-menu a{
+  display:block;
+  padding:12px 18px;
+  color:#f5fff9;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.98rem;
+}
+.nav-menu a:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* Desktop layout */
+@media (min-width:780px){
+  .nav-toggle{
+    display:none;
+  }
+
+  .navbar{
+    height:70px;
+    padding:0 32px;
+  }
+
+  .navbar-brand{
+    flex:0 0 auto;
+  }
+
+  .navbar-cta{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10001;
+  }
+  .navbar-cta a{
+    padding:8px 18px;
+    border-radius:14px;
+    background:#A32A19;
+    color:#fff;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .navbar-cta a:hover{
+    background:#8b2214;
+  }
+
+  .nav-menu{
+    position:static;
+    display:block;
+    background:transparent;
+    backdrop-filter:none;
+    flex:0 0 auto;
+  }
+  .nav-menu ul{
+    display:flex;
+    gap:18px;
+    padding:0;
+  }
+  .nav-menu li{
+    border:0;
+  }
+  .nav-menu a{
+    padding:0;
+  }
+
+  /* hide sticky CTA on desktop */
+  .sticky-cta{
+    display:none !important;
+  }
+}
+
+/* Mobile sticky CTA */
+@media (max-width:779px){
+  .sticky-cta{
+    position:fixed;
+    left:50%;
+    bottom:20px;
+    transform:translateX(-50%);
+    z-index:9999;
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
+    width:auto;
+    max-width:calc(100vw - 32px);
+    background-color:#A32A19;
+    border-radius:14px;
+    text-align:center;
+    padding:8px 14px;
+  }
+}
+
+body::after{
+  content:"";
+  display:block;
+  height:100px;
+}
+
+.btn{
+  display:inline-block;
+  background:#A32A19;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:14px;
+  font-weight:800;
+  text-decoration:none;
+  font-size:1rem;
+}
 </style>
 </head>
 <body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
+    <span>Hawaiʻi Cesspool Help</span>
+  </a>
+
+  <div class="navbar-cta">
+    <a href="/start.html">Get Help Now</a>
+  </div>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
+
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/start.html">Start</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/guide.html">Guide</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
 <header class="hero">
  <div class="hero-inner">
   <h1>Mahalo</h1>
   <p>Your details have been received. We will contact you to connect you with the right licensed engineer or installer.</p>
  </div>
 </header>
+
+<!-- mobile only CTA -->
+<div class="sticky-cta">
+  <a href="/start.html" class="btn">Get Help Now</a>
+</div>
+
 <footer>
-  <div>Hawaii Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
   <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
   <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
-  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun closed</div>
+  <div>Hours : Mon Fri 8am 6pm, Sat 9am 1pm, Sun closed</div>
   <div><a href="/privacy.html">Privacy Policy</a></div>
   <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
-  <div style="margin-top:8px">© <span id="y"></span> Hawaii Cesspool Help</div>
-   <!-- Facebook -->
+  <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
+
   <div class="footer-social" style="text-align:center; margin-top:10px;">
-  <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
-     target="_blank" rel="noopener noreferrer"
-     style="display:inline-block; width:36px; height:36px;">
-    <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
-         style="fill:#ffffff; transition:fill .2s;">
-      <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
-    </svg>
-  </a>
- <!-- Instagram -->
-  <a href="https://www.instagram.com/hawaiicesspoolhelp"
-   target="_blank" rel="noopener noreferrer"
-   style="display:inline-block; width:36px; height:36px; margin-left:10px;">
-  <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
-       viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
-    <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
-  </svg>
-</a>
-
-
-     </div>
-
- 
+    <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px;">
+      <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+           style="fill:#ffffff; transition:fill .2s;">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/hawaiicesspoolhelp"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+      <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+           viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+        <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+      </svg>
+    </a>
+  </div>
 </footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+function toggleNavMenu(){
+  var menu = document.getElementById('nav-menu');
+  if(menu){
+    menu.classList.toggle('open');
+  }
+}
+</script>
+
 </body>
 </html>
