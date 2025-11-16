@@ -353,7 +353,6 @@ body::after{content:"";display:block;height:100px}
         <!-- Actions Step 1 -->
         <div class="actions-ctl" aria-label="Step 1 actions">
           <div class="left" aria-hidden="true"></div>
-          <a class="btn center home" id="home1" href="/">Home</a>
           <button class="btn right primary" type="button" id="next1" disabled>Next</button>
         </div>
       </div>
@@ -386,7 +385,6 @@ body::after{content:"";display:block;height:100px}
         <!-- Actions Step 2 -->
         <div class="actions-ctl" aria-label="Step 2 actions">
           <button class="btn left back" type="button" id="back2">Back</button>
-          <a class="btn center home" id="home2" href="/">Home</a>
           <button class="btn right primary" type="button" id="next2">Next</button>
         </div>
       </div>
@@ -410,7 +408,6 @@ body::after{content:"";display:block;height:100px}
         <!-- Actions Step 3 -->
         <div class="actions-ctl" aria-label="Step 3 actions">
           <button class="btn left back" type="button" id="back3">Back</button>
-          <a class="btn center home" id="home3" href="/">Home</a>
           <button id="submitBtn" class="btn right primary" type="submit" disabled>Submit</button>
         </div>
 
@@ -654,27 +651,6 @@ document.getElementById('next1').addEventListener('click', ()=>{
 document.getElementById('back2').addEventListener('click', ()=>showStep(0));
 document.getElementById('next2').addEventListener('click', ()=>showStep(2));
 document.getElementById('back3').addEventListener('click', ()=>showStep(1));
-
-// Confirm on Home if any input present
-function hasAnyInput(){
-  const ids=['name','email','phone','address','tmk','ptype','notes','source','consent'];
-  for(const id of ids){
-    const el=document.getElementById(id);
-    if(!el) continue;
-    if(el.type==='checkbox'){ if(el.checked) return true; }
-    else if(s(el.value)) return true;
-  }
-  return false;
-}
-['home1','home2','home3'].forEach(id=>{
-  const link=document.getElementById(id);
-  if(!link) return;
-  link.addEventListener('click', (e)=>{
-    if(!hasAnyInput()) return;
-    const okGo = confirm('Leave this form and go Home? Your inputs will be kept in this browser for now.');
-    if(!okGo){ e.preventDefault(); }
-  });
-});
 
 // Submit handler
 f.addEventListener('submit', (e)=>{
