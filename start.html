@@ -230,19 +230,23 @@ textarea{resize:vertical;min-height:100px}
 
 /* step-aware action rows */
 .actions-ctl{display:grid;gap:10px;margin-top:8px}
+
+/* NEW DESKTOP ACTION LAYOUT */
 @media(min-width:640px){
-  .actions-ctl{grid-template-columns:1fr 1fr 1fr;align-items:center}
+  .actions-ctl{
+    grid-template-columns:1fr auto;
+    align-items:center;
+  }
   .actions-ctl .left{justify-self:start}
-  .actions-ctl .center{justify-self:center}
   .actions-ctl .right{justify-self:end}
 }
-/* Mobile: stack and order = primary(top) -> home -> back, centered */
+
+/* Mobile: stack and order = primary(top) -> back */
 @media(max-width:639px){
   .actions-ctl{display:flex;flex-direction:column;align-items:center}
   .actions-ctl .btn{width:90%;margin:0 auto;display:flex;justify-content:center;align-items:center}
   .actions-ctl .primary{order:1}
-  .actions-ctl .home{order:2}
-  .actions-ctl .back{order:3}
+  .actions-ctl .back{order:2}
 }
 
 small.privacy{display:block;text-align:center;color:#53635e;margin-top:8px}
@@ -272,7 +276,6 @@ footer a:hover{color:#c2fff0}
 }
 .progress-wrap{position:relative}
 .progress-fill{height:44px;background:#A32A19;width:33.3333%;transition:width .25s}
-/* No glow, plain theme color text */
 .progress-text{
   position:absolute;inset:0;display:grid;place-items:center;
   font-weight:900;color:var(--deep);
@@ -280,7 +283,6 @@ footer a:hover{color:#c2fff0}
 @supports(padding: env(safe-area-inset-bottom)){
   .progress-sticky{bottom:calc(env(safe-area-inset-bottom) + 16px)}
 }
-/* keep bar from covering content */
 body::after{content:"";display:block;height:100px}
 </style>
 </head>
@@ -319,10 +321,9 @@ body::after{content:"";display:block;height:100px}
     <h2>Tell us about your project</h2>
     <p class="lead">Takes about 2 minutes.</p>
 
-    <!-- JS handles submission; no PII in URL -->
     <form id="longForm" class="grid" action="#" method="post" novalidate>
 
-      <!-- Step 1: Full name, Email, Contact number, Consent -->
+      <!-- Step 1 -->
       <div class="step active" id="step1" data-step="1" aria-labelledby="step1label">
         <div class="grid grid-2">
           <div>
@@ -350,14 +351,13 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Actions Step 1 -->
         <div class="actions-ctl" aria-label="Step 1 actions">
           <div class="left" aria-hidden="true"></div>
           <button class="btn right primary" type="button" id="next1" disabled>Next</button>
         </div>
       </div>
 
-      <!-- Step 2: Site address, TMK, Property type -->
+      <!-- Step 2 -->
       <div class="step" id="step2" data-step="2" aria-labelledby="step2label">
         <div class="grid grid-2">
           <div>
@@ -382,14 +382,13 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Actions Step 2 -->
         <div class="actions-ctl" aria-label="Step 2 actions">
           <button class="btn left back" type="button" id="back2">Back</button>
           <button class="btn right primary" type="button" id="next2">Next</button>
         </div>
       </div>
 
-      <!-- Step 3: Message or notes, How did you hear -->
+      <!-- Step 3 -->
       <div class="step" id="step3" data-step="3" aria-labelledby="step3label">
         <div class="grid grid-2">
           <div class="grid" style="grid-column:1/-1">
@@ -402,10 +401,8 @@ body::after{content:"";display:block;height:100px}
           </div>
         </div>
 
-        <!-- Honeypot -->
         <input type="text" id="miniCompany" name="company" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-        <!-- Actions Step 3 -->
         <div class="actions-ctl" aria-label="Step 3 actions">
           <button class="btn left back" type="button" id="back3">Back</button>
           <button id="submitBtn" class="btn right primary" type="submit" disabled>Submit</button>
@@ -414,7 +411,6 @@ body::after{content:"";display:block;height:100px}
         <small class="privacy" style="grid-column:1/-1">Shared only for coordinating with licensed engineers and installers. Never sold.</small>
       </div>
 
-      <!-- Status boxes -->
       <div id="status" role="status" aria-live="polite" class="success" style="display:none;"></div>
       <div id="ok" class="success" style="display:none;">Thanks. Your details were sent.</div>
       <div id="err" class="error" style="display:none;">There was a problem. Please try again.</div>
@@ -442,7 +438,6 @@ body::after{content:"";display:block;height:100px}
       </svg>
     </a>
 
-    <!-- Instagram -->
     <a href="https://www.instagram.com/hawaiicesspoolhelp"
        target="_blank" rel="noopener noreferrer"
        style="display:inline-block; width:36px; height:36px; margin-left:10px;">
@@ -464,7 +459,6 @@ body::after{content:"";display:block;height:100px}
 
 </footer>
 
-<!-- Sticky progress bar -->
 <div class="progress-sticky" role="region" aria-label="Form progress">
   <div class="progress-wrap">
     <div class="progress-fill" id="pFill" aria-hidden="true"></div>
@@ -473,7 +467,6 @@ body::after{content:"";display:block;height:100px}
 </div>
 
 <script>
-// navbar toggle
 function toggleNavMenu(){
   var menu = document.getElementById('nav-menu');
   if(menu){
@@ -481,17 +474,13 @@ function toggleNavMenu(){
   }
 }
 
-// Year
 document.getElementById('y').textContent=new Date().getFullYear();
 
-// Endpoint
 const ENDPOINT = 'https://script.google.com/macros/s/AKfycby0TAMlk-9VbpveG45R2Jf5HOUVTvSr6LlbYry_fKCGKeB0jj6vjSVVKnhhWbG-0KBf3A/exec';
 
-// Validators
 function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
 function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').trim();}
 
-// Prefill from sessionStorage
 (function(){
   try{
     const n = sessionStorage.getItem('lead_name') || '';
@@ -501,7 +490,6 @@ function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').tri
   }catch(_){}
 })();
 
-// Persist all fields during visit
 (function(){
   const ids=['name','email','phone','address','tmk','ptype','notes','source','consent'];
   ids.forEach(id=>{
@@ -524,7 +512,6 @@ function s(x){return (x||'').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'').tri
   });
 })();
 
-// reCAPTCHA with short timeout so UI never stalls
 function getRecaptchaToken(action){
   const MAX = 1200;
   return new Promise((resolve)=>{
@@ -550,7 +537,6 @@ const err = document.getElementById('err');
 const statusLine = document.getElementById('status');
 const btn = document.getElementById('submitBtn');
 
-// Step state
 const steps = [document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3')];
 let current = 0;
 const stepLive = document.getElementById('stepLive');
@@ -615,6 +601,7 @@ function toggleSubmit(){
   if(btn) btn.disabled = !consent;
   if(current===2) markInvalid(document.getElementById('consent'),'hint-consent', !consent);
 }
+
 function toggleNext1(){
   const name = s(document.getElementById('name').value);
   const email = s(document.getElementById('email').value);
@@ -623,7 +610,6 @@ function toggleNext1(){
   if(next1) next1.disabled = !(name && validEmail(email) && consent);
 }
 
-// Short lead once on Step 1 → Next
 let shortSent = false;
 function sendShortLeadOnce(){
   if(shortSent) return;
@@ -642,7 +628,6 @@ function sendShortLeadOnce(){
   }catch(_){}
 }
 
-// Button wiring
 document.getElementById('next1').addEventListener('click', ()=>{
   if(!validateStep1()) return;
   try{ if(!sessionStorage.getItem('short_lead_ping')) sendShortLeadOnce(); }catch(_){ sendShortLeadOnce(); }
@@ -652,7 +637,6 @@ document.getElementById('back2').addEventListener('click', ()=>showStep(0));
 document.getElementById('next2').addEventListener('click', ()=>showStep(2));
 document.getElementById('back3').addEventListener('click', ()=>showStep(1));
 
-// Submit handler
 f.addEventListener('submit', (e)=>{
   e.preventDefault();
   ok.style.display='none'; err.style.display='none'; statusLine.style.display='none';
@@ -680,14 +664,13 @@ f.addEventListener('submit', (e)=>{
   statusLine.textContent = 'Submitting…';
   statusLine.style.display = 'block';
 
-  // Fire-and-forget submission
   getRecaptchaToken('long_form').then((token)=>{
     try{
       const CONSENT_LABEL = 'I agree to be contacted by a licensed engineer or installer to discuss my project.';
       const fd = new FormData();
       fd.set('name', name);
       fd.set('email', email);
-      fd.set('company', s(document.getElementById('miniCompany').value)); // honeypot
+      fd.set('company', s(document.getElementById('miniCompany').value));
       fd.set('v','v');
       fd.set('recaptcha_v3', token);
 
@@ -710,7 +693,6 @@ f.addEventListener('submit', (e)=>{
     }catch(_){}
   });
 
-  // Quick UX then redirect regardless of network lag
   setTimeout(()=>{
     try{ btn.textContent='Submitted'; }catch(_){}
     statusLine.textContent='Received. Redirecting…';
@@ -718,7 +700,6 @@ f.addEventListener('submit', (e)=>{
   }, 500);
 });
 
-// Initial progress and button states
 setProgress(0);
 toggleSubmit();
 toggleNext1();
