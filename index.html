@@ -24,7 +24,6 @@
 <!-- Font Awesome for social icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 
@@ -56,7 +55,14 @@ gtag('config', 'G-KX4BDJ7PYC')
  --radius:14px; --shadow:0 10px 26px rgba(0,0,0,.07);
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.55;
+}
 img{max-width:100%;height:auto;display:block;object-fit:cover}
 a{color:var(--green);text-decoration:none}
 .btn{
@@ -68,18 +74,143 @@ a{color:var(--green);text-decoration:none}
   backface-visibility:hidden; will-change:transform;
 }
 .btn:hover{transform:translateY(-1px)}
+
+/* navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#0F2D25;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10000;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f5fff9;
+  font-weight:800;
+  font-size:1rem;
+  text-decoration:none;
+}
+.navbar-brand img{
+  height:30px;
+  width:auto;
+  border-radius:6px;
+}
+.navbar-cta{
+  display:none;
+}
+.nav-toggle{
+  background:none;
+  border:0;
+  color:#f5fff9;
+  font-size:26px;
+  cursor:pointer;
+}
+.nav-menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(15,45,37,0.95);
+  backdrop-filter:blur(8px);
+  display:none;
+  z-index:9999;
+}
+.nav-menu.open{
+  display:block;
+}
+.nav-menu ul{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+.nav-menu li{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.nav-menu a{
+  display:block;
+  padding:12px 18px;
+  color:#f5fff9;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.98rem;
+}
+.nav-menu a:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* desktop navbar layout */
+@media (min-width:780px){
+  .nav-toggle{
+    display:none;
+  }
+  .navbar{
+    height:70px;
+    padding:0 32px;
+  }
+  .navbar-brand{
+    flex:0 0 auto;
+  }
+  .navbar-cta{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10001;
+  }
+  .navbar-cta a{
+    padding:8px 18px;
+    border-radius:14px;
+    background:#A32A19;
+    color:#fff;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .navbar-cta a:hover{
+    background:#8b2214;
+  }
+  .nav-menu{
+    display:block;
+    background:transparent;
+    backdrop-filter:none;
+    position:static;
+  }
+  .nav-menu ul{
+    display:flex;
+    gap:18px;
+    padding:0;
+  }
+  .nav-menu li{
+    border:0;
+  }
+  .nav-menu a{
+    padding:0;
+  }
+}
+
 /* Footer social icon styles */
 .footer-social a {
   text-decoration: none;
-  color: #ffffff;             /* white icon on dark footer */
+  color: #ffffff;
   font-size: 30px;
   margin: 0 6px;
   transition: color 0.3s ease;
 }
 
 .footer-social a:hover {
-  color: #E56A54;             /* coral hover accent */
+  color: #E56A54;
 }
+
 /* HERO */
 header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
 .hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
@@ -143,6 +274,29 @@ body::after { content:""; display:block; height:100px }
 </head>
 <body>
 
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
+    <span>Hawaiʻi Cesspool Help</span>
+  </a>
+
+  <div class="navbar-cta">
+    <a href="/start.html">Get Help Now</a>
+  </div>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
+
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/start.html">Start</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/guide.html">Guide</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
 <header class="hero" id="lead">
   <div class="hero-inner">
     <h1>Hawaiʻi Cesspool Help</h1>
@@ -183,7 +337,6 @@ body::after { content:""; display:block; height:100px }
       <h2>How we help</h2>
       <p>We act as your single point of coordination linking the right licensed engineer and the right installer for your site.</p>
       <p>Our focus is clean water and timely conversions across every district on the island.</p>
-      
     </div>
     <div class="frame">
       <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/discuss%20plans.webp" width="1200" height="800" alt="Homeowner near Kona reviewing septic design plans with a local engineer" loading="lazy" decoding="async">
@@ -261,25 +414,24 @@ body::after { content:""; display:block; height:100px }
   <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
   <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
   <div class="footer-social" style="text-align:center; margin-top:10px;">
-  <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
-     target="_blank" rel="noopener noreferrer"
-     style="display:inline-block; width:36px; height:36px;">
-    <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
-         style="fill:#ffffff; transition:fill .2s;">
-      <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
-    </svg>
-  </a>
+    <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px;">
+      <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+           style="fill:#ffffff; transition:fill .2s;">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+      </svg>
+    </a>
 
-   <!-- Instagram -->
-  <a href="https://www.instagram.com/hawaiicesspoolhelp"
-   target="_blank" rel="noopener noreferrer"
-   style="display:inline-block; width:36px; height:36px; margin-left:10px;">
-  <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
-       viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
-    <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
-  </svg>
-</a>
-    
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/hawaiicesspoolhelp"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+      <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+           viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+        <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+      </svg>
+    </a>
   </div>
   <div style="font-size:13px;color:#555;margin-top:6px">
     This site is protected by Google reCAPTCHA and the
@@ -291,6 +443,14 @@ body::after { content:""; display:block; height:100px }
 </footer>
 
 <script>
+// navbar toggle
+function toggleNavMenu(){
+  var menu = document.getElementById('nav-menu');
+  if(menu){
+    menu.classList.toggle('open');
+  }
+}
+
 // Year
 document.getElementById('y').textContent = new Date().getFullYear()
 
