@@ -16,27 +16,49 @@
   --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --green:#0A7A58;
   --deep:#0F2D25;
+  --coral:#A32A19;
+  --ink:#111;
+  --bg:#f7f7f7;
+  --card:#fff;
+  --radius:14px;
+  --shadow:0 10px 26px rgba(0,0,0,.07);
 }
 
 /* base */
+*{box-sizing:border-box}
 body{
   margin:0;
   padding-top:70px;
   font-family:var(--font);
-  background:#f7f7f7;
-  color:#111;
+  background:var(--bg);
+  color:var(--ink);
   line-height:1.55;
 }
-header.hero{position:relative;color:#fff;text-align:center;overflow:hidden;background:#0A7A58}
-.hero::before{content:"";position:absolute;inset:0;background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65))}
-.hero-inner{position:relative;z-index:1;padding:120px 20px 80px;max-width:900px;margin:auto;text-shadow:0 2px 4px rgba(0,0,0,.35)}
-.hero h1{margin:0;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:900;color:#fafafa}
-.hero p{margin:14px auto 0;max-width:700px;color:#eaf6f1;font-size:1.1rem}
-footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-top:80px}
-footer a{color:#a1f0d3;outline:none;transition:box-shadow .2s, outline .2s}
-footer a:focus{outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
-footer a:hover{color:#c2fff0}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+a{color:var(--green);text-decoration:none}
+
+.btn{
+  display:inline-block;
+  background:var(--coral);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:var(--radius);
+  font-weight:800;
+  text-decoration:none;
+  font-size:1rem;
+  line-height:1.2;
+  white-space:nowrap;
+  border:0;
+  -webkit-text-stroke:0.3px rgba(0,0,0,.35);
+  text-shadow:0 0 1px rgba(0,0,0,.35), 0 1px 1px rgba(0,0,0,.25);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  backface-visibility:hidden;
+  will-change:transform;
+}
+.btn:hover{
+  transform:translateY(-1px);
+}
 
 /* sticky top navbar */
 .navbar{
@@ -171,6 +193,184 @@ footer a:hover{color:#c2fff0}
   }
 }
 
+/* hero */
+header.hero{
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:#0A7A58;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65));
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:96px 20px 34px;
+  max-width:920px;
+  margin:auto;
+  text-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.8rem,5vw,3.4rem);
+  font-weight:900;
+  color:#fafafa;
+}
+.hero p{
+  margin:10px auto 0;
+  max-width:760px;
+  color:#eaf6f1;
+  font-size:1.05rem;
+}
+
+/* guide content layout */
+main{
+  padding:40px 0 10px;
+}
+.guide-inner{
+  max-width:1100px;
+  margin:0 auto 40px;
+  padding:0 24px;
+}
+.guide-section{
+  margin-bottom:32px;
+  background:transparent;
+}
+.guide-section h2{
+  text-align:center;
+  font-size:1.9rem;
+  color:var(--green);
+  margin:0 0 10px;
+  font-weight:800;
+}
+.guide-section.guide-intro p{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+  color:#4b5a56;
+}
+.guide-section h3{
+  margin-top:10px;
+  font-size:1.2rem;
+  color:var(--deep);
+}
+.guide-section p{
+  margin:8px 0;
+}
+.guide-section ul{
+  margin:8px 0 16px 20px;
+  padding:0;
+}
+
+/* process steps with numbered bubbles */
+.steps{
+  display:grid;
+  gap:18px;
+}
+@media(min-width:760px){
+  .steps{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+.steps.steps-5{
+  margin-top:18px;
+}
+.steps.steps-5 .step{
+  align-items:flex-start;
+}
+.step{
+  background:#fff;
+  border:1px solid #e8eeeb;
+  border-radius:16px;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  box-shadow:var(--shadow);
+}
+.num{
+  min-width:40px;
+  min-height:40px;
+  border-radius:50%;
+  background:#A32A19;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:1.1rem;
+}
+.step h4{
+  margin:.1rem 0 .2rem;
+  font-size:1.05rem;
+  color:var(--green);
+}
+
+/* detailed step cards */
+.step-detail-grid{
+  display:grid;
+  gap:18px;
+}
+@media(min-width:900px){
+  .step-detail-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+.step-card{
+  background:#fff;
+  border:1px solid #e8eeeb;
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.step-card h3{
+  margin-top:0;
+  font-size:1.2rem;
+  color:var(--green);
+}
+
+/* footer */
+footer{
+  background:#0F2D25;
+  color:#d9eee7;
+  padding:34px 0;
+  text-align:center;
+  margin-top:40px;
+}
+footer a{
+  color:#a1f0d3;
+  outline:none;
+  transition:box-shadow .2s, outline .2s;
+}
+footer a:focus{
+  outline:2px solid #fff;
+  outline-offset:3px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.4);
+}
+footer a:hover{
+  color:#c2fff0;
+}
+.footer-social a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size:30px;
+  margin:0 6px;
+  transition:color 0.3s ease;
+}
+.footer-social a:hover {
+  color:#E56A54;
+}
+
 /* sticky CTA bottom */
 .sticky-cta {
   position: fixed;
@@ -185,65 +385,28 @@ footer a:hover{color:#c2fff0}
   background-color: #A32A19;
   border-radius: 14px;
 }
-.sticky-cta.hidden { opacity:0; pointer-events:none; transform:translateX(-50%) translateY(20px) }
+.sticky-cta.hidden {
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-50%) translateY(20px);
+}
 @supports(padding: env(safe-area-inset-bottom)) {
   .sticky-cta { bottom: calc(env(safe-area-inset-bottom) + 20px) }
 }
 @media (max-width: 360px) {
   .sticky-cta { font-size:.95rem; padding:10px 18px }
 }
+.sticky-cta:hover {
+  transform:translateX(-50%) translateY(-1px) scale(1.03);
+}
+
 /* hide bottom sticky CTA on nonmobile */
 @media (min-width: 768px) {
   #stickyBtn { display:none !important }
 }
+
+/* reserve space for mobile CTA */
 body::after { content:""; display:block; height:100px }
-
-.btn{
-  display:inline-block;
-  background:#A32A19;
-  color:#fff;
-  padding:10px 20px;
-  border-radius:14px;
-  font-weight:800;
-  text-decoration:none;
-  font-size:1rem;
-  line-height:1.2;
-  white-space:nowrap;
-  border:0;
-  -webkit-text-stroke:0.3px rgba(0,0,0,.35);
-  text-shadow:0 0 1px rgba(0,0,0,.35), 0 1px 1px rgba(0,0,0,.25);
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  backface-visibility:hidden;
-  will-change:transform;
-}
-.btn:hover{
-  transform:translateY(-1px);
-}
-
-/* guide content */
-.guide-inner{
-  max-width:900px;
-  margin:40px auto;
-  padding:0 20px;
-}
-.guide-inner h2{
-  font-size:1.9rem;
-  margin-top:0;
-  color:#0F2D25;
-}
-.guide-section h3{
-  margin-top:24px;
-  font-size:1.3rem;
-  color:#0F2D25;
-}
-.guide-section p{
-  margin:8px 0;
-}
-.guide-section ul{
-  margin:8px 0 16px 20px;
-  padding:0;
-}
 </style>
 </head>
 <body>
@@ -254,7 +417,7 @@ body::after { content:""; display:block; height:100px }
     <span>Hawaiʻi Cesspool Help</span>
   </a>
 
-  <div class="navbar-cta">
+  <div class="navbar-cta" id="topCta">
     <a href="/start.html">Get Help Now</a>
   </div>
 
@@ -271,7 +434,7 @@ body::after { content:""; display:block; height:100px }
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="lead">
  <div class="hero-inner">
   <h1>Guide</h1>
   <p>A clear homeowner guide to cesspool conversion on Hawaiʻi Island.</p>
@@ -280,103 +443,138 @@ body::after { content:""; display:block; height:100px }
 
 <main>
   <div class="guide-inner">
-    <section class="guide-section">
+    <section class="guide-section guide-intro">
       <h2>How the cesspool conversion process works on Hawaiʻi Island</h2>
-      <p>Hawaiʻi has roughly 83,000 cesspools that must be upgraded or connected to sewer by the 2050. That mandate applies to every cesspool property, and the process can feel technical and unfamiliar. This guide shows the simple path and how Hawaiʻi Cesspool Help keeps everything organized.</p>
-          </section>
+      <p>Hawaiʻi has roughly eighty three thousand cesspools that must be upgraded or connected to sewer by the year twenty fifty. That mandate applies to every cesspool property and the process can feel technical and unfamiliar. This guide shows the simple path and how Hawaiʻi Cesspool Help keeps everything organized.</p>
+    </section>
 
     <section class="guide-section">
       <h3>Why this guide matters</h3>
       <p>Homeowners often delay important work when three things show up together. Cost, confusion, and fear of getting pulled into a long process with no help. On Hawaiʻi Island the rules, soil, and timelines change from property to property, which adds to the hesitation.</p>
-         </section>
+    </section>
 
     <section class="guide-section">
-      <h3>The full process</h3>
+      <h3>The full process in five steps</h3>
       <p>Almost every cesspool conversion follows the same basic steps.</p>
-      <ul>
-        <li>Step 1 - Initial Assessment</li>
-        <li>Step 2 - Engineering and Design</li>
-        <li>Step 3 - Permitting</li>
-        <li>Step 4 - Installation</li>
-        <li>Step 5 - Final Approval</li>
-      </ul>
-          </section>
-
-    <section class="guide-section">
-      <h3>Step 1 - Initial Assessment</h3>
-      <p><strong>What happens</strong></p>
-      <p>A licensed engineer visits your property and looks at slope, soil, space, and the location of buildings and water sources. This determines what kind of system is allowed and what will pass review.</p>
-      <p><strong>Your role</strong></p>
-      <ul>
-        <li>Provide basic property information.</li>
-        <li>Show roughly where the old system sits if you know.</li>
-      </ul>
-      <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
-      <ul>
-        <li>We collect your details through a simple intake.</li>
-        <li>We connect you with an engineer for your area and help schedule the visit.</li>
-      </ul>
+      <div class="steps steps-5">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h4>Initial assessment</h4>
+            <p>A licensed engineer visits the property and looks at slope, soil, space, and nearby water to see what is allowed.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h4>Engineering and design</h4>
+            <p>The engineer creates a design that fits the site and meets Department of Health rules.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h4>Permitting</h4>
+            <p>The design is submitted for review so the new system can be approved before work starts.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h4>Installation</h4>
+            <p>An installer builds the system, sets the tank and components, and restores the yard as agreed.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div>
+            <h4>Final approval</h4>
+            <p>The engineer confirms the system matches the plan and files final documents for official approval.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="guide-section">
-      <h3>Step 2 - Engineering and Design</h3>
-      <p><strong>What happens</strong></p>
-      <p>The engineer creates a design that fits your property and meets health rules. This covers tank location, disposal area, elevations, treatment type, and setbacks. Some sites also need soil or elevation checks.</p>
-      <p><strong>Your role</strong></p>
-      <ul>
-        <li>Answer a few practical questions about how you use the property.</li>
-        <li>Share preferences when there is more than one acceptable layout.</li>
-      </ul>
-      <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
-      <ul>
-        <li>We keep an eye on progress so your design does not sit in a stack.</li>
-        <li>We help the engineer get maps and parcel data so you are not chased for the same items.</li>
-      </ul>
-    </section>
+      <h3>What each step looks like</h3>
+      <div class="step-detail-grid">
+        <article class="step-card">
+          <h3>Step 1 Initial assessment</h3>
+          <p><strong>What happens</strong></p>
+          <p>A licensed engineer visits your property and looks at slope, soil, space, and the location of buildings and water sources. This determines what kind of system is allowed and what will pass review.</p>
+          <p><strong>Your role</strong></p>
+          <ul>
+            <li>Provide basic property information.</li>
+            <li>Show roughly where the old system sits if you know.</li>
+          </ul>
+          <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
+          <ul>
+            <li>We collect your details through a simple intake.</li>
+            <li>We connect you with an engineer for your area and help schedule the visit.</li>
+          </ul>
+        </article>
 
-    <section class="guide-section">
-      <h3>Step 3 - Permitting</h3>
-      <p><strong>What happens</strong></p>
-      <p>The engineer submits the design to the Department of Health for review. Staff check that the plan follows the rules and sometimes ask for small clarifications.</p>
-      <p><strong>Your role</strong></p>
-      <p>Usually nothing beyond signing an application or owner form.</p>
-      <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
-      <ul>
-        <li>We monitor permit status so you know where things stand.</li>
-        <li>We help the engineer respond quickly if the reviewer has questions.</li>
-      </ul>
-    </section>
+        <article class="step-card">
+          <h3>Step 2 Engineering and design</h3>
+          <p><strong>What happens</strong></p>
+          <p>The engineer creates a design that fits your property and meets health rules. This covers tank location, disposal area, elevations, treatment type, and setbacks. Some sites also need soil or elevation checks.</p>
+          <p><strong>Your role</strong></p>
+          <ul>
+            <li>Answer a few practical questions about how you use the property.</li>
+            <li>Share preferences when there is more than one acceptable layout.</li>
+          </ul>
+          <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
+          <ul>
+            <li>We keep an eye on progress so your design does not sit in a stack.</li>
+            <li>We help the engineer get maps and parcel data so you are not chased for the same items.</li>
+          </ul>
+        </article>
 
-    <section class="guide-section">
-      <h3>Step 4 - Installation</h3>
-      <p><strong>What happens</strong></p>
-      <p>The installer brings equipment to site, excavates, sets the tank and components, runs pipe and electrical lines, then backfills and restores the surface as agreed. Some yard disruption is normal for a short period.</p>
-      <p><strong>Your role</strong></p>
-      <ul>
-        <li>Clear access areas and move vehicles or items in the way.</li>
-        <li>Ask how the yard will look at the end and where you can drive or not drive later.</li>
-      </ul>
-      <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
-      <ul>
-        <li>We help you connect with trusted local installers when possible.</li>
-        <li>We coordinate timing with the engineer so inspections and checks happen smoothly.</li>
-      </ul>
-    </section>
+        <article class="step-card">
+          <h3>Step 3 Permitting</h3>
+          <p><strong>What happens</strong></p>
+          <p>The engineer submits the design to the Department of Health for review. Staff check that the plan follows the rules and sometimes ask for small clarifications.</p>
+          <p><strong>Your role</strong></p>
+          <p>Usually nothing beyond signing an application or owner form.</p>
+          <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
+          <ul>
+            <li>We monitor permit status so you know where things stand.</li>
+            <li>We help the engineer respond quickly if the reviewer has questions.</li>
+          </ul>
+        </article>
 
-    <section class="guide-section">
-      <h3>Step 5 - Final Approval</h3>
-      <p><strong>What happens</strong></p>
-      <p>The engineer confirms the system matches the approved design and submits final paperwork to the Department of Health. When it is accepted, your new system is officially approved.</p>
-      <p><strong>Your role</strong></p>
-      <ul>
-        <li>Keep approval documents with your property records.</li>
-        <li>Follow simple maintenance guidance for pumping and system care.</li>
-      </ul>
-      <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
-      <ul>
-        <li>We confirm when final approval is issued.</li>
-        <li>We point out which documents matter for future sale or refinance.</li>
-      </ul>
+        <article class="step-card">
+          <h3>Step 4 Installation</h3>
+          <p><strong>What happens</strong></p>
+          <p>The installer brings equipment to site, excavates, sets the tank and components, runs pipe and electrical lines, then backfills and restores the surface as agreed. Some yard disruption is normal for a short period.</p>
+          <p><strong>Your role</strong></p>
+          <ul>
+            <li>Clear access areas and move vehicles or items in the way.</li>
+            <li>Ask how the yard will look at the end and where you can drive or not drive later.</li>
+          </ul>
+          <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
+          <ul>
+            <li>We help you connect with trusted local installers when possible.</li>
+            <li>We coordinate timing with the engineer so inspections and checks happen smoothly.</li>
+          </ul>
+        </article>
+
+        <article class="step-card">
+          <h3>Step 5 Final approval</h3>
+          <p><strong>What happens</strong></p>
+          <p>The engineer confirms the system matches the approved design and submits final paperwork to the Department of Health. When it is accepted, your new system is officially approved.</p>
+          <p><strong>Your role</strong></p>
+          <ul>
+            <li>Keep approval documents with your property records.</li>
+            <li>Follow simple maintenance guidance for pumping and system care.</li>
+          </ul>
+          <p><strong>How Hawaiʻi Cesspool Help supports you</strong></p>
+          <ul>
+            <li>We confirm when final approval is issued.</li>
+            <li>We point out which documents matter for future sale or refinance.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="guide-section">
@@ -387,7 +585,7 @@ body::after { content:""; display:block; height:100px }
     <section class="guide-section">
       <h3>Why it pays to start early</h3>
       <p>Delays usually come from missing information, busy engineers or installers, permit questions, and gaps between steps when no one owns the next move. Those problems grow as more owners rush near the deadline.</p>
-      <p>Starting earlier gives you more installer choice, smoother reviews, and less pressure from crowded schedules. Act 125 sets the deadline at twenty fifty, but beginning now lets you pick timing that fits your life instead of reacting later.</p>
+      <p>Starting earlier gives you more installer choice, smoother reviews, and less pressure from crowded schedules. Act one hundred twenty five sets the deadline at twenty fifty, but beginning now lets you pick timing that fits your life instead of reacting later.</p>
     </section>
 
     <section class="guide-section">
@@ -414,7 +612,7 @@ body::after { content:""; display:block; height:100px }
 </main>
 
 <!-- mobile only CTA -->
-<a class="btn sticky-cta" id="stickyBtn" href="/start.html">Get Help Now</a>
+<a class="btn sticky-cta hidden" id="stickyBtn" href="/start.html">Get Help Now</a>
 
 <footer>
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
@@ -447,11 +645,35 @@ body::after { content:""; display:block; height:100px }
 
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
+
 function toggleNavMenu(){
   var menu = document.getElementById('nav-menu');
   if(menu){
     menu.classList.toggle('open');
   }
+}
+
+// CTAs controlled by hero visibility
+const sticky = document.getElementById('stickyBtn');
+const topCta = document.getElementById('topCta');
+const hero = document.getElementById('lead');
+
+if (hero && (sticky || topCta)) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      var inView = entry.isIntersecting;
+
+      if (sticky) {
+        sticky.classList.toggle('hidden', inView);
+      }
+
+      if (topCta) {
+        topCta.style.display = inView ? 'none' : '';
+      }
+    });
+  }, { threshold: 0.05 });
+
+  observer.observe(hero);
 }
 </script>
 
