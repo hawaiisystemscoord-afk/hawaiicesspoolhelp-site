@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Got a letter from the Hawaii Department of Health about your cesspool? Here's what it means and exactly what to do next.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/guide.html">
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/blog-doh-letter.html">
 <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
@@ -56,9 +56,6 @@ a{color:var(--green);text-decoration:none}
   text-rendering:optimizeLegibility;
   backface-visibility:hidden;
   will-change:transform;
-}
-.btn:hover{
-  transform:translateY(-1px);
 }
 
 /* sticky top navbar */
@@ -172,9 +169,6 @@ a{color:var(--green);text-decoration:none}
     font-weight:800;
     text-decoration:none;
   }
-  .navbar-cta a:hover{
-    background:#8b2214;
-  }
 
   .nav-menu{
     position:static;
@@ -237,109 +231,49 @@ header.hero{
   font-size:1.05rem;
 }
 
-/* guide content layout */
-main{
-  padding:40px 0 10px;
-}
-.guide-inner{
-  max-width:1100px;
-  margin:0 auto 40px;
-  padding:0 24px;
-}
-.guide-section{
-  margin-bottom:32px;
-  background:transparent;
-}
-.guide-section h2{
-  text-align:center;
-  font-size:1.9rem;
-  color:var(--green);
-  margin:0 0 10px;
-  font-weight:800;
-}
-.guide-section.guide-intro p{
-  max-width:760px;
+/* blog article content */
+main.article{
+  max-width:720px;
   margin:0 auto;
-  text-align:center;
-  color:#4b5a56;
+  padding:40px 20px 80px;
 }
-.guide-section h3{
-  margin-top:10px;
-  font-size:1.2rem;
-  color:var(--deep);
-}
-.guide-section p{
-  margin:8px 0;
-}
-.guide-section ul{
-  margin:8px 0 16px 20px;
-  padding:0;
-}
-
-/* process steps with numbered bubbles */
-.steps{
-  display:grid;
-  gap:18px;
-}
-@media(min-width:760px){
-  .steps{
-    grid-template-columns:repeat(3,1fr);
+@media (min-width:768px){
+  main.article{
+    padding:56px 24px 100px;
   }
 }
-.steps.steps-5{
-  margin-top:18px;
-}
-.steps.steps-5 .step{
-  align-items:flex-start;
-}
-.step{
-  background:#fff;
-  border:1px solid #e8eeeb;
-  border-radius:16px;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  box-shadow:var(--shadow);
-}
-.num{
-  min-width:40px;
-  min-height:40px;
-  border-radius:50%;
-  background:#A32A19;
-  color:#fff;
-  display:grid;
-  place-items:center;
+
+main.article h1{
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
   font-weight:900;
-  font-size:1.1rem;
-}
-.step h4{
-  margin:.1rem 0 .2rem;
-  font-size:1.05rem;
-  color:var(--green);
+  color:var(--deep);
+  line-height:1.25;
+  margin:0 0 8px;
 }
 
-/* detailed step cards */
-.step-detail-grid{
-  display:grid;
-  gap:18px;
-}
-@media(min-width:900px){
-  .step-detail-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-.step-card{
-  background:#fff;
-  border:1px solid #e8eeeb;
-  border-radius:var(--radius);
-  padding:20px;
-  box-shadow:var(--shadow);
-}
-.step-card h3{
-  margin-top:0;
-  font-size:1.2rem;
+main.article h2{
+  font-size:1.4rem;
+  font-weight:800;
   color:var(--green);
+  margin:36px 0 12px;
+}
+
+main.article h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--deep);
+  margin:24px 0 8px;
+}
+
+main.article p{
+  margin:0 0 16px;
+  line-height:1.7;
+}
+
+main.article hr{
+  border:none;
+  border-top:1px solid #e0e0e0;
+  margin:32px 0;
 }
 
 /* footer */
@@ -375,7 +309,6 @@ footer a:hover{
 }
 </style>
 
-<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/blog-doh-letter.html">
 </head>
 <body>
 
@@ -402,81 +335,75 @@ footer a:hover{
   </div>
 </nav>
 
-<header class="hero" id="lead">
- <div class="hero-inner">
-  <h1>Guide</h1>
-  <p>A clear homeowner guide to cesspool conversion on Hawaiʻi Island.</p>
- </div>
-</header>
-
+<main class="article">
 <h1>What to Do When You Get a DOH Cesspool Notification Letter</h1>
-
 
 <hr>
 
-<p>If you just got a letter from the Hawaiʻi Department of Health about your cesspool, take a breath. This is not an emergency — it&#x27;s a heads-up that gives you time to plan.</p>
-
-<p>Here&#x27;s what the letter means and exactly what to do next.</p>
+<p>If you just got a letter from the Hawaiʻi Department of Health about your cesspool, take a breath. This is not an emergency. It's a heads-up that gives you time to plan.</p>
 
 <h2>What does the DOH cesspool notification mean?</h2>
 
-<p>The Hawaiʻi Department of Health (DOH) sends these letters when your property has been flagged as having an active cesspool — a simple underground pit that absorbs household wastewater directly into the soil. Cesspools were legal and common decades ago, but they are now known to contaminate groundwater, streams, and ocean reefs with untreated wastewater.</p>
+<p>The Hawaiʻi Department of Health (DOH) sends these letters when your property has been flagged as having an active cesspool, which is basically an underground pit that absorbs household wastewater directly into the soil. Cesspools were legal and common decades ago, but they are now known to contaminate groundwater, streams, and ocean reefs with untreated wastewater.</p>
 
-<p>Under Hawaiʻi state law (Act 125), all cesspools on Hawaiʻi Island must be converted or closed by 2050. The DOH prioritizes which properties get notified based on factors like proximity to water sources, property sales activity, and environmental risk. Getting a letter doesn&#x27;t mean you have to act tomorrow — but it does mean the clock is ticking.</p>
+<p>Under Hawaiʻi state law (Act 125), all cesspools on Hawaiʻi Island must be converted or closed by 2050. The DOH prioritizes which properties get notified based on factors like proximity to water sources, property sales activity, and environmental risk.</p>
+
+<p>Getting a letter does not mean you have to act tomorrow, but it does mean the clock is ticking. Properties near the coast in North Kona or close to wells in Puna tend to get flagged first because of environmental sensitivity.</p>
 
 <h2>Do I need to convert my cesspool right away?</h2>
 
-<p>Not necessarily. You generally have time to plan. However, there are situations where action becomes urgent:</p>
+<p>Not necessarily. You generally have time to plan, but there are situations where action becomes urgent:</p>
 
-<p>- <strong>You&#x27;re selling your property.</strong> Most property transfers in Hawaii County require proof that wastewater systems meet current standards before the sale can close.</p>
-<p>- <strong>Your cesspool is failing.</strong> Overflow, sewage odors around the yard, or unusually lush grass patches above the pit can all signal a problem.</p>
-<p>- <strong>The DOH letter specifies a deadline.</strong> Some notifications include a compliance timeline based on your property&#x27;s environmental risk level.</p>
+<p><strong>You're selling your property.</strong> Most property transfers in Hawaii County require proof that wastewater systems meet current standards before the sale can close.</p>
 
-<p>If none of these apply to you, you still have time — but starting early means more options and less stress later.</p>
+<p><strong>Your cesspool is failing.</strong> Overflow, sewage odors around the yard, or unusually lush grass patches above the pit are all signs of a problem.</p>
+
+<p><strong>The DOH letter specifies a deadline.</strong> Some notifications include a compliance timeline based on your property's environmental risk level.</p>
+
+<p>If none of these apply to you, you still have time. Starting early means more options and less stress later.</p>
 
 <h2>What are my options?</h2>
 
-<p>You typically have two paths:</p>
-
 <h3>Option 1: Convert to a septic or aerobic treatment system</h3>
-<p>This is the most common solution. A licensed civil engineer designs an Individual Wastewater System (IWS) for your property — usually a modern septic tank with a leach field, though some properties need more advanced aerobic treatment units depending on soil and slope conditions. The engineer handles the design, submits it to the DOH for permitting, and oversees installation.</p>
+<p>This is the most common solution. A licensed civil engineer designs an Individual Wastewater System (IWS) for your property, usually a modern septic tank with a leach field. Some properties need more advanced aerobic treatment units depending on soil and slope conditions. The engineer handles the design, submits it to the DOH for permitting, and oversees installation.</p>
 
 <h3>Option 2: Connect to a municipal sewer system</h3>
-<p>If your property is within range of an existing sewer line and Hawaiʻi County offers connection in your area, this can be a simpler path — though not all properties on Big Island have access.</p>
+<p>If your property is within range of an existing sewer line and Hawaiʻi County offers connection in your area, this can be simpler. Not all properties on Big Island have access though. Parts of Hilo and Kailua-Kona are covered, but rural areas like North Kohala or Kaʻū usually aren't.</p>
 
 <h2>What should I do first?</h2>
 
-<p><strong>Step 1: Don&#x27;t ignore the letter.</strong> Even if you&#x27;re not ready to act now, keep it somewhere safe. It contains information about your property&#x27;s wastewater status that will matter later.</p>
+<p><strong>Do not ignore the letter.</strong> Even if you're not ready to act now, keep it somewhere safe. It contains information about your property's wastewater status that will matter later.</p>
 
-<p><strong>Step 2: Understand your property.</strong> Note where your cesspool is located (if you know), whether there are any signs of failure around the yard, and what your plans are for the property long-term.</p>
+<p><strong>Figure out where your cesspool is.</strong> Note whether there are any signs of failure around the yard and what your plans are for the property long-term.</p>
 
-<p><strong>Step 3: Talk to someone who knows the process.</strong> The cesspool-to-septic conversion involves an engineer, a permit from DOH, and an installer. Coordinating all three yourself is possible but stressful. That&#x27;s exactly why Hawaiʻi Cesspool Help exists — we connect homeowners with licensed engineers and local installers so you don&#x27;t have to figure out who calls whom.</p>
+<p><strong>Talk to someone who knows the process.</strong> The cesspool-to-septic conversion involves an engineer, a permit from DOH, and an installer. Coordinating all three yourself is possible but stressful. That's exactly why Hawaiʻi Cesspool Help exists: we connect homeowners with licensed engineers and local installers so you do not have to figure out who calls whom.</p>
 
-<p><strong>Step 4: Ask about costs early.</strong> Every property is different, and the total cost depends on your soil type, slope, available space, and what kind of system fits. Getting a realistic estimate before committing saves money and surprise later.</p>
+<p><strong>Ask about costs early.</strong> Every property is different, and the total cost depends on your soil type, slope, available space, and what kind of system fits. Getting a realistic estimate before committing saves money and surprise later.</p>
 
 <h2>Common questions homeowners ask right after getting the letter</h2>
 
-<h3>&quot;Is this going to cost me a fortune?&quot;</h3>
-<p>Cesspool conversion costs vary by property. Simpler sites with good soil conditions are on the lower end; rocky ground, steep slopes, or tight spaces drive costs up. The key is getting an engineer assessment before you know what you&#x27;re dealing with — guessing from online numbers isn&#x27;t reliable for your specific situation.</p>
+<h3>"Is this going to cost me a fortune?"</h3>
+<p>Cesspool conversion costs vary by property. Simpler sites with good soil conditions are on the lower end. Rocky ground, steep slopes, or tight spaces drive costs up. The key is getting an engineer assessment before you know what you're dealing with. Guessing from online numbers is not reliable for your specific situation.</p>
 
-<h3>&quot;Can I just fill the cesspool in?&quot;</h3>
+<h3>"Can I just fill the cesspool in?"</h3>
 <p>No. Simply filling a cesspool without converting to an approved wastewater system violates state law and can create serious health hazards. The DOH requires that every property have a functioning, permitted wastewater system before a cesspool is closed.</p>
 
-<h3>&quot;What happens if I do nothing?&quot;</h3>
-<p>If you wait until 2050 with no plan, you may face limited options, higher costs, and potential fines. More importantly, an aging cesspool can fail at any time — creating property damage, health risks, and emergency repairs that cost far more than planned conversion.</p>
+<h3>"What happens if I do nothing?"</h3>
+<p>If you wait until 2050 with no plan, you may face limited options and higher costs. An aging cesspool can fail at any time, creating property damage, health risks, and emergency repairs that cost far more than planned conversion.</p>
 
-<h3>&quot;Will this affect my property value?&quot;</h3>
+<h3>"Will this affect my property value?"</h3>
 <p>An unconverted cesspool is increasingly a liability for buyers and lenders. A properly permitted septic system protects your property value and makes future sales smoother.</p>
 
 <h2>The bottom line</h2>
 
-<p>Getting a DOH cesspool notification letter isn&#x27;t the end of the world — it&#x27;s an opportunity to take care of a problem before it becomes urgent. The sooner you understand your options, the more control you have over timing, cost, and outcome.</p>
+<p>Getting a DOH cesspool notification letter is not the end of the world. It's an opportunity to take care of a problem before it becomes urgent. The sooner you understand your options, the more control you have over timing, cost, and outcome.</p>
 
-<p>If you want help figuring out your next step without any commitment, <a href="https://www.hawaiicesspoolhelp.com/start.html">contact Hawaiʻi Cesspool Help</a>. It takes about two minutes to tell us about your situation, and we&#x27;ll connect you with the right engineer for your property.</p>
+<p>If you want help figuring out your next step without any commitment, <a href="https://www.hawaiicesspoolhelp.com/start.html">contact Hawaiʻi Cesspool Help</a>. It takes about two minutes to tell us about your situation, and we'll connect you with the right engineer for your property.</p>
 
 <hr>
 
-<p>*This article is for informational purposes only and does not constitute legal or engineering advice. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals — we do not provide engineering services directly.*</p>
+<p><em>This article is for informational purposes only and does not constitute legal or engineering advice. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals — we do not provide engineering services directly.</em></p>
+</main>
 
 <footer>
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
