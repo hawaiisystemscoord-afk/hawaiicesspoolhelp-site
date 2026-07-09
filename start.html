@@ -33,16 +33,40 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp">
 
 <!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX4BDJ7PYC"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX4BDJ7PYC">
+function toggleDropdown(el){
+  var sub=el.nextElementSibling;
+  if(sub&&sub.classList.contains("dropdown-sub")){
+    sub.classList.toggle("open");
+  }
+}
+
+</script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-KX4BDJ7PYC');
+
+function toggleDropdown(el){
+  var sub=el.nextElementSibling;
+  if(sub&&sub.classList.contains("dropdown-sub")){
+    sub.classList.toggle("open");
+  }
+}
+
 </script>
 
 <!-- reCAPTCHA v3 -->
-<script src="https://www.google.com/recaptcha/api.js?render=6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeMzwMsAAAAAEY-A-PdNbOQADbKq9VmC8wStNPW" async defer>
+function toggleDropdown(el){
+  var sub=el.nextElementSibling;
+  if(sub&&sub.classList.contains("dropdown-sub")){
+    sub.classList.toggle("open");
+  }
+}
+
+</script>
 
 <style>
 :root{
@@ -284,6 +308,26 @@ footer a:hover{color:#c2fff0}
   .progress-sticky{bottom:calc(env(safe-area-inset-bottom) + 16px)}
 }
 body::after{content:"";display:block;height:100px}
+
+/* dropdown sub-menus */
+.nav-dropdown{position:relative}
+.dropdown-toggle{display:block;padding:12px 18px;color:#f5fff9;font-weight:600;font-size:.98rem;cursor:pointer;user-select:none}
+.dropdown-sub{display:none;list-style:none;margin:0;padding:0 0 0 16px;background:rgba(0,0,0,.15)}
+.dropdown-sub.open{display:block}
+.dropdown-sub li{border-top:1px solid rgba(255,255,255,.05)}
+.dropdown-sub a{display:block;padding:10px 18px;color:#d9eee7;text-decoration:none;font-weight:500;font-size:.93rem}
+.dropdown-sub a:hover{background:rgba(255,255,255,.06)}
+
+/* desktop dropdowns */
+@media(min-width:780px){
+  .dropdown-toggle{padding:0;cursor:default;display:inline;color:#f5fff9;font-weight:600;font-size:.98rem}
+  .dropdown-sub{position:absolute;top:100%;left:0;background:rgba(15,45,37,.98);backdrop-filter:blur(8px);border-radius:0 0 10px 10px;box-shadow:0 8px 20px rgba(0,0,0,.3);padding:6px 0;min-width:230px}
+  .nav-dropdown:hover>.dropdown-sub{display:block}
+  .dropdown-sub li{border:0}
+  .dropdown-sub a{padding:8px 16px;font-size:.92rem;border-radius:0}
+  .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
+}
+
 </style>
 </head>
 <body>
@@ -296,17 +340,32 @@ body::after{content:"";display:block;height:100px}
 
   <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
 
-  <div class="nav-menu" id="nav-menu">
+    <div class="nav-menu" id="nav-menu">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/start.html">Start</a></li>
       <li><a href="/faq.html">FAQ</a></li>
       <li><a href="/guide.html">Guide</a></li>
+      <li class="nav-dropdown">
+        <span class="dropdown-toggle" onclick="toggleDropdown(this)">Districts ▾</span>
+        <ul class="dropdown-sub">
+          <li><a href="/hilo-area.html">Hilo</a></li>
+          <li><a href="/puna-area.html">Puna</a></li>
+          <li><a href="/kau-area.html">Kaʻū</a></li>
+          <li><a href="/kona-area.html">Kona</a></li>
+          <li><a href="/north-kohala.html">Kohala</a></li>
+          <li><a href="/hamakua-area.html">Hāmākua</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <span class="dropdown-toggle" onclick="toggleDropdown(this)">Blog ▾</span>
+        <ul class="dropdown-sub">
+          <li><a href="/blog-doh-letter.html">DOH Notification Letter</a></li>
+          <li><a href="/blog-conversion-cost.html">Conversion Cost Guide</a></li>
+          <li><a href="/blog-conversion-timeline.html">Timeline &amp; Process</a></li>
+        </ul>
+      </li>
       <li><a href="/privacy.html">Privacy</a></li>
-      <li><a href="/north-kohala.html">North Kohala</a></li>
-      <li><a href="/hilo-area.html">Hilo</a></li>
-      <li><a href="/kona-area.html">Kona</a></li>
-      <li><a href="/puna-area.html">Puna</a></li>
     </ul>
   </div>
 </nav>
@@ -466,7 +525,27 @@ body::after{content:"";display:block;height:100px}
     apply.
   </div>
 
-  <style>.grecaptcha-badge{visibility:hidden!important}</style>
+  <style>.grecaptcha-badge{visibility:hidden!important}
+/* dropdown sub-menus */
+.nav-dropdown{position:relative}
+.dropdown-toggle{display:block;padding:12px 18px;color:#f5fff9;font-weight:600;font-size:.98rem;cursor:pointer;user-select:none}
+.dropdown-sub{display:none;list-style:none;margin:0;padding:0 0 0 16px;background:rgba(0,0,0,.15)}
+.dropdown-sub.open{display:block}
+.dropdown-sub li{border-top:1px solid rgba(255,255,255,.05)}
+.dropdown-sub a{display:block;padding:10px 18px;color:#d9eee7;text-decoration:none;font-weight:500;font-size:.93rem}
+.dropdown-sub a:hover{background:rgba(255,255,255,.06)}
+
+/* desktop dropdowns */
+@media(min-width:780px){
+  .dropdown-toggle{padding:0;cursor:default;display:inline;color:#f5fff9;font-weight:600;font-size:.98rem}
+  .dropdown-sub{position:absolute;top:100%;left:0;background:rgba(15,45,37,.98);backdrop-filter:blur(8px);border-radius:0 0 10px 10px;box-shadow:0 8px 20px rgba(0,0,0,.3);padding:6px 0;min-width:230px}
+  .nav-dropdown:hover>.dropdown-sub{display:block}
+  .dropdown-sub li{border:0}
+  .dropdown-sub a{padding:8px 16px;font-size:.92rem;border-radius:0}
+  .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
+}
+
+</style>
 
 </footer>
 
@@ -714,6 +793,14 @@ f.addEventListener('submit', (e)=>{
 setProgress(0);
 toggleSubmit();
 toggleNext1();
+
+function toggleDropdown(el){
+  var sub=el.nextElementSibling;
+  if(sub&&sub.classList.contains("dropdown-sub")){
+    sub.classList.toggle("open");
+  }
+}
+
 </script>
 
 <script type="application/ld+json">
@@ -737,6 +824,14 @@ toggleNext1();
   "description": "Free coordination for cesspool to septic conversions across Hawaiʻi Island. Connect with licensed engineers and installers for compliant, fast conversions.",
   "sameAs": []
 }
+
+function toggleDropdown(el){
+  var sub=el.nextElementSibling;
+  if(sub&&sub.classList.contains("dropdown-sub")){
+    sub.classList.toggle("open");
+  }
+}
+
 </script>
 </body>
 </html>
