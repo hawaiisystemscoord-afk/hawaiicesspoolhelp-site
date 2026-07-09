@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>What to Do When You Get a DOH Cesspool Notification Letter | Hawaiʻi Cesspool Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Got a letter from the Hawaii Department of Health about your cesspool? Here's what it means and exactly what to do next.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/guide.html">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --green:#0A7A58;
+  --deep:#0F2D25;
+  --coral:#A32A19;
+  --ink:#111;
+  --bg:#f7f7f7;
+  --card:#fff;
+  --radius:14px;
+  --shadow:0 10px 26px rgba(0,0,0,.07);
+}
+
+/* base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+a{color:var(--green);text-decoration:none}
+
+.btn{
+  display:inline-block;
+  background:var(--coral);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:var(--radius);
+  font-weight:800;
+  text-decoration:none;
+  font-size:1rem;
+  line-height:1.2;
+  white-space:nowrap;
+  border:0;
+  -webkit-text-stroke:0.3px rgba(0,0,0,.35);
+  text-shadow:0 0 1px rgba(0,0,0,.35), 0 1px 1px rgba(0,0,0,.25);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  backface-visibility:hidden;
+  will-change:transform;
+}
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+/* sticky top navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#0F2D25;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10000;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f5fff9;
+  font-weight:800;
+  font-size:1rem;
+  text-decoration:none;
+}
+.navbar-brand img{
+  height:30px;
+  width:auto;
+  border-radius:6px;
+}
+
+/* CTA always visible in navbar */
+.navbar-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-toggle{
+  background:none;
+  border:0;
+  color:#f5fff9;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* menu base: mobile first */
+.nav-menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(15,45,37,0.95);
+  backdrop-filter:blur(8px);
+  display:none;
+  z-index:9999;
+}
+.nav-menu.open{
+  display:block;
+}
+.nav-menu ul{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+.nav-menu li{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.nav-menu a{
+  display:block;
+  padding:12px 18px;
+  color:#f5fff9;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.98rem;
+}
+.nav-menu a:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* Desktop layout */
+@media (min-width:780px){
+  .nav-toggle{
+    display:none;
+  }
+
+  .navbar{
+    height:70px;
+    padding:0 32px;
+  }
+
+  .navbar-brand{
+    flex:0 0 auto;
+  }
+
+  .navbar-cta{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10001;
+  }
+  .navbar-cta a{
+    padding:8px 18px;
+    border-radius:14px;
+    background:#A32A19;
+    color:#fff;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .navbar-cta a:hover{
+    background:#8b2214;
+  }
+
+  .nav-menu{
+    position:static;
+    display:block;
+    background:transparent;
+    backdrop-filter:none;
+    flex:0 0 auto;
+  }
+  .nav-menu ul{
+    display:flex;
+    gap:18px;
+    padding:0;
+  }
+  .nav-menu li{
+    border:0;
+  }
+  .nav-menu a{
+    padding:0;
+  }
+}
+
+/* hero */
+header.hero{
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:#0A7A58;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65));
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:96px 20px 34px;
+  max-width:920px;
+  margin:auto;
+  text-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.8rem,5vw,3.4rem);
+  font-weight:900;
+  color:#fafafa;
+}
+.hero p{
+  margin:10px auto 0;
+  max-width:760px;
+  color:#eaf6f1;
+  font-size:1.05rem;
+}
+
+/* guide content layout */
+main{
+  padding:40px 0 10px;
+}
+.guide-inner{
+  max-width:1100px;
+  margin:0 auto 40px;
+  padding:0 24px;
+}
+.guide-section{
+  margin-bottom:32px;
+  background:transparent;
+}
+.guide-section h2{
+  text-align:center;
+  font-size:1.9rem;
+  color:var(--green);
+  margin:0 0 10px;
+  font-weight:800;
+}
+.guide-section.guide-intro p{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+  color:#4b5a56;
+}
+.guide-section h3{
+  margin-top:10px;
+  font-size:1.2rem;
+  color:var(--deep);
+}
+.guide-section p{
+  margin:8px 0;
+}
+.guide-section ul{
+  margin:8px 0 16px 20px;
+  padding:0;
+}
+
+/* process steps with numbered bubbles */
+.steps{
+  display:grid;
+  gap:18px;
+}
+@media(min-width:760px){
+  .steps{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+.steps.steps-5{
+  margin-top:18px;
+}
+.steps.steps-5 .step{
+  align-items:flex-start;
+}
+.step{
+  background:#fff;
+  border:1px solid #e8eeeb;
+  border-radius:16px;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  box-shadow:var(--shadow);
+}
+.num{
+  min-width:40px;
+  min-height:40px;
+  border-radius:50%;
+  background:#A32A19;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:1.1rem;
+}
+.step h4{
+  margin:.1rem 0 .2rem;
+  font-size:1.05rem;
+  color:var(--green);
+}
+
+/* detailed step cards */
+.step-detail-grid{
+  display:grid;
+  gap:18px;
+}
+@media(min-width:900px){
+  .step-detail-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+.step-card{
+  background:#fff;
+  border:1px solid #e8eeeb;
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.step-card h3{
+  margin-top:0;
+  font-size:1.2rem;
+  color:var(--green);
+}
+
+/* footer */
+footer{
+  background:#0F2D25;
+  color:#d9eee7;
+  padding:34px 0;
+  text-align:center;
+  margin-top:40px;
+}
+footer a{
+  color:#a1f0d3;
+  outline:none;
+  transition:box-shadow .2s, outline .2s;
+}
+footer a:focus{
+  outline:2px solid #fff;
+  outline-offset:3px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.4);
+}
+footer a:hover{
+  color:#c2fff0;
+}
+.footer-social a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size:30px;
+  margin:0 6px;
+  transition:color 0.3s ease;
+}
+.footer-social a:hover {
+  color:#E56A54;
+}
+</style>
+
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/blog-doh-letter.html">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
+    <span>Hawaiʻi Cesspool Help</span>
+  </a>
+
+  <div class="navbar-cta" id="topCta">
+    <a href="/start.html">Get Help Now</a>
+  </div>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
+
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/start.html">Start</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/guide.html">Guide</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="lead">
+ <div class="hero-inner">
+  <h1>Guide</h1>
+  <p>A clear homeowner guide to cesspool conversion on Hawaiʻi Island.</p>
+ </div>
+</header>
+
+<h1>What to Do When You Get a DOH Cesspool Notification Letter</h1>
+
+
+<hr>
+
+<p>If you just got a letter from the Hawaiʻi Department of Health about your cesspool, take a breath. This is not an emergency — it&#x27;s a heads-up that gives you time to plan.</p>
+
+<p>Here&#x27;s what the letter means and exactly what to do next.</p>
+
+<h2>What does the DOH cesspool notification mean?</h2>
+
+<p>The Hawaiʻi Department of Health (DOH) sends these letters when your property has been flagged as having an active cesspool — a simple underground pit that absorbs household wastewater directly into the soil. Cesspools were legal and common decades ago, but they are now known to contaminate groundwater, streams, and ocean reefs with untreated wastewater.</p>
+
+<p>Under Hawaiʻi state law (Act 125), all cesspools on Hawaiʻi Island must be converted or closed by 2050. The DOH prioritizes which properties get notified based on factors like proximity to water sources, property sales activity, and environmental risk. Getting a letter doesn&#x27;t mean you have to act tomorrow — but it does mean the clock is ticking.</p>
+
+<h2>Do I need to convert my cesspool right away?</h2>
+
+<p>Not necessarily. You generally have time to plan. However, there are situations where action becomes urgent:</p>
+
+<p>- <strong>You&#x27;re selling your property.</strong> Most property transfers in Hawaii County require proof that wastewater systems meet current standards before the sale can close.</p>
+<p>- <strong>Your cesspool is failing.</strong> Overflow, sewage odors around the yard, or unusually lush grass patches above the pit can all signal a problem.</p>
+<p>- <strong>The DOH letter specifies a deadline.</strong> Some notifications include a compliance timeline based on your property&#x27;s environmental risk level.</p>
+
+<p>If none of these apply to you, you still have time — but starting early means more options and less stress later.</p>
+
+<h2>What are my options?</h2>
+
+<p>You typically have two paths:</p>
+
+<h3>Option 1: Convert to a septic or aerobic treatment system</h3>
+<p>This is the most common solution. A licensed civil engineer designs an Individual Wastewater System (IWS) for your property — usually a modern septic tank with a leach field, though some properties need more advanced aerobic treatment units depending on soil and slope conditions. The engineer handles the design, submits it to the DOH for permitting, and oversees installation.</p>
+
+<h3>Option 2: Connect to a municipal sewer system</h3>
+<p>If your property is within range of an existing sewer line and Hawaiʻi County offers connection in your area, this can be a simpler path — though not all properties on Big Island have access.</p>
+
+<h2>What should I do first?</h2>
+
+<p><strong>Step 1: Don&#x27;t ignore the letter.</strong> Even if you&#x27;re not ready to act now, keep it somewhere safe. It contains information about your property&#x27;s wastewater status that will matter later.</p>
+
+<p><strong>Step 2: Understand your property.</strong> Note where your cesspool is located (if you know), whether there are any signs of failure around the yard, and what your plans are for the property long-term.</p>
+
+<p><strong>Step 3: Talk to someone who knows the process.</strong> The cesspool-to-septic conversion involves an engineer, a permit from DOH, and an installer. Coordinating all three yourself is possible but stressful. That&#x27;s exactly why Hawaiʻi Cesspool Help exists — we connect homeowners with licensed engineers and local installers so you don&#x27;t have to figure out who calls whom.</p>
+
+<p><strong>Step 4: Ask about costs early.</strong> Every property is different, and the total cost depends on your soil type, slope, available space, and what kind of system fits. Getting a realistic estimate before committing saves money and surprise later.</p>
+
+<h2>Common questions homeowners ask right after getting the letter</h2>
+
+<h3>&quot;Is this going to cost me a fortune?&quot;</h3>
+<p>Cesspool conversion costs vary by property. Simpler sites with good soil conditions are on the lower end; rocky ground, steep slopes, or tight spaces drive costs up. The key is getting an engineer assessment before you know what you&#x27;re dealing with — guessing from online numbers isn&#x27;t reliable for your specific situation.</p>
+
+<h3>&quot;Can I just fill the cesspool in?&quot;</h3>
+<p>No. Simply filling a cesspool without converting to an approved wastewater system violates state law and can create serious health hazards. The DOH requires that every property have a functioning, permitted wastewater system before a cesspool is closed.</p>
+
+<h3>&quot;What happens if I do nothing?&quot;</h3>
+<p>If you wait until 2050 with no plan, you may face limited options, higher costs, and potential fines. More importantly, an aging cesspool can fail at any time — creating property damage, health risks, and emergency repairs that cost far more than planned conversion.</p>
+
+<h3>&quot;Will this affect my property value?&quot;</h3>
+<p>An unconverted cesspool is increasingly a liability for buyers and lenders. A properly permitted septic system protects your property value and makes future sales smoother.</p>
+
+<h2>The bottom line</h2>
+
+<p>Getting a DOH cesspool notification letter isn&#x27;t the end of the world — it&#x27;s an opportunity to take care of a problem before it becomes urgent. The sooner you understand your options, the more control you have over timing, cost, and outcome.</p>
+
+<p>If you want help figuring out your next step without any commitment, <a href="https://www.hawaiicesspoolhelp.com/start.html">contact Hawaiʻi Cesspool Help</a>. It takes about two minutes to tell us about your situation, and we&#x27;ll connect you with the right engineer for your property.</p>
+
+<hr>
+
+<p>*This article is for informational purposes only and does not constitute legal or engineering advice. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals — we do not provide engineering services directly.*</p>
+
+<footer>
+  <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
+  <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun Closed</div>
+  <div><a href="/privacy.html">Privacy Policy</a></div>
+  <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
+  <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
+
+  <div class="footer-social" style="text-align:center; margin-top:10px;">
+    <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px;">
+      <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+           style="fill:#ffffff; transition:fill .2s;">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/hawaiicesspoolhelp"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+      <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+           viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+        <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+      </svg>
+    </a>
+
+    <a href="https://x.com/HICesspoolHelp" target="_blank" style="display:inline-block;width:36px;height:36px;margin-left:10px;">
+      <svg viewBox="0 0 512 512" width="36" height="36" style="fill:#fff">
+        <path d="M389.2 48H472L303.3 230.2 512 464H353.6L230.3 318.6 92.2 464H8L187.5 270.8 0 48H163.2L276.2 178.6 389.2 48zM360.8 421.9h43.7L153.7 90.1H109.3l251.5 331.8z"/>
+      </svg>
+    </a>
+    
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+
+function toggleNavMenu(){
+  var menu = document.getElementById('nav-menu');
+  if(menu){
+    menu.classList.toggle('open');
+  }
+}
+</script>
+
+</body>
+</html>

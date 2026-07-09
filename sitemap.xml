@@ -3,40 +3,58 @@
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/</loc>
-    <lastmod>2025-11-15</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/start.html</loc>
-    <lastmod>2025-11-15</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/faq.html</loc>
-    <lastmod>2025-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/guide.html</loc>
-    <lastmod>2025-11-15</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://www.hawaiicesspoolhelp.com/privacy.html</loc>
-    <lastmod>2025-11-15</lastmod>
+    <loc>https://www.hawaiicesspoolhelp.com/guide.html</loc>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.2</priority>
+    <priority>0.6</priority>
   </url>
 
-  
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/privacy.html</loc>
+    <lastmod>2025-11-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-doh-letter.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-conversion-cost.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-conversion-timeline.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
-
