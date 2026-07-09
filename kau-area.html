@@ -41,6 +41,33 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
   .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
 }
 
+
+/* sticky CTA bottom */
+.sticky-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 9999;
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  transition: opacity .2s, transform .2s;
+  width: auto;
+  max-width: calc(100vw - 32px);
+  background-color: #A32A19;
+  border-radius: 14px;
+}
+.sticky-cta.hidden { opacity:0; pointer-events:none; transform:translateX(-50%) translateY(20px) }
+@supports(padding: env(safe-area-inset-bottom)) {
+  .sticky-cta { bottom: calc(env(safe-area-inset-bottom) + 20px) }
+}
+@media (max-width: 360px) {
+  .sticky-cta { font-size:.95rem; padding:10px 18px }
+}
+/* hide bottom sticky CTA on nonmobile */
+@media (min-width: 768px) {
+  #stickyBtn { display:none !important }
+}
+body::after { content:""; display:block; height:100px }
 </style>
 </head>
 <body>
@@ -122,6 +149,7 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
 
 </main>
 
+<a class="btn sticky-cta hidden" id="stickyBtn" href="/start.html">Get Help Now</a>
 <footer>
   <div class="footer-social">
     <a href="https://www.facebook.com/HawaiiCesspoolHelp" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
