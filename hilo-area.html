@@ -74,7 +74,6 @@ body::after { content:""; display:block; height:100px }
 
 <nav class="navbar">
   <a href="/" class="navbar-brand"><img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo"><span>Hawaiʻi Cesspool Help</span></a>
-  <div class="navbar-cta" id="topCta"><a href="/start.html">Get Help Now</a></div>
   <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
     <div class="nav-menu" id="nav-menu">
     <ul>
@@ -112,7 +111,9 @@ body::after { content:""; display:block; height:100px }
 
 <hr>
 
-<p>Hilo is the largest population center on the Big Island. Older neighborhoods like Waiākea, Keaʻau, and Pōhakuloa still have active cesspools that were legal when those homes went in. If you own property here and are facing a DOH notification or planning a sale, understanding how Hilo's specific conditions affect conversion is important.</p>
+<p>Hilo and nearby East Hawaiʻi communities include older homes that may still use cesspools. Rainfall, groundwater, lot size, sewer availability, and existing development patterns affect the best conversion path.</p>
+
+<p>If you own property here and are facing a DOH notification or planning a sale, understanding how Hilo's specific conditions affect conversion is important.</p>
 
 <h2>What makes the Hilo area different</h2>
 
@@ -157,7 +158,7 @@ body::after { content:""; display:block; height:100px }
 <p><em>This article is for informational purposes only and does not constitute legal or engineering advice. Actual costs and timelines vary by property. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals — we do not provide engineering services directly.</em></p>
 </main>
 
-<a class="btn sticky-cta hidden" id="stickyBtn" href="/start.html">Get Help Now</a>
+<a class="btn sticky-cta" id="stickyBtn" href="/start.html">Get Help Now</a>
 <footer>
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
   <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
@@ -181,12 +182,3 @@ function toggleDropdown(el){
   }
 }
 
-const stickyBtn = document.getElementById('stickyBtn');
-if (stickyBtn) {
-  window.addEventListener('scroll', function() {
-    stickyBtn.classList.toggle('hidden', window.scrollY < 200);
-  }, { passive: true });
-}
-</script>
-</body>
-</html>

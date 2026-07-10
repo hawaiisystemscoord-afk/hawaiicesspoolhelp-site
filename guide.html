@@ -434,10 +434,6 @@ body::after { content:""; display:block; height:100px }
     <span>Hawaiʻi Cesspool Help</span>
   </a>
 
-  <div class="navbar-cta" id="topCta">
-    <a href="/start.html">Get Help Now</a>
-  </div>
-
   <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
 
     <div class="nav-menu" id="nav-menu">
@@ -482,7 +478,7 @@ body::after { content:""; display:block; height:100px }
   <div class="guide-inner">
     <section class="guide-section guide-intro">
       <h2>How the cesspool conversion process works on Hawaiʻi Island</h2>
-      <p>Hawaiʻi has roughly 83,000 cesspools that must be upgraded or connected to sewer by the year 2050. That mandate applies to every cesspool property, from small in town lots to larger rural parcels. The rules are detailed, the forms are technical, and most owners only do this once in a lifetime.</p>
+      <p>Hawaiʻi has roughly 88,000 cesspools statewide — about 50,000 on Hawaiʻi Island alone. All must be upgraded to approved wastewater systems or connected to sewer by January 1, 2050 under Act 125 and DOH rules. That mandate applies to every cesspool property, from small in town lots to larger rural parcels. The requirements are detailed, the forms are technical, and most owners only do this once in a lifetime.</p>
       <p>The goal of this guide is to turn that large, slow project into a simple set of steps. Instead of trying to track engineers, installers, and permits on your own, you see how the process works when one coordinator keeps everything moving. Every example on this page assumes you work through Hawaiʻi Cesspool Help as your funnel, not by calling around on your own.</p>
     </section>
 
@@ -754,7 +750,7 @@ body::after { content:""; display:block; height:100px }
   </div>
 </main>
 
-<a class="btn sticky-cta hidden" id="stickyBtn" href="/start.html">Get Help Now</a>
+<a class="btn sticky-cta" id="stickyBtn" href="/start.html">Get Help Now</a>
 <footer>
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
   <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
@@ -808,19 +804,6 @@ function toggleDropdown(el){
   }
 }
 
-const sticky = document.getElementById('stickyBtn');
-const topCta = document.getElementById('topCta');
-const hero = document.getElementById('lead');
-if (hero && (sticky || topCta)) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      var inView = entry.isIntersecting;
-      if (sticky) { sticky.classList.toggle('hidden', inView); }
-      if (topCta) { topCta.style.display = inView ? 'none' : ''; }
-    });
-  }, { threshold: 0.05 });
-  observer.observe(hero);
-}
 </script>
 
 </body>

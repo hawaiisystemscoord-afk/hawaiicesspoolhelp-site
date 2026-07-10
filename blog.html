@@ -53,7 +53,6 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
 
 <nav class="navbar">
   <a href="/" class="navbar-brand"><img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo"><span>Hawaiʻi Cesspool Help</span></a>
-  <div class="navbar-cta" id="topCta"><a href="/start.html">Get Help Now</a></div>
   <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
   <div class="nav-menu" id="nav-menu">
     <ul>
@@ -193,7 +192,7 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
 
 </div>
 
-<a class="btn sticky-cta hidden" id="stickyBtn" href="/start.html">Get Help Now</a>
+<a class="btn sticky-cta" id="stickyBtn" href="/start.html">Get Help Now</a>
 
 <footer>
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
@@ -214,19 +213,3 @@ footer{background:#0F2D25;color:#d9eee7;padding:34px 0;text-align:center;margin-
 document.getElementById('y').textContent = new Date().getFullYear();
 function toggleNavMenu(){var m=document.getElementById("nav-menu");if(m)m.classList.toggle("open");}
 function toggleDropdown(el){var sub=el.nextElementSibling;if(sub&&sub.classList.contains("dropdown-sub")){sub.classList.toggle("open");}}
-const stickyBtn = document.getElementById('stickyBtn');
-if (stickyBtn) { window.addEventListener('scroll', function(){stickyBtn.classList.toggle('hidden', window.scrollY < 200);}, {passive:true}); }
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Hawaiʻi Cesspool Conversion Help Center",
-  "description": "Plain-English guides for Hawaiʻi Island homeowners dealing with cesspool notices, conversion costs, timelines, permits, engineers, installers, and 2050 compliance.",
-  "url": "https://www.hawaiicesspoolhelp.com/blog.html"
-}
-</script>
-
-</body>
-</html>

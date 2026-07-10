@@ -128,7 +128,6 @@ body::after { content:""; display:block; height:100px }
     <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
     <span>Hawaiʻi Cesspool Help</span>
   </a>
-  <div class="navbar-cta" id="topCta"><a href="/start.html">Get Help Now</a></div>
   <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
     <div class="nav-menu" id="nav-menu">
     <ul>
@@ -219,7 +218,7 @@ body::after { content:""; display:block; height:100px }
 <p><em>This article is for informational purposes only and does not constitute legal or engineering advice. Actual costs and timelines vary by property. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals — we do not provide engineering services directly.</em></p>
 </main>
 
-<a class="btn sticky-cta hidden" id="stickyBtn" href="/start.html">Get Help Now</a>
+<a class="btn sticky-cta" id="stickyBtn" href="/start.html">Get Help Now</a>
 <footer>
   <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
   <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
@@ -252,12 +251,3 @@ function toggleDropdown(el){
   }
 }
 
-const stickyBtn = document.getElementById('stickyBtn');
-if (stickyBtn) {
-  window.addEventListener('scroll', function() {
-    stickyBtn.classList.toggle('hidden', window.scrollY < 200);
-  }, { passive: true });
-}
-</script>
-</body>
-</html>
