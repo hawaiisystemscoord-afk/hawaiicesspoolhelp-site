@@ -308,6 +308,7 @@ footer a:hover{color:#c2fff0}
   .progress-sticky{bottom:calc(env(safe-area-inset-bottom) + 16px)}
 }
 body::after{content:"";display:block;height:100px}
+.grecaptcha-badge{visibility:hidden!important}
 
 /* dropdown sub-menus */
 .nav-dropdown{position:relative}
@@ -525,28 +526,6 @@ body::after{content:"";display:block;height:100px}
     <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
     apply.
   </div>
-
-  <style>.grecaptcha-badge{visibility:hidden!important}
-/* dropdown sub-menus */
-.nav-dropdown{position:relative}
-.dropdown-toggle{display:block;padding:12px 18px;color:#f5fff9;font-weight:600;font-size:.98rem;cursor:pointer;user-select:none}
-.dropdown-sub{display:none;list-style:none;margin:0;padding:0 0 0 16px;background:rgba(0,0,0,.15)}
-.dropdown-sub.open{display:block}
-.dropdown-sub li{border-top:1px solid rgba(255,255,255,.05)}
-.dropdown-sub a{display:block;padding:10px 18px;color:#d9eee7;text-decoration:none;font-weight:500;font-size:.93rem}
-.dropdown-sub a:hover{background:rgba(255,255,255,.06)}
-
-/* desktop dropdowns */
-@media(min-width:780px){
-  .dropdown-toggle{padding:0;cursor:default;display:inline;color:#f5fff9;font-weight:600;font-size:.98rem}
-  .dropdown-sub{position:absolute;top:100%;left:0;background:rgba(15,45,37,.98);backdrop-filter:blur(8px);border-radius:0 0 10px 10px;box-shadow:0 8px 20px rgba(0,0,0,.3);padding:6px 0;min-width:230px}
-  .nav-dropdown:hover>.dropdown-sub{display:block}
-  .dropdown-sub li{border:0}
-  .dropdown-sub a{padding:8px 16px;font-size:.92rem;border-radius:0}
-  .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
-}
-
-</style>
 
 </footer>
 
