@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Engineer Site Visit Checklist for Cesspool Conversion | Hawaiʻi Cesspool Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A printable checklist of records, property details, site access information, and questions to prepare before a cesspool conversion engineer visits.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/engineer-visit-checklist.html">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --green:#0A7A58;
+  --deep:#0F2D25;
+  --coral:#A32A19;
+  --ink:#111;
+  --bg:#f7f7f7;
+  --card:#fff;
+  --radius:14px;
+  --shadow:0 10px 26px rgba(0,0,0,.07);
+}
+
+/* base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+a{color:var(--green);text-decoration:none}
+
+.btn{
+  display:inline-block;
+  background:var(--coral);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:var(--radius);
+  font-weight:800;
+  text-decoration:none;
+  font-size:1rem;
+  line-height:1.2;
+  white-space:nowrap;
+  border:0;
+}
+
+/* sticky top navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#0F2D25;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10000;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f5fff9;
+  font-weight:800;
+  font-size:1rem;
+  text-decoration:none;
+}
+.navbar-brand img{
+  height:30px;
+  width:auto;
+  border-radius:6px;
+}
+
+/* CTA always visible in navbar */
+.navbar-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-toggle{
+  background:none;
+  border:0;
+  color:#f5fff9;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* menu base: mobile first */
+.nav-menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(15,45,37,0.95);
+  backdrop-filter:blur(8px);
+  display:none;
+  z-index:9999;
+}
+.nav-menu.open{
+  display:block;
+}
+.nav-menu ul{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+.nav-menu li{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.nav-menu a{
+  display:block;
+  padding:12px 18px;
+  color:#f5fff9;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.98rem;
+}
+.nav-menu a:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* Desktop layout */
+@media (min-width:780px){
+  .nav-toggle{ display:none; }
+  .navbar{ height:70px; padding:0 32px; }
+  .navbar-brand{ flex:0 0 auto; }
+  .navbar-cta{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10001;
+  }
+  .navbar-cta a{
+    padding:8px 18px;
+    border-radius:14px;
+    background:#A32A19;
+    color:#fff;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .nav-menu{
+    position:static;
+    display:block;
+    background:transparent;
+    backdrop-filter:none;
+    flex:0 0 auto;
+  }
+  .nav-menu ul{ display:flex; gap:18px; padding:0; }
+  .nav-menu li{ border:0; }
+  .nav-menu a{ padding:0; }
+}
+
+/* hero */
+header.hero{
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:#0A7A58;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65));
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:96px 20px 34px;
+  max-width:920px;
+  margin:auto;
+  text-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.8rem,5vw,3.4rem);
+  font-weight:900;
+  color:#fafafa;
+}
+.hero p{
+  margin:10px auto 0;
+  max-width:760px;
+  color:#eaf6f1;
+  font-size:1.05rem;
+}
+
+/* article content */
+main.article{
+  max-width:720px;
+  margin:0 auto;
+  padding:40px 20px 80px;
+}
+.breadcrumb{margin:0 0 24px;font-size:.9rem;color:#56635f}
+.breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.breadcrumb li:not(:last-child)::after{content:"/";margin-left:6px;color:#87918e}
+.breadcrumb [aria-current="page"]{color:var(--deep);font-weight:600}
+@media (min-width:768px){
+  main.article{
+    padding:56px 24px 100px;
+  }
+}
+
+main.article h1{
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  font-weight:900;
+  color:var(--deep);
+  line-height:1.25;
+  margin:0 0 8px;
+}
+
+main.article h2{
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--green);
+  margin:36px 0 12px;
+}
+
+main.article h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--deep);
+  margin:24px 0 8px;
+}
+
+main.article p{
+  margin:0 0 16px;
+  line-height:1.7;
+}
+
+main.article hr{
+  border:none;
+  border-top:1px solid #e0e0e0;
+  margin:32px 0;
+}
+
+/* phase boxes */
+.phase-box{
+  background:var(--card);
+  border:1px solid #d9e2df;
+  border-radius:var(--radius);
+  padding:24px;
+  margin:28px 0;
+  box-shadow:var(--shadow);
+}
+.phase-box h3{margin-top:0}
+
+/* source reference */
+.source-ref{
+  display:inline-block;
+  font-size:.82rem;
+  color:#56635f;
+  background:#eef2f1;
+  padding:2px 8px;
+  border-radius:6px;
+  margin-top:4px;
+}
+
+/* footer */
+footer{
+  background:#0F2D25;
+  color:#d9eee7;
+  padding:34px 0;
+  text-align:center;
+  margin-top:40px;
+}
+footer a{
+  color:#a1f0d3;
+  outline:none;
+  transition:box-shadow .2s, outline .2s;
+}
+footer a:focus{
+  outline:2px solid #fff;
+  outline-offset:3px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.4);
+}
+footer a:hover{
+  color:#c2fff0;
+}
+.footer-social a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size:30px;
+  margin:0 6px;
+  transition:color 0.3s ease;
+}
+.footer-social a:hover {
+  color:#E56A54;
+}
+
+/* dropdown sub-menus */
+.nav-dropdown{position:relative}
+.dropdown-toggle{display:block;padding:12px 18px;color:#f5fff9;font-weight:600;font-size:.98rem;cursor:pointer;user-select:none}
+.dropdown-sub{display:none;list-style:none;margin:0;padding:0 0 0 16px;background:rgba(0,0,0,.15)}
+.dropdown-sub.open{display:block}
+.dropdown-sub li{border-top:1px solid rgba(255,255,255,.05)}
+.dropdown-sub a{display:block;padding:10px 18px;color:#d9eee7;text-decoration:none;font-weight:500;font-size:.93rem}
+.dropdown-sub a:hover{background:rgba(255,255,255,.06)}
+
+/* desktop dropdowns */
+@media(min-width:780px){
+  .dropdown-toggle{padding:0;cursor:default;display:inline;color:#f5fff9;font-weight:600;font-size:.98rem}
+  .dropdown-sub{position:absolute;top:100%;left:0;background:rgba(15,45,37,.98);backdrop-filter:blur(8px);border-radius:0 0 10px 10px;box-shadow:0 8px 20px rgba(0,0,0,.3);padding:6px 0;min-width:230px}
+  .nav-dropdown:hover>.dropdown-sub{display:block}
+  .dropdown-sub li{border:0}
+  .dropdown-sub a{padding:8px 16px;font-size:.92rem;border-radius:0}
+  .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
+}
+
+
+/* P15 resource-page additions */
+.notice-box,.checklist-box,.source-box,.worksheet-box{
+  background:#fff;border:1px solid #d9e2df;border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.04);padding:20px;margin:22px 0;
+}
+.notice-box{border-left:5px solid var(--coral)}
+.checklist-box h2,.worksheet-box h2{margin-top:0}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{position:relative;padding:9px 0 9px 34px;border-bottom:1px solid #edf1ef}
+.checklist li:last-child{border-bottom:0}
+.checklist li::before{content:"□";position:absolute;left:4px;top:7px;font-size:1.25rem;color:var(--green);font-weight:800}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:20px 0}
+.step-card{background:#fff;border:1px solid #d9e2df;border-radius:14px;padding:18px}
+.step-card h2,.step-card h3{margin-top:0}
+.field-line{display:block;border-bottom:1px solid #7f8c87;min-height:30px;margin:8px 0 16px}
+.small-note{font-size:.92rem;color:#52615c}
+.resource-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:24px 0}
+.resource-nav a{display:block;background:#f0faf5;border:1px solid #cfe2d9;border-radius:12px;padding:14px;font-weight:800}
+@media print{
+  body{padding-top:0;background:#fff;color:#000}
+  .navbar,footer,.btn,.breadcrumb,.resource-nav{display:none!important}
+  main.article{max-width:none;padding:0}
+  .checklist-box,.worksheet-box,.step-card,.notice-box,.source-box{box-shadow:none;break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Engineer Site Visit Checklist for Cesspool Conversion",
+  "description": "A printable checklist of records, property details, site access information, and questions to prepare before a cesspool conversion engineer visits.",
+  "datePublished": "2026-07-23",
+  "dateModified": "2026-07-23",
+  "author": {
+    "@type": "Organization",
+    "name": "Hawaiʻi Cesspool Help",
+    "url": "https://www.hawaiicesspoolhelp.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hawaiʻi Cesspool Help",
+    "url": "https://www.hawaiicesspoolhelp.com/"
+  }
+}
+</script>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
+    <span>Hawaiʻi Cesspool Help</span>
+  </a>
+
+  <div class="navbar-cta" id="topCta">
+    <a href="/start.html">Get Help Now</a>
+  </div>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
+
+    <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/start.html">Start</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/guide.html">Guide</a></li>
+      <li class="nav-dropdown">
+        <span class="dropdown-toggle" onclick="toggleDropdown(this)">Districts ▾</span>
+        <ul class="dropdown-sub">
+          <li><a href="/hilo-area.html">Hilo</a></li>
+          <li><a href="/puna-area.html">Puna</a></li>
+          <li><a href="/kau-area.html">Kaʻū</a></li>
+          <li><a href="/kona-area.html">Kona</a></li>
+          <li><a href="/north-kohala.html">Kohala</a></li>
+          <li><a href="/hamakua-area.html">Hāmākua</a></li>
+        </ul>
+      </li>
+            <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="article">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/blog.html">Resources</a></li><li><span aria-current="page">Engineer Visit Checklist</span></li></ol></nav>
+<h1>Engineer Site Visit Checklist for Cesspool Conversion</h1>
+<p class="article-byline">By Hawaiʻi Cesspool Help · Published <time datetime="2026-07-23">July 23, 2026</time></p>
+<hr>
+
+<p>Use this checklist before the first site visit. Having the basic property information ready lets the engineer spend more time evaluating the site and less time reconstructing the file history.</p>
+<div class="checklist-box"><h2>Bring or send before the visit</h2><ul class="checklist"><li>Full TMK, site address, owner name, phone, and email</li><li>Survey, plot plan, tax map, building plans, or other property drawings</li><li>Any DOH cesspool card, IWS approval, permit, inspection, or correspondence</li><li>Known cesspool or septic location and approximate age</li><li>Pumping receipts, service reports, spill history, odors, backups, or wet-area notes</li><li>Current bedroom count, kitchens, bathrooms, accessory units, and typical occupancy</li><li>Planned additions, renovations, rentals, subdivision, or change of use</li><li>Water source, water meter information, wells, catchment, and nearby streams or shoreline</li><li>Known easements, retaining walls, slopes, rock outcrops, driveways, utilities, and access limits</li><li>Photos that show the property, wastewater area, and equipment access</li></ul></div>
+<div class="checklist-box"><h2>Mark on the property</h2><ul class="checklist"><li>Property corners or best-known boundary locations</li><li>Existing cesspool, septic tank, cleanouts, vents, and plumbing exit</li><li>Wells, catchment tanks, waterlines, streams, drainage paths, and shoreline</li><li>Buildings, decks, pools, walls, driveways, parking, and planned improvements</li><li>Areas a truck or excavator can safely access</li><li>Areas you want to preserve, including trees, gardens, cultural features, and views</li></ul></div>
+<div class="checklist-box"><h2>Questions to ask</h2><ul class="checklist"><li>What records are missing before design can begin?</li><li>What site testing or survey work is likely?</li><li>Which system types appear feasible, and what could rule them out?</li><li>Where could the tank and disposal field fit?</li><li>What access will the contractor need?</li><li>Which DOH and county approvals are expected?</li><li>What decisions must the owner make before the application is submitted?</li><li>What is included in the engineer's scope, fee, and construction inspection work?</li></ul></div>
+<h2>What happens after the visit</h2><p>The engineer may request additional records, survey work, testing, or design decisions. A site visit is an information-gathering step, not a guarantee that a specific system or location will be approved.</p>
+<h2>Official references</h2><div class="source-box"><ul><li><a href="https://health.hawaii.gov/wastewater/home/iws/" target="_blank" rel="noopener noreferrer">DOH IWS homeowner resources and forms</a></li><li><a href="https://mypvl.dcca.hawaii.gov/public-license-search/" target="_blank" rel="noopener noreferrer">Verify a professional license through DCCA</a></li><li><a href="https://www.planning.hawaiicounty.gov/i-want-to/find-out/my-zoning" target="_blank" rel="noopener noreferrer">Hawaiʻi County GIS property information</a></li></ul></div>
+<nav class="resource-nav" aria-label="Related cesspool planning resources">
+<a href="/permit-process.html">Permit process</a><a href="/priority-tool-walkthrough.html">Priority-tool walkthrough</a><a href="/engineer-visit-checklist.html">Engineer visit checklist</a><a href="/property-buyer-cesspool-checklist.html">Buyer due diligence</a><a href="/cesspool-records-checklist.html">Records checklist</a><a href="/cesspool-conversion-planning-worksheet.html">Planning worksheet</a></nav><p><a class="btn" href="/start.html">Request Help Coordinating a Site Visit</a></p>
+
+<hr>
+<p><em>This resource is general information, not engineering, legal, tax, real-estate, or permitting advice. Requirements vary by property. Confirm decisions with the applicable agency and Hawaii-licensed professionals.</em></p>
+<!-- CHATGPT-P09-CONTEXT-V1 START -->
+<aside class="related-content" aria-label="Related cesspool guidance"><h2>More cesspool planning guidance</h2><ul><li><a href="/blog-engineer-site-visit.html">What Happens During an Engineer Site Visit</a></li><li><a href="/blog-documents-before-contacting-engineer.html">Documents to Gather Before Contacting an Engineer</a></li></ul></aside>
+<!-- CHATGPT-P09-CONTEXT-V1 END -->
+</main>
+
+<footer>
+  <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
+  <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun Closed</div>
+  <div><a href="/privacy.html">Privacy Policy</a></div>
+  <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
+  <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
+
+  <div class="footer-social" style="text-align:center; margin-top:10px;">
+    <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px;">
+      <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+           style="fill:#ffffff; transition:fill .2s;">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/hawaiicesspoolhelp"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+      <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+           viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+        <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+
+function toggleNavMenu(){
+  var menu = document.getElementById('nav-menu');
+  if(menu){
+    menu.classList.toggle('open');
+  }
+}
+
+function toggleDropdown(el){
+  var sub=el.nextElementSibling;
+  if(sub&&sub.classList.contains("dropdown-sub")){
+    sub.classList.toggle("open");
+  }
+}
+
+</script>
+
+</body>
+</html>

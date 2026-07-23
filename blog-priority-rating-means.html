@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>What a Cesspool Priority Rating Means | Hawaiʻi Cesspool Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn what red, orange, or yellow priority ratings mean in the Hawaiʻi Cesspool Prioritization Tool — and what they do not tell you about your property.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/blog-priority-rating-means.html">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --green:#0A7A58;
+  --deep:#0F2D25;
+  --coral:#A32A19;
+  --ink:#111;
+  --bg:#f7f7f7;
+  --card:#fff;
+  --radius:14px;
+  --shadow:0 10px 26px rgba(0,0,0,.07);
+}
+
+/* base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+a{color:var(--green);text-decoration:none}
+
+.btn{
+  display:inline-block;
+  background:var(--coral);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:var(--radius);
+  font-weight:800;
+  text-decoration:none;
+  font-size:1rem;
+  line-height:1.2;
+  white-space:nowrap;
+  border:0;
+}
+
+/* sticky top navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#0F2D25;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10000;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f5fff9;
+  font-weight:800;
+  font-size:1rem;
+  text-decoration:none;
+}
+.navbar-brand img{
+  height:30px;
+  width:auto;
+  border-radius:6px;
+}
+
+/* CTA always visible in navbar */
+.navbar-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-toggle{
+  background:none;
+  border:0;
+  color:#f5fff9;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* menu base: mobile first */
+.nav-menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(15,45,37,0.95);
+  backdrop-filter:blur(8px);
+  display:none;
+  z-index:9999;
+}
+.nav-menu.open{
+  display:block;
+}
+.nav-menu ul{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+.nav-menu li{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.nav-menu a{
+  display:block;
+  padding:12px 18px;
+  color:#f5fff9;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.98rem;
+}
+.nav-menu a:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* Desktop layout */
+@media (min-width:780px){
+  .nav-toggle{ display:none; }
+  .navbar{ height:70px; padding:0 32px; }
+  .navbar-brand{ flex:0 0 auto; }
+  .navbar-cta{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10001;
+  }
+  .navbar-cta a{
+    padding:8px 18px;
+    border-radius:14px;
+    background:#A32A19;
+    color:#fff;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .nav-menu{
+    position:static;
+    display:block;
+    background:transparent;
+    backdrop-filter:none;
+    flex:0 0 auto;
+  }
+  .nav-menu ul{ display:flex; gap:18px; padding:0; }
+  .nav-menu li{ border:0; }
+  .nav-menu a{ padding:0; }
+}
+
+/* hero */
+header.hero{
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:#0A7A58;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65));
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:96px 20px 34px;
+  max-width:920px;
+  margin:auto;
+  text-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.8rem,5vw,3.4rem);
+  font-weight:900;
+  color:#fafafa;
+}
+.hero p{
+  margin:10px auto 0;
+  max-width:760px;
+  color:#eaf6f1;
+  font-size:1.05rem;
+}
+
+/* blog article content */
+main.article{
+  max-width:720px;
+  margin:0 auto;
+  padding:40px 20px 80px;
+}
+.breadcrumb{margin:0 0 24px;font-size:.9rem;color:#56635f}
+.breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.breadcrumb li:not(:last-child)::after{content:"/";margin-left:6px;color:#87918e}
+.breadcrumb [aria-current="page"]{color:var(--deep);font-weight:600}
+@media (min-width:768px){
+  main.article{
+    padding:56px 24px 100px;
+  }
+}
+
+main.article h1{
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  font-weight:900;
+  color:var(--deep);
+  line-height:1.25;
+  margin:0 0 8px;
+}
+
+main.article h2{
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--green);
+  margin:36px 0 12px;
+}
+
+main.article h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--deep);
+  margin:24px 0 8px;
+}
+
+main.article p{
+  margin:0 0 16px;
+  line-height:1.7;
+}
+
+main.article hr{
+  border:none;
+  border-top:1px solid #e0e0e0;
+  margin:32px 0;
+}
+
+main.article ul, main.article ol{
+  margin:0 0 16px;
+  padding-left:24px;
+}
+
+main.article li+li{margin-top:8px}
+
+.related-content{
+  margin:36px 0 24px;
+  padding:20px;
+  background:var(--card);
+  border:1px solid #d9e2df;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.related-content h2{margin:0 0 10px}
+.related-content ul{margin:0;padding-left:20px}
+.related-content li+li{margin-top:8px}
+
+/* footer */
+footer{
+  background:#0F2D25;
+  color:#d9eee7;
+  padding:34px 0;
+  text-align:center;
+  margin-top:40px;
+}
+footer a{
+  color:#a1f0d3;
+  outline:none;
+  transition:box-shadow .2s, outline .2s;
+}
+footer a:focus{
+  outline:2px solid #fff;
+  outline-offset:3px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.4);
+}
+footer a:hover{
+  color:#c2fff0;
+}
+.footer-social a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size:30px;
+  margin:0 6px;
+  transition:color 0.3s ease;
+}
+.footer-social a:hover {
+  color:#E56A54;
+}
+
+/* dropdown sub-menus */
+.nav-dropdown{position:relative}
+.dropdown-toggle{display:block;padding:12px 18px;color:#f5fff9;font-weight:600;font-size:.98rem;cursor:pointer;user-select:none}
+.dropdown-sub{display:none;list-style:none;margin:0;padding:0 0 0 16px;background:rgba(0,0,0,.15)}
+.dropdown-sub.open{display:block}
+.dropdown-sub li{border-top:1px solid rgba(255,255,255,.05)}
+.dropdown-sub a{display:block;padding:10px 18px;color:#d9eee7;text-decoration:none;font-weight:500;font-size:.93rem}
+.dropdown-sub a:hover{background:rgba(255,255,255,.06)}
+
+/* desktop dropdowns */
+@media(min-width:780px){
+  .dropdown-toggle{padding:0;cursor:default;display:inline;color:#f5fff9;font-weight:600;font-size:.98rem}
+  .dropdown-sub{position:absolute;top:100%;left:0;background:rgba(15,45,37,.98);backdrop-filter:blur(8px);border-radius:0 0 10px 10px;box-shadow:0 8px 20px rgba(0,0,0,.3);padding:6px 0;min-width:230px}
+  .nav-dropdown:hover>.dropdown-sub{display:block}
+  .dropdown-sub li{border:0}
+  .dropdown-sub a{padding:8px 16px;font-size:.92rem;border-radius:0}
+  .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
+    <span>Hawaiʻi Cesspool Help</span>
+  </a>
+
+  <div class="navbar-cta" id="topCta">
+    <a href="/start.html">Get Help Now</a>
+  </div>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
+
+    <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/start.html">Start</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/guide.html">Guide</a></li>
+      <li class="nav-dropdown">
+        <span class="dropdown-toggle" onclick="toggleDropdown(this)">Districts ▾</span>
+        <ul class="dropdown-sub">
+          <li><a href="/hilo-area.html">Hilo</a></li>
+          <li><a href="/puna-area.html">Puna</a></li>
+          <li><a href="/kau-area.html">Kaʻū</a></li>
+          <li><a href="/kona-area.html">Kona</a></li>
+          <li><a href="/north-kohala.html">Kohala</a></li>
+          <li><a href="/hamakua-area.html">Hāmākua</a></li>
+        </ul>
+      </li>
+            <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="article">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><span aria-current="page">What a Cesspool Priority Rating Means</span></li>
+  </ol>
+</nav>
+<h1>What a Cesspool Priority Rating Means</h1>
+
+<p class="article-byline">By Hawaiʻi Cesspool Help · Published <time datetime="2026-07-23">July 23, 2026</time> · 7 min read</p>
+
+<hr>
+
+<h2>The Short Answer: A Ranking Signal, Not a Legal Decision</h2>
+
+<p>If you found a red, orange, or yellow priority rating for your cesspool in the Hawaiʻi Cesspool Prioritization Tool (HCPT), the short answer is this: <strong>the rating is a statewide environmental and public-health prioritization signal. It is not, by itself, a legal or technical decision about your property.</strong></p>
+
+<p>The current tool ranks the urgency of cesspool replacement before 2050 using statewide information and expert input. Its levels describe potential effects on human well-being and the environment. They do not prove that a particular cesspool has caused contamination. The tool is also not described by its official sources as an onsite inspection or structural assessment. A displayed rating alone does not establish that your cesspool is failing, that you have violated a rule, that an enforcement order has been issued, or that your property has an earlier conversion deadline. <em>(S-1: UH Sea Grant HCPT; S-3: 2017 DOH legislative report — historical risk-method context)</em></p>
+
+<h2>What the Three Current Priority Levels Mean</h2>
+
+<p>The current HCPT uses three color-coded levels:</p>
+
+<h3>Priority Level 1 (Red)</h3>
+
+<p>Identifies cesspools with the greatest potential to affect human well-being and the environment. The tool describes these cesspools as directly adjacent to sensitive assets, such as coral reefs or drinking-water aquifers. <em>(S-1: UH Sea Grant HCPT — Level 1 definition)</em></p>
+
+<h3>Priority Level 2 (Orange)</h3>
+
+<p>Ranks behind Level 1 but still represents a significant hazard. A cesspool in this level may be close to assets such as streams or drinking-water aquifers. <em>(S-1: UH Sea Grant HCPT — Level 2 definition)</em></p>
+
+<h3>Priority Level 3 (Yellow)</h3>
+
+<p>Still indicates impact, although the cesspool may be farther from sensitive environmental assets or places that may directly affect human well-being. <em>(S-1: UH Sea Grant HCPT — Level 3 definition)</em></p>
+
+<p>The qualifications in those definitions matter. Words such as "potential," "may," and "such as" describe prioritization based on risk and proximity; they do not establish that a specific cesspool polluted a specific reef, stream, aquifer, or drinking-water source.</p>
+
+<p><strong>Level 3 does not mean "safe," "no risk," or "exempt."</strong> The Hawaiʻi Sea Grant description says cesspools degrade water quality and owners must act before 2050. A lower position in the three-level ranking does not make a cesspool indefinitely compliant or remove it from the statewide replacement requirement. <em>(S-1: UH Sea Grant HCPT; S-2: DOH Cesspools page — Act 125 context)</em></p>
+
+<h2>How to Look Up Your Rating</h2>
+
+<p>The HCPT can be searched by place name, street address, or tax map key (TMK). Red, orange, and yellow shading identifies areas deemed conversion-priority zones by the Hawaiʻi Department of Health. <em>(S-1: UH Sea Grant HCPT — search workflow)</em></p>
+
+<p>For a useful planning record:</p>
+
+<ol>
+  <li><strong>Open the current HCPT</strong> rather than relying on an old screenshot or historical area list.</li>
+  <li><strong>Search using the property address or TMK.</strong></li>
+  <li><strong>Record the displayed level and the date you checked it.</strong></li>
+</ol>
+
+<p>A map result is a starting point, not conclusive evidence of parcel boundaries, ownership, or legal status. The reviewed official sources do not fully define the map's parcel-boundary precision. A point, search result, or shaded zone should therefore not be treated as a legal parcel determination. <em>(S-1: UH Sea Grant HCPT; spatial-unit caveat from source map)</em></p>
+
+<h2>Why an Area Receives Its Rating</h2>
+
+<p>According to Hawaiʻi Sea Grant, the current method combines cesspool locations with 15 statewide data layers, a code-based geospatial tool, expert input, and weighting based on environmental and human impacts. This process supports a statewide comparison of urgency. It does not provide an onsite diagnosis or a parcel-specific explanation of every input and weight. <em>(S-1: UH Sea Grant HCPT — methodology summary)</em></p>
+
+<p>The December 2017 Department of Health legislative report offers historical context for the types of factors agencies have considered. That report evaluated factors including cesspool density, soil, proximity to drinking-water sources, streams and shorelines, groundwater transport and inputs, sensitive receiving waters, and nearby sewer infrastructure. These historical factors help explain why cesspool prioritization focuses on both environmental and public-health concerns. They should not be presented as the exact current HCPT formula: the current tool is described as a later, 15-layer process. <em>(S-3: December 2017 DOH legislative report — historical risk factors)</em></p>
+
+<h2>Do Not Confuse the Current Map with the 2017 Report</h2>
+
+<p>Homeowners may encounter two different priority systems in government and university materials:</p>
+
+<ul>
+  <li>The <strong>current HCPT</strong> uses three levels—1, 2, and 3—and displays current mapped prioritization information. <em>(S-1: UH Sea Grant HCPT)</em></li>
+  <li>The <strong>December 2017 DOH legislative report</strong> used four broad categories and assigned priorities by geographic area rather than by identifying individual cesspools. The report also said priorities could change as new information entered DOH analyses. <em>(S-3: December 2017 DOH legislative report; S-2: DOH Cesspools page summary)</em></li>
+</ul>
+
+<p>The systems are not interchangeable. For example, the 2017 report placed Keaʻau in Priority 2 and Hilo Bay, coastal Kailua/Kona, Puakō, and Kapoho in Priority 3, while identifying no Hawaiʻi Island area as Priority 1 at that time. Those are historical area ratings from December 2017—not current ratings for individual properties. They should never substitute for a current HCPT lookup. <em>(S-3: December 2017 DOH legislative report — Hawaiʻi Island priority areas)</em></p>
+
+<p>Inventory figures and ratings can also change. Hawaiʻi Sea Grant's reviewed page refers to more than 83,000 cesspools, while older state materials used a different approximate count. For current planning, use the current tool, note the lookup date, and avoid assuming that an old rating is permanent. <em>(S-1: UH Sea Grant HCPT; S-2/S-3: inventory change caveat)</em></p>
+
+<h2>What the Rating Does Not Tell You</h2>
+
+<p>A priority rating alone does <strong>not</strong> determine:</p>
+
+<ul>
+  <li>The cesspool's exact location, physical condition, or code compliance;</li>
+  <li>Whether the property has received a violation, notice, or enforcement order;</li>
+  <li>Whether an earlier parcel-specific legal deadline applies;</li>
+  <li>Which replacement technology is required or appropriate;</li>
+  <li>Whether sewer connection is available or feasible;</li>
+  <li>How much a conversion will cost;</li>
+  <li>Whether the owner or project qualifies for financial assistance; or</li>
+  <li>The property's design, permitting, or construction schedule.</li>
+</ul>
+
+<p>Those are separate parcel-specific questions. The reviewed sources do not support using a priority rating as an answer to them.</p>
+
+<p>The statewide context is also narrower than many homeowners assume. Act 125 established a general requirement for Hawaiʻi cesspools to be replaced by 2050. The official sources reviewed for this article do not say that Level 1, 2, or 3, standing alone, creates a particular earlier legal deadline for a property. <em>(S-2: DOH Cesspools page; S-3: December 2017 DOH legislative report — no earlier deadline tied to HCPT level)</em></p>
+
+<h2>Practical Next Steps</h2>
+
+<ol>
+  <li><strong>Check the current map.</strong> Search the HCPT with the address or TMK, then save the displayed priority level and lookup date.</li>
+  <li><strong>Use the result as planning context.</strong> A higher level signals greater statewide replacement urgency; it is not proof of parcel contamination or an order to start a particular project immediately.</li>
+  <li><strong>Verify legal or compliance questions with current authority.</strong> If you need to know about notices, obligations, compliance status, or timing for your property, confirm those facts with the Hawaiʻi Department of Health or the agency contact identified at the time you act.</li>
+  <li><strong>Get parcel-specific technical review where needed.</strong> Questions about the cesspool's location or condition, replacement design, sewer feasibility, cost, permitting, or schedule require the appropriate agency or qualified professional review. Do not rely on the map rating to answer them.</li>
+</ol>
+
+<p>The key distinction is simple: <strong>official priority information tells you where a cesspool falls in a statewide environmental and public-health ranking; parcel-specific review tells you what is true, required, or feasible for your property.</strong> Keeping those two roles separate makes the map useful without asking it to answer questions it was not designed to decide.</p>
+
+<p><a class="btn" href="/start.html">Get a Personalized Timeline for Your Property</a></p>
+
+<h2>Important Disclaimers</h2>
+
+<ul>
+  <li>This article provides general guidance only — it does not constitute legal or engineering advice.</li>
+  <li>Priority assignments may be updated by the Department of Health as new data becomes available. Always check for the most current information.</li>
+  <li>Funding programs and deadlines are subject to change at both the state and county level.</li>
+  <li><strong>Do not rely on this article alone</strong> to determine your legal obligations or compliance timeline. Verify information with official sources:</li>
+</ul>
+
+<ul>
+  <li><a href="https://seagrant.soest.hawaii.edu/cesspools-tool/">UH Sea Grant — Hawaiʻi Cesspool Hazard Assessment &amp; Prioritization Tool</a></li>
+  <li><a href="https://health.hawaii.gov/wastewater/home/cesspools/">Hawaiʻi DOH Wastewater Branch — Cesspools in Hawaiʻi</a></li>
+</ul>
+
+<aside class="related-content" aria-labelledby="related-content-heading">
+  <h2 id="related-content-heading">Related articles</h2>
+  <ul>
+    <li><a href="/blog-check-priority-tmk.html">How to Check Your Cesspool Priority and TMK</a></li>
+    <li><a href="/blog-conversion-cost.html">How Much Does Cesspool Conversion Cost in Hawaii County?</a></li>
+    <li><a href="/blog-conversion-timeline.html">Cesspool Conversion Timeline: Start to Finish on Hawaiʻi Island</a></li>
+  </ul>
+</aside>
+
+<hr>
+
+<p><em>This article is for informational purposes only and does not constitute legal or engineering advice. Priority assignments may be updated by the Department of Health as new data becomes available. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals. It does not provide engineering services directly.</em></p>
+</main>
+
+<footer>
+  <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
+  <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun Closed</div>
+  <div><a href="/privacy.html">Privacy Policy</a></div>
+  <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
+  <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
+
+  <div class="footer-social" style="text-align:center; margin-top:10px;">
+    <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px;">
+      <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+           style="fill:#ffffff; transition:fill .2s;">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/hawaiicesspoolhelp"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+      <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+           viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+        <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+function toggleNavMenu(){var m=document.getElementById('nav-menu');m.classList.toggle('open')}
+function toggleDropdown(el){var sub=el.nextElementSibling;if(sub&&sub.classList.contains('dropdown-sub')){sub.classList.toggle('open')}}
+document.getElementById('y').textContent=new Date().getFullYear()
+</script>
+
+</body>
+</html>

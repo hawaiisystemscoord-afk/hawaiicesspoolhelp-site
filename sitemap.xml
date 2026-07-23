@@ -2,108 +2,213 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.hawaiicesspoolhelp.com/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/start.html</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/faq.html</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/guide.html</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/privacy.html</loc>
-    <lastmod>2025-11-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/blog.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.hawaiicesspoolhelp.com/blog-doh-letter.html</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://www.hawaiicesspoolhelp.com/blog-conversion-cost.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/blog-conversion-timeline.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.hawaiicesspoolhelp.com/north-kohala.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-doh-letter.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/faq.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/guide.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/hamakua-area.html</loc>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/hilo-area.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/kau-area.html</loc>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/kona-area.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/north-kohala.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/privacy.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
   </url>
 
   <url>
     <loc>https://www.hawaiicesspoolhelp.com/puna-area.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.hawaiicesspoolhelp.com/kau-area.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://www.hawaiicesspoolhelp.com/start.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+<!-- CHATGPT-P15-SITEMAP-V1 START -->
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/permit-process.html</loc>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.hawaiicesspoolhelp.com/hamakua-area.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://www.hawaiicesspoolhelp.com/engineer-visit-checklist.html</loc>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/property-buyer-cesspool-checklist.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/cesspool-records-checklist.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/cesspool-conversion-planning-worksheet.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- CHATGPT-P15-SITEMAP-V1 END -->
+
+
+<!-- CHATGPT-P09-ARTICLE2-SITEMAP-V1 START -->
+  <url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-priority-rating-means.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+<!-- CHATGPT-P09-ARTICLE2-SITEMAP-V1 END -->
+
+
+<!-- CHATGPT-P09-ARTICLES-3-10-SITEMAP-V1 START -->
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-engineer-site-visit.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-approval-to-construct-final-approval.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-cesspool-vs-septic-vs-atu.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-buying-selling-property-cesspool.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-failing-unsafe-cesspool-signs.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-check-sewer-availability.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-documents-before-contacting-engineer.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://www.hawaiicesspoolhelp.com/blog-financial-assistance-financing.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+<!-- CHATGPT-P09-ARTICLES-3-10-SITEMAP-V1 END -->
 </urlset>
