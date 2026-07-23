@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How to Check Your Cesspool Priority and TMK | Hawaiʻi Cesspool Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn how to find your cesspool priority level under Act 125 and locate your Tax Map Key (TMK) number on the Big Island.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://www.hawaiicesspoolhelp.com/blog-check-priority-tmk.html">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --font:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --green:#0A7A58;
+  --deep:#0F2D25;
+  --coral:#A32A19;
+  --ink:#111;
+  --bg:#f7f7f7;
+  --card:#fff;
+  --radius:14px;
+  --shadow:0 10px 26px rgba(0,0,0,.07);
+}
+
+/* base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding-top:70px;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+a{color:var(--green);text-decoration:none}
+
+.btn{
+  display:inline-block;
+  background:var(--coral);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:var(--radius);
+  font-weight:800;
+  text-decoration:none;
+  font-size:1rem;
+  line-height:1.2;
+  white-space:nowrap;
+  border:0;
+}
+
+/* sticky top navbar */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#0F2D25;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:10000;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f5fff9;
+  font-weight:800;
+  font-size:1rem;
+  text-decoration:none;
+}
+.navbar-brand img{
+  height:30px;
+  width:auto;
+  border-radius:6px;
+}
+
+/* CTA always visible in navbar */
+.navbar-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-toggle{
+  background:none;
+  border:0;
+  color:#f5fff9;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* menu base: mobile first */
+.nav-menu{
+  position:absolute;
+  top:70px;
+  left:0;
+  right:0;
+  background:rgba(15,45,37,0.95);
+  backdrop-filter:blur(8px);
+  display:none;
+  z-index:9999;
+}
+.nav-menu.open{
+  display:block;
+}
+.nav-menu ul{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+.nav-menu li{
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.nav-menu a{
+  display:block;
+  padding:12px 18px;
+  color:#f5fff9;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.98rem;
+}
+.nav-menu a:hover{
+  background:rgba(255,255,255,.06);
+}
+
+/* Desktop layout */
+@media (min-width:780px){
+  .nav-toggle{ display:none; }
+  .navbar{ height:70px; padding:0 32px; }
+  .navbar-brand{ flex:0 0 auto; }
+  .navbar-cta{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10001;
+  }
+  .navbar-cta a{
+    padding:8px 18px;
+    border-radius:14px;
+    background:#A32A19;
+    color:#fff;
+    font-weight:800;
+    text-decoration:none;
+  }
+  .nav-menu{
+    position:static;
+    display:block;
+    background:transparent;
+    backdrop-filter:none;
+    flex:0 0 auto;
+  }
+  .nav-menu ul{ display:flex; gap:18px; padding:0; }
+  .nav-menu li{ border:0; }
+  .nav-menu a{ padding:0; }
+}
+
+/* hero */
+header.hero{
+  position:relative;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  background:#0A7A58;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Beach.webp") center/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.65));
+}
+.hero-inner{
+  position:relative;
+  z-index:1;
+  padding:96px 20px 34px;
+  max-width:920px;
+  margin:auto;
+  text-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.8rem,5vw,3.4rem);
+  font-weight:900;
+  color:#fafafa;
+}
+.hero p{
+  margin:10px auto 0;
+  max-width:760px;
+  color:#eaf6f1;
+  font-size:1.05rem;
+}
+
+/* blog article content */
+main.article{
+  max-width:720px;
+  margin:0 auto;
+  padding:40px 20px 80px;
+}
+.breadcrumb{margin:0 0 24px;font-size:.9rem;color:#56635f}
+.breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.breadcrumb li:not(:last-child)::after{content:"/";margin-left:6px;color:#87918e}
+.breadcrumb [aria-current="page"]{color:var(--deep);font-weight:600}
+@media (min-width:768px){
+  main.article{
+    padding:56px 24px 100px;
+  }
+}
+
+main.article h1{
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  font-weight:900;
+  color:var(--deep);
+  line-height:1.25;
+  margin:0 0 8px;
+}
+
+main.article h2{
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--green);
+  margin:36px 0 12px;
+}
+
+main.article h3{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--deep);
+  margin:24px 0 8px;
+}
+
+main.article p{
+  margin:0 0 16px;
+  line-height:1.7;
+}
+
+main.article hr{
+  border:none;
+  border-top:1px solid #e0e0e0;
+  margin:32px 0;
+}
+
+main.article ul, main.article ol{
+  margin:0 0 16px;
+  padding-left:24px;
+}
+
+main.article li+li{margin-top:8px}
+
+.related-content{
+  margin:36px 0 24px;
+  padding:20px;
+  background:var(--card);
+  border:1px solid #d9e2df;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.related-content h2{margin:0 0 10px}
+.related-content ul{margin:0;padding-left:20px}
+.related-content li+li{margin-top:8px}
+
+/* footer */
+footer{
+  background:#0F2D25;
+  color:#d9eee7;
+  padding:34px 0;
+  text-align:center;
+  margin-top:40px;
+}
+footer a{
+  color:#a1f0d3;
+  outline:none;
+  transition:box-shadow .2s, outline .2s;
+}
+footer a:focus{
+  outline:2px solid #fff;
+  outline-offset:3px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.4);
+}
+footer a:hover{
+  color:#c2fff0;
+}
+.footer-social a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size:30px;
+  margin:0 6px;
+  transition:color 0.3s ease;
+}
+.footer-social a:hover {
+  color:#E56A54;
+}
+
+/* dropdown sub-menus */
+.nav-dropdown{position:relative}
+.dropdown-toggle{display:block;padding:12px 18px;color:#f5fff9;font-weight:600;font-size:.98rem;cursor:pointer;user-select:none}
+.dropdown-sub{display:none;list-style:none;margin:0;padding:0 0 0 16px;background:rgba(0,0,0,.15)}
+.dropdown-sub.open{display:block}
+.dropdown-sub li{border-top:1px solid rgba(255,255,255,.05)}
+.dropdown-sub a{display:block;padding:10px 18px;color:#d9eee7;text-decoration:none;font-weight:500;font-size:.93rem}
+.dropdown-sub a:hover{background:rgba(255,255,255,.06)}
+
+/* desktop dropdowns */
+@media(min-width:780px){
+  .dropdown-toggle{padding:0;cursor:default;display:inline;color:#f5fff9;font-weight:600;font-size:.98rem}
+  .dropdown-sub{position:absolute;top:100%;left:0;background:rgba(15,45,37,.98);backdrop-filter:blur(8px);border-radius:0 0 10px 10px;box-shadow:0 8px 20px rgba(0,0,0,.3);padding:6px 0;min-width:230px}
+  .nav-dropdown:hover>.dropdown-sub{display:block}
+  .dropdown-sub li{border:0}
+  .dropdown-sub a{padding:8px 16px;font-size:.92rem;border-radius:0}
+  .dropdown-sub a:hover{background:rgba(255,255,255,.08)}
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <img src="https://cdn.jsdelivr.net/gh/hawaiisystemscoord-afk/asset@main/Hawaii%20Cesspool%20Help%20-%20Favicon.png" alt="Hawaiʻi Cesspool Help logo">
+    <span>Hawaiʻi Cesspool Help</span>
+  </a>
+
+  <div class="navbar-cta" id="topCta">
+    <a href="/start.html">Get Help Now</a>
+  </div>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" onclick="toggleNavMenu()">☰</button>
+
+    <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/start.html">Start</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="/guide.html">Guide</a></li>
+      <li class="nav-dropdown">
+        <span class="dropdown-toggle" onclick="toggleDropdown(this)">Districts ▾</span>
+        <ul class="dropdown-sub">
+          <li><a href="/hilo-area.html">Hilo</a></li>
+          <li><a href="/puna-area.html">Puna</a></li>
+          <li><a href="/kau-area.html">Kaʻū</a></li>
+          <li><a href="/kona-area.html">Kona</a></li>
+          <li><a href="/north-kohala.html">Kohala</a></li>
+          <li><a href="/hamakua-area.html">Hāmākua</a></li>
+        </ul>
+      </li>
+            <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="article">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><span aria-current="page">How to Check Your Cesspool Priority and TMK</span></li>
+  </ol>
+</nav>
+<h1>How to Check Your Cesspool Priority and TMK</h1>
+
+<p class="article-byline">By Hawaiʻi Cesspool Help · Published <time datetime="2026-07-22">July 22, 2026</time> · 8 min read</p>
+
+<hr>
+
+<h2>Why Your Cesspool Priority Matters</h2>
+
+<p>Act 125 (2017) requires all approximately 88,000 cesspools in Hawaii to be replaced by 2050 — roughly 50,000 of them on the Big Island. The Hawaiʻi Department of Health assigned each property a priority level (Priority 1 through Priority 4) based on risk factors including proximity to drinking water wells, sensitive waters, and potential human health impacts.</p>
+
+<p>Your priority level determines when you may need to act and can influence whether you qualify for state or county funding assistance. Understanding your priority is the first step in planning your cesspool conversion timeline. <em>(S-1: DOH Cesspools page; S-5: Act 125 legislative report)</em></p>
+
+<p><strong>Important:</strong> County-level enforcement timelines for each priority category are still being developed. While the prioritization framework is established, specific deadlines by priority level have not been finalized at the county level. <em>(Caveat C-4: statewide categories; Big Island-specific enforcement timeline not yet published)</em></p>
+
+<h2>Understanding the Four Priority Categories</h2>
+
+<p>The Hawaiʻi Department of Health defines four cesspool priority categories:</p>
+
+<h3>Priority 1 (Significant Risk)</h3>
+
+<p>Cesspools that present a significant risk of human impacts, drinking water impacts, or are draining to sensitive waters. These represent the most urgent replacements in the prioritization framework. <em>(S-1: DOH Cesspools page — P1 definition confirmed live)</em></p>
+
+<h3>Priority 2 (Drinking Water Potential)</h3>
+
+<p>Cesspools with potential to impact drinking water sources. While not classified as significant risk, these properties still require attention under the statewide replacement timeline. <em>(S-1: DOH Cesspools page — P2 definition confirmed live)</em></p>
+
+<h3>Priority 3 (Sensitive Waters Potential)</h3>
+
+<p>Cesspools with potential to impact streams, nearshore waters, or other sensitive environments. Environmental risk is the primary factor for this category. <em>(S-1: DOH Cesspools page — P3 definition confirmed live)</em></p>
+
+<h3>Priority 4 (Pending Analysis)</h3>
+
+<p>Properties where the Department of Health has not yet completed the full risk assessment. Priority 4 does <strong>not</strong> mean "no risk" — it means the analysis is still in progress. <em>(S-1: DOH Cesspools page — P4 definition confirmed live)</em></p>
+
+<p><strong>Note:</strong> These priority categories are statewide (all Hawaiian islands). Big Island properties follow the same framework, but the number and distribution of priorities differs by island. <em>(Caveat C-4: statewide vs. county-specific distinction)</em></p>
+
+<!-- CHATGPT-P09-ARTICLE2-CONTEXT-V1 START -->
+<p>After you find your result, read <a href="/blog-priority-rating-means.html">what a cesspool priority rating means</a> for a plain-language explanation of the current red, orange, and yellow map levels and the limits of what a rating can establish about one property.</p>
+<!-- CHATGPT-P09-ARTICLE2-CONTEXT-V1 END -->
+
+<h2>How to Check Your Property's Cesspool Priority</h2>
+
+<p>There are two main ways to determine your property's cesspool priority level:</p>
+
+<h3>Step A — Use the Interactive Prioritization Tool</h3>
+
+<p>The University of Hawaiʻi Sea Grant Program developed an interactive map tool in collaboration with the Department of Health that ranks cesspools by risk to groundwater, drinking water wells, streams, and nearshore waters. You can enter your address or navigate to your property on the map to see its priority classification.</p>
+
+<p><strong>Caveat:</strong> The exact web address for this tool should be confirmed by visiting <a href="https://health.hawaii.gov/wastewater/">the Hawaiʻi DOH Wastewater Branch page</a> for the current link, as Sea Grant URLs may change. The tool visualizes priority categories assigned by DOH — it is a lookup and visualization resource, while DOH remains the authoritative source for priority assignments. <em>(S-3: UH Sea Grant map tool; Caveat C-1: URL unverified during research)</em></p>
+
+<h3>Step B — Contact the Department of Health Directly</h3>
+
+<p>If the interactive tool is unavailable or you prefer direct confirmation, contact the Hawaiʻi County Department of Health Wastewater Branch at <a href="tel:8089618252">(808) 961-8252</a> with your TMK number. They can provide information about your property's priority classification. <em>(S-1: DOH contact reference)</em></p>
+
+<h2>What Is a TMK and Why You Need It</h2>
+
+<p>Tax Map Key (TMK) is Hawaii's equivalent of a parcel or APN number used in other states. It uniquely identifies every piece of land on the Big Island. All government agencies — including DOH, the Board of Land and Taxation (BOLT), and planning departments — use your TMK to reference your property.</p>
+
+<p>You will need your TMK for:</p>
+<ul>
+  <li>Cesspool priority lookups</li>
+  <li>Permit applications</li>
+  <li>Any official communication about your wastewater system</li>
+</ul>
+
+<p><strong>TMK format on the Big Island:</strong> Typically appears as <code>X-Y-TZ</code> (e.g., <code>3-2-015:001</code>) where X = district, Y = zone, TZ = tax zone. <em>(S-4: BOLT property search — TMK as Hawaii's parcel identifier)</em></p>
+
+<h2>Where to Find Your TMK Number</h2>
+
+<p>You can locate your TMK without visiting the county through four methods:</p>
+
+<ol>
+  <li><strong>Property tax bill</strong> — Look for "Tax Map Key" or "TMK" on your annual Hawaii County property tax statement.</li>
+  <li><strong>Your deed</strong> — The TMK is listed in the legal description of your property title.</li>
+  <li><strong>Hawaii County BOLT online search</strong> — Visit hawaiicounty.gov and search the Board of Land and Taxation property database by address or owner name. <em>(Caveat C-2: county website works through normal browsers)</em></li>
+  <li><strong>Call BOLT directly</strong> — Hawaii County Board of Land and Taxation at <a href="tel:8089618273">(808) 961-8273</a>.</li>
+</ol>
+
+<p>If the online portal is down or difficult to navigate, phone contact with BOLT is the most reliable fallback. <em>(S-4: BOLT property search; secondary methods from general knowledge of Hawaii property systems)</em></p>
+
+<h2>Putting It Together — From TMK to Priority Check</h2>
+
+<p>Here is a concrete workflow that combines both lookups:</p>
+
+<ol>
+  <li><strong>Find your TMK</strong> using one of the methods in Section 5 above.</li>
+  <li><strong>Open the Sea Grant cesspool prioritization tool</strong> or call DOH with your TMK number to check your priority level.</li>
+  <li><strong>Identify your priority category (P1–P4)</strong> and understand what it means using the definitions in Section 2 above.</li>
+  <li><strong>If you have a cesspool,</strong> determine whether replacement is required for your property and explore funding options through the resources below.</li>
+</ol>
+
+<p>This workflow synthesizes information from separate government sources — no single agency provides both priority lookup and TMK identification in one place. The value of this guide is combining these two processes into a single homeowner-friendly path. <em>(Caveat C-3: synthesis of two separate agency workflows)</em></p>
+
+<p><a class="btn" href="/start.html">Get a Personalized Timeline for Your Property</a></p>
+
+<h2>Important Disclaimers</h2>
+
+<ul>
+  <li>This article provides general guidance only — it does not constitute legal or engineering advice.</li>
+  <li>Priority assignments may be updated by the Department of Health as new data becomes available. Always check for the most current information.</li>
+  <li>Funding programs and deadlines are subject to change at both the state and county level.</li>
+  <li><strong>Do not rely on this article alone</strong> to determine your legal obligations or compliance timeline. Verify information with official sources:</li>
+</ul>
+
+<ul>
+  <li><a href="https://health.hawaii.gov/wastewater/">Hawaiʻi DOH Wastewater Branch</a> — cesspool regulations, priority information, and financial support programs.</li>
+  <li><a href="https://www.hawaiicounty.gov/departments/board-of-land-and-taxation/property-search">Hawaii County BOLT Property Search</a> — TMK lookup and property records.</li>
+</ul>
+
+<p>The DOH is the authoritative source for priority assignments. The Sea Grant tool visualizes this data but does not replace official DOH determinations. <em>(Caveat C-5: do not promise specific replacement deadlines per priority level)</em></p>
+
+<aside class="related-content" aria-labelledby="related-content-heading">
+  <h2 id="related-content-heading">Related articles</h2>
+  <ul>
+    <li><a href="/blog-conversion-cost.html">How Much Does Cesspool Conversion Cost in Hawaii County?</a></li>
+    <li><a href="/blog-conversion-timeline.html">Cesspool Conversion Timeline: Start to Finish on Hawaiʻi Island</a></li>
+    <li><a href="/blog-doh-letter.html">What to Do When You Get a DOH Cesspool Notification Letter</a></li>
+  </ul>
+</aside>
+
+<hr>
+
+<p><em>This article is for informational purposes only and does not constitute legal or engineering advice. Priority assignments may be updated by the Department of Health as new data becomes available. Hawaiʻi Cesspool Help coordinates between homeowners and licensed professionals. It does not provide engineering services directly.</em></p>
+</main>
+
+<footer>
+  <div>Hawaiʻi Cesspool Help • Hawaiʻi Island cesspool conversion coordination</div>
+  <div>Phone : <a href="tel:8086576953">(808) 657-6953</a></div>
+  <div>Contact : <a href="mailto:info@hawaiicesspoolhelp.com">info@hawaiicesspoolhelp.com</a></div>
+  <div>Hours : Mon-Fri 8am-6pm, Sat 9am-1pm, Sun Closed</div>
+  <div><a href="/privacy.html">Privacy Policy</a></div>
+  <div style="margin-top:6px">Free coordination for homeowners • Supported by local professionals</div>
+  <div style="margin-top:8px">© <span id="y"></span> Hawaiʻi Cesspool Help</div>
+
+  <div class="footer-social" style="text-align:center; margin-top:10px;">
+    <a href="https://www.facebook.com/people/Hawaii-Cesspool-Help/61583423979776/"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px;">
+      <svg viewBox="0 0 448 512" width="36" height="36" aria-label="Facebook"
+           style="fill:#ffffff; transition:fill .2s;">
+        <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.3V327.7h-63V256h63v-54.6c0-62.2 37-96.3 93.7-96.3 27.1 0 55.4 4.8 55.4 4.8v61h-31.2c-30.7 0-40.3 19-40.3 38.5V256h68.6l-10.9 71.7h-57.7V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/hawaiicesspoolhelp"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block; width:36px; height:36px; margin-left:10px;">
+      <svg aria-label="Instagram" xmlns="http://www.w3.org/2000/svg"
+           viewBox="56 56 400 400" width="36" height="36" style="fill:#ffffff;">
+        <path d="M349.33 69.33H162.67A93.44 93.44 0 0 0 69.33 162.67v186.66A93.44 93.44 0 0 0 162.67 442.67h186.66A93.44 93.44 0 0 0 442.67 349.33V162.67A93.44 93.44 0 0 0 349.33 69.33zM256 346.67A90.67 90.67 0 1 1 346.67 256 90.77 90.77 0 0 1 256 346.67zm96-196a22.67 22.67 0 1 1 22.67-22.67A22.71 22.71 0 0 1 352 150.67z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+function toggleNavMenu(){var m=document.getElementById('nav-menu');m.classList.toggle('open')}
+function toggleDropdown(el){var sub=el.nextElementSibling;if(sub&&sub.classList.contains('dropdown-sub')){sub.classList.toggle('open')}}
+document.getElementById('y').textContent=new Date().getFullYear()
+</script>
+
+</body>
+</html>
